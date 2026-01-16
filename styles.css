@@ -79,3 +79,18 @@ body {
   background: #00f6ff;
   cursor: pointer;
 }
+
+.whatsapp {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #25d366;
+  color: #fff;
+  font-size: 28px;
+  padding: 15px 18px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 0 20px #25d366;
+  z-index: 999;
+}
+
