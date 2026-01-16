@@ -1,40 +1,43 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #111;
-  color: #fff;
+  background: #0b0f1a;
+  color: white;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 40px;
+}
+
+.card {
+  background: #12182b;
+  padding: 20px;
+  border-radius: 12px;
   text-align: center;
 }
 
-/* Header */
-.header {
-  padding: 40px 20px;
-  background-color: #000;
+.card img {
+  width: 100%;
+  border-radius: 10px;
 }
 
-.logo {
-  width: 120px;
-  margin-bottom: 15px;
-}
-
-/* Productos */
-.productos {
-  padding: 40px 20px;
-}
-
-.producto {
-  margin-bottom: 40px;
-}
-
-.producto img {
-  width: 220px;
-  max-width: 90%;
-}
-
-/* Footer */
-footer {
-  padding: 20px;
-  background-color: #000;
-  font-size: 14px;
-  color: #aaa;
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
+  padding: 15px 20px;
+  border-radius: 50px;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
 }
