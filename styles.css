@@ -1,114 +1,40 @@
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-/* BODY */
 body {
-    background: radial-gradient(circle at top, #0f2027, #000);
-    color: #ffffff;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: #fff;
+  text-align: center;
 }
 
-/* CONTENEDOR */
-.container {
-    max-width: 420px;
-    margin: 0 auto;
-    padding: 20px 16px;
-}
-
-/* HERO */
-.hero {
-    min-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+/* Header */
+.header {
+  padding: 40px 20px;
+  background-color: #000;
 }
 
 .logo {
-    color: #5cff8d;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
+  width: 120px;
+  margin-bottom: 15px;
 }
 
-.hero h1 {
-    font-size: 38px;
-    color: #5cff8d;
-    margin-bottom: 10px;
+/* Productos */
+.productos {
+  padding: 40px 20px;
 }
 
-.slogan {
-    letter-spacing: 3px;
-    font-size: 12px;
-    margin-bottom: 30px;
+.producto {
+  margin-bottom: 40px;
 }
 
-/* BOTONES */
-.btn {
-    display: inline-block;
-    padding: 14px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 15px;
+.producto img {
+  width: 220px;
+  max-width: 90%;
 }
 
-.btn-whatsapp {
-    background: #25D366;
-    color: #000;
-}
-
-.btn-primary {
-    background: #5cff8d;
-    color: #000;
-}
-
-/* PRODUCTO */
-.product {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.product h2 {
-    margin-bottom: 10px;
-}
-
-.price {
-    font-size: 26px;
-    color: #5cff8d;
-    margin-bottom: 20px;
-}
-
-/* FEATURES */
-.features {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-top: 25px;
-}
-
-.feature {
-    background: rgba(92, 255, 141, 0.08);
-    border: 1px solid rgba(92, 255, 141, 0.3);
-    padding: 15px;
-    border-radius: 12px;
-    font-size: 13px;
-}
-
-/* FOOTER */
+/* Footer */
 footer {
-    text-align: center;
-    font-size: 13px;
-    color: #888;
-    padding-bottom: 20px;
+  padding: 20px;
+  background-color: #000;
+  font-size: 14px;
+  color: #aaa;
 }
