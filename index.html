@@ -2,30 +2,40 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>TechSonix</title>
+  <title>TechSonix | Audio Gamer</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
+<header class="hero">
   <img src="img/logo.png" class="logo">
   <h1>TechSonix</h1>
-  <p>Tecnología que suena mejor</p>
+  <p>SINTONIZA. DESPEGA.</p>
+  <a href="#productos" class="btn-main">Ver productos</a>
 </header>
 
-<section class="productos">
-  <h2>Productos</h2>
+<section id="productos" class="productos">
+  <h2>Productos destacados</h2>
 
-  <div class="producto">
-    <img src="img/producto1.png">
-    <h3>Audífonos Gamer</h3>
-    <p>$199.000 COP</p>
-  </div>
+  <div class="grid">
+    <!-- PRODUCTO -->
+    <div class="card">
+      <img src="img/producto1.png">
+      <h3>Audífonos Gamer X1</h3>
+      <p>Sonido envolvente • RGB • Micrófono HD</p>
+      <span>$199.000 COP</span>
+      <button>Comprar</button>
+    </div>
 
-  <div class="producto">
-    <img src="img/producto2.png">
-    <h3>Power Bank</h3>
-    <p>$129.000 COP</p>
+    <!-- DUPLICA DESDE AQUÍ -->
+    <div class="card">
+      <img src="img/producto2.png">
+      <h3>Power Bank Pro</h3>
+      <p>Carga rápida • 20.000mAh</p>
+      <span>$129.000 COP</span>
+      <button>Comprar</button>
+    </div>
   </div>
 </section>
 
