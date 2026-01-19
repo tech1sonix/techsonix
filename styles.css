@@ -6,152 +6,157 @@
 
 body {
   font-family: 'Rajdhani', sans-serif;
-  background: #050b0f;
+  background: #020608;
   color: #eaffff;
 }
 
-/* TOP BAR */
-.topbar {
-  position: absolute;
-  top: 20px;
+/* IMÁGENES */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* NAV */
+.nav {
+  position: fixed;
+  top: 0;
   width: 100%;
-  text-align: center;
+  padding: 14px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(2,6,8,0.85);
+  backdrop-filter: blur(10px);
   z-index: 10;
 }
 
-.topbar a {
-  margin: 0 22px;
-  font-family: 'Orbitron', sans-serif;
-  text-decoration: none;
-  color: #caffff;
-  letter-spacing: 2px;
-  font-size: 14px;
+.nav-logo {
+  width: 55px;
 }
 
-.topbar a:hover {
+.nav a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #baffff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.nav a:hover {
   color: #7cff00;
 }
 
 /* HERO */
 .hero {
-  position: relative;
   height: 100vh;
-  background: radial-gradient(circle at center, #0b1f24, #020608 70%);
-  overflow: hidden;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle, transparent 30%, #020608 75%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at center, rgba(0,255,200,0.15), transparent 60%),
+    #020608;
+  padding-top: 80px;
 }
 
 .hero-content {
-  position: relative;
-  z-index: 2;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
+  max-width: 700px;
+  padding: 20px;
 }
 
-.logo {
-  width: 180px;
+.hero-logo {
+  width: 140px;
   margin-bottom: 25px;
 }
 
 .hero h1 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 72px;
+  font-size: clamp(44px, 6vw, 70px);
   color: #45fff3;
-  text-shadow: 0 0 40px #2fffd5;
+  text-shadow: 0 0 30px #2fffd5;
 }
 
 .hero h1 span {
   color: #b6ff4d;
 }
 
-.tagline {
+.slogan {
   margin-top: 12px;
   letter-spacing: 3px;
   opacity: 0.9;
 }
 
-/* BOTÓN WHATSAPP HERO */
-.btn-whatsapp {
-  margin-top: 40px;
+/* BOTÓN HERO */
+.btn-whatsapp-hero {
+  margin-top: 35px;
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  padding: 16px 40px;
+  padding: 14px 36px;
   border-radius: 50px;
   background: linear-gradient(90deg, #1aff5c, #00ffcc);
   color: #002e24;
   text-decoration: none;
   font-weight: 700;
-  box-shadow: 0 0 40px #00ffcc;
+  box-shadow: 0 0 35px #00ffcc;
 }
 
-.btn-whatsapp img {
-  width: 24px;
+.btn-whatsapp-hero img {
+  width: 22px;
 }
 
-/* FEATURED */
-.featured {
-  padding: 80px 0 120px;
+/* PRODUCTOS */
+.productos {
+  padding: 90px 20px 120px;
   background: #020608;
 }
 
-.featured h2 {
+.productos h2 {
   text-align: center;
   font-size: 34px;
-  color: #b6ff4d;
-  text-shadow: 0 0 25px #7cff00;
   margin-bottom: 60px;
+  color: #b6ff4d;
+  text-shadow: 0 0 20px #7cff00;
 }
 
-.product-grid {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 50px;
+  max-width: 1100px;
+  margin: auto;
 }
 
-.product-card {
-  width: 380px;
-  padding: 30px;
+.card {
   background: radial-gradient(circle at top, #081c20, #020608);
   border-radius: 22px;
-  box-shadow: 0 0 60px rgba(0,255,200,0.25);
+  padding: 30px;
   text-align: center;
+  box-shadow: 0 0 50px rgba(0,255,200,0.25);
 }
 
-.product-card img {
-  width: 100%;
-  margin-bottom: 25px;
+.card img {
+  margin-bottom: 20px;
 }
 
-.product-card h3 {
+.card h3 {
   font-family: 'Orbitron', sans-serif;
   color: #46fff5;
+  margin-bottom: 10px;
 }
 
-.product-card ul {
-  list-style: none;
+.card p {
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+.precio {
+  display: block;
   margin: 20px 0;
-}
-
-.product-card li {
-  margin: 6px 0;
-  color: #baffc9;
-}
-
-.price {
-  font-size: 26px;
+  font-size: 24px;
   color: #b6ff4d;
   text-shadow: 0 0 15px #7cff00;
-  margin: 20px 0;
 }
 
 .btn-card {
@@ -162,20 +167,21 @@ body {
   color: #002e24;
   text-decoration: none;
   font-weight: 700;
-  box-shadow: 0 0 30px #00ffcc;
+  box-shadow: 0 0 25px #00ffcc;
 }
 
 /* WHATSAPP FLOAT */
 .whatsapp-float {
   position: fixed;
-  right: 25px;
-  bottom: 25px;
+  right: 24px;
+  bottom: 24px;
   background: #25d366;
   padding: 16px;
   border-radius: 50%;
   box-shadow: 0 0 30px #25d366;
+  z-index: 20;
 }
 
 .whatsapp-float img {
-  width: 30px;
+  width: 28px;
 }
