@@ -1,47 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>TechSonix | Audio Gamer</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>TechSonix</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
-<header class="hero">
-  <img src="img/logo.png" class="logo">
-  <h1>TechSonix</h1>
-  <p>SINTONIZA. DESPEGA.</p>
-  <a href="#productos" class="btn-main">Ver productos</a>
+<header class="navbar">
+    <nav>
+        <a href="#">INICIO</a>
+        <a href="#">PRODUCTOS</a>
+        <a href="#">NOSOTROS</a>
+        <a href="#">CONTACTO</a>
+    </nav>
 </header>
 
-<section id="productos" class="productos">
-  <h2>Productos destacados</h2>
-
-  <div class="grid">
-    <!-- PRODUCTO -->
-    <div class="card">
-      <img src="img/producto1.png">
-      <h3>Audífonos Gamer X1</h3>
-      <p>Sonido envolvente • RGB • Micrófono HD</p>
-      <span>$199.000 COP</span>
-      <button>Comprar</button>
-    </div>
-
-    <!-- DUPLICA DESDE AQUÍ -->
-    <div class="card">
-      <img src="img/producto2.png">
-      <h3>Power Bank Pro</h3>
-      <p>Carga rápida • 20.000mAh</p>
-      <span>$129.000 COP</span>
-      <button>Comprar</button>
-    </div>
-  </div>
+<section class="hero">
+    <img src="img/logo.png" alt="TechSonix Logo" class="logo">
+    <a href="https://wa.me/573000000000" class="btn-whatsapp">Comprar por WhatsApp</a>
 </section>
 
-<footer>
-  <p>© 2026 TechSonix</p>
-</footer>
+<section class="productos">
+    <h2>Productos destacados</h2>
+
+    <div class="cards">
+        <div class="card">
+            <img src="img/producto1.png" alt="Audífonos Gamer">
+            <h3>Audífonos <span>Gamer RGB</span></h3>
+            <ul>
+                <li>Sonido envolvente</li>
+                <li>Luces RGB</li>
+                <li>Micrófono HD</li>
+            </ul>
+            <p class="precio">$199.000 COP</p>
+            <button>Ver producto</button>
+        </div>
+
+        <div class="card">
+            <img src="img/producto2.png" alt="Power Bank">
+            <h3>Power Bank <span>Pro</span></h3>
+            <ul>
+                <li>Carga rápida</li>
+                <li>20.000 mAh</li>
+            </ul>
+            <p class="precio">$129.000 COP</p>
+            <button>Ver producto</button>
+        </div>
+    </div>
+</section>
+
+<a href="https://wa.me/573000000000" class="whatsapp-float">💬</a>
 
 </body>
 </html>
