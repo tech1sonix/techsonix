@@ -4,67 +4,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TechSonix</title>
-
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<!-- NAV -->
-<header class="nav">
-  <img src="img/logo.png" class="nav-logo">
-  <nav>
-    <a href="#">Inicio</a>
-    <a href="#">Productos</a>
-    <a href="#">Contacto</a>
-  </nav>
-</header>
+  <!-- NAV (mejorado un poco el padding y tamaño) -->
+  <header class="nav">
+    <img src="img/logo.png" class="nav-logo" alt="TechSonix Logo">
+    <nav>
+      <a href="#">INICIO</a>
+      <a href="#">PRODUCTOS</a>
+      <a href="#">NOSOTROS</a>
+      <a href="#">CONTACTO</a>
+    </nav>
+  </header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <img src="img/logo.png" class="hero-logo">
-
-    <h1>Tech<span>Sonix</span></h1>
-    <p class="slogan">TUNE IN. TAKE OFF.</p>
-
-    <a href="#" class="btn-whatsapp-hero">
-      <img src="img/whatsapp.png">
-      Comprar por WhatsApp
-    </a>
-  </div>
-</section>
-
-<!-- PRODUCTOS -->
-<section class="productos">
-  <h2>Productos destacados</h2>
-
-  <div class="grid-productos">
-
-    <div class="card">
-      <img src="img/producto1.png">
-      <h3>Audífonos Gamer RGB</h3>
-      <p>Sonido envolvente · Micrófono HD · RGB</p>
-      <span class="precio">$199.000 COP</span>
-      <a href="#" class="btn-card">Ver producto</a>
+  <!-- HERO con fondo más potente -->
+  <section class="hero">
+    <!-- Capa de overlay para efectos -->
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content">
+      <img src="img/logo.png" class="hero-logo" alt="Logo grande">
+      <h1>Tech<span>Sonix</span></h1>
+      <p class="slogan">TUNE IN. TAKE OFF.</p>
+      
+      <a href="https://wa.me/57TU_NUMERO?text=Hola%20quiero%20comprar" class="btn-whatsapp-hero">
+        <img src="img/whatsapp.png" alt="WhatsApp">
+        Comprar por WhatsApp
+      </a>
     </div>
+  </section>
 
-    <div class="card">
-      <img src="img/producto2.png">
-      <h3>Power Bank Pro</h3>
-      <p>Carga rápida · 20.000 mAh</p>
-      <span class="precio">$129.900 COP</span>
-      <a href="#" class="btn-card">Ver producto</a>
+  <!-- PRODUCTOS -->
+  <section class="productos">
+    <h2>Productos destacados</h2>
+    <div class="grid-productos">
+      <div class="card">
+        <img src="img/producto1.png" alt="Audífonos Gamer RGB">
+        <h3>Audífonos Gamer RGB</h3>
+        <ul>
+          <li>Sonido envolvente</li>
+          <li>Luces RGB</li>
+          <li>Micrófono HD</li>
+        </ul>
+        <span class="precio">$199.000 COP</span>
+        <a href="https://wa.me/57TU_NUMERO?text=Quiero%20info%20Audífonos%20Gamer" class="btn-card">Ver producto</a>
+      </div>
+      
+      <div class="card">
+        <img src="img/producto2.png" alt="Power Bank Pro">
+        <h3>Power Bank Pro</h3>
+        <ul>
+          <li>Carga rápida</li>
+          <li>20.000 mAh</li>
+        </ul>
+        <span class="precio">$129.900 COP</span>
+        <a href="https://wa.me/57TU_NUMERO?text=Quiero%20info%20Power%20Bank" class="btn-card">Ver producto</a>
+      </div>
     </div>
+  </section>
 
-  </div>
-</section>
-
-<!-- WHATSAPP FLOAT -->
-<a href="#" class="whatsapp-float">
-  <img src="img/whatsapp.png">
-</a>
+  <!-- Botón flotante WhatsApp -->
+  <a href="https://wa.me/57TU_NUMERO" class="whatsapp-float" target="_blank">
+    <img src="img/whatsapp.png" alt="Chat WhatsApp">
+  </a>
 
 </body>
 </html>
