@@ -4,61 +4,68 @@
   <meta charset="UTF-8">
   <title>TechSonix</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header class="navbar">
+<header class="topbar">
   <nav>
-    <a href="#">Inicio</a>
-    <a href="#">Productos</a>
-    <a href="#">Nosotros</a>
-    <a href="#">Contacto</a>
+    <a href="#">INICIO</a>
+    <a href="#">PRODUCTOS</a>
+    <a href="#">NOSOTROS</a>
+    <a href="#">CONTACTO</a>
   </nav>
 </header>
 
 <section class="hero">
-  <img src="img/logo.png" class="logo" alt="TechSonix Logo">
-  <h1>Tech<span>Sonix</span></h1>
-  <p class="slogan">TUNE IN. TAKE OFF.</p>
+  <div class="hero-overlay"></div>
 
-  <a href="#" class="btn-whatsapp">
-    <img src="img/whatsapp.png" alt="WhatsApp">
-    Comprar por WhatsApp
-  </a>
+  <div class="hero-content">
+    <img src="img/logo.png" class="logo" alt="TechSonix">
+
+    <h1>Tech<span>Sonix</span></h1>
+    <p class="tagline">TUNE IN. TAKE OFF.</p>
+
+    <a href="#" class="btn-whatsapp">
+      <img src="img/whatsapp.png">
+      Comprar por WhatsApp
+    </a>
+  </div>
 </section>
 
-<h2 class="section-title">Productos destacados</h2>
+<section class="featured">
+  <h2>Productos destacados</h2>
 
-<section class="products">
+  <div class="product-grid">
 
-  <div class="card">
-    <img src="img/producto1.png" alt="Audífonos Gamer">
-    <h3>Audífonos Gamer RGB</h3>
-    <ul>
-      <li>Sonido envolvente</li>
-      <li>Luces RGB</li>
-      <li>Micrófono HD</li>
-    </ul>
-    <p class="price">$199.000 COP</p>
-    <a href="#" class="btn">Ver producto</a>
+    <div class="product-card">
+      <img src="img/producto1.png">
+      <h3>Audífonos Gamer RGB</h3>
+      <ul>
+        <li>Sonido envolvente</li>
+        <li>Luces RGB</li>
+        <li>Micrófono HD</li>
+      </ul>
+      <div class="price">$199.000 COP</div>
+      <a href="#" class="btn-card">Ver producto</a>
+    </div>
+
+    <div class="product-card">
+      <img src="img/producto2.png">
+      <h3>Power Bank Pro</h3>
+      <ul>
+        <li>Carga rápida</li>
+        <li>20.000 mAh</li>
+      </ul>
+      <div class="price">$129.900 COP</div>
+      <a href="#" class="btn-card">Ver producto</a>
+    </div>
+
   </div>
-
-  <div class="card">
-    <img src="img/producto2.png" alt="Power Bank">
-    <h3>Power Bank Pro</h3>
-    <ul>
-      <li>Carga rápida</li>
-      <li>20.000mAh</li>
-    </ul>
-    <p class="price">$129.900 COP</p>
-    <a href="#" class="btn">Ver producto</a>
-  </div>
-
 </section>
 
 <a href="#" class="whatsapp-float">
-  <img src="img/whatsapp.png" alt="WhatsApp">
+  <img src="img/whatsapp.png">
 </a>
 
 </body>
