@@ -3,55 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <title>TechSonix</title>
-    <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header class="navbar">
+<!-- NAV -->
+<header class="nav">
     <nav>
-        <a href="#">INICIO</a>
-        <a href="#">PRODUCTOS</a>
-        <a href="#">NOSOTROS</a>
-        <a href="#">CONTACTO</a>
+        <a href="#">Inicio</a>
+        <a href="#">Productos</a>
+        <a href="#">Nosotros</a>
+        <a href="#">Contacto</a>
     </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
     <img src="img/logo.png" alt="TechSonix Logo" class="logo">
-    <a href="https://wa.me/573000000000" class="btn-whatsapp">Comprar por WhatsApp</a>
+
+    <h1>TechSonix</h1>
+    <p class="slogan">SINTONIZA. DESPEGA.</p>
+
+    <a class="btn-whatsapp" href="#">
+        Ver productos
+    </a>
 </section>
 
+<!-- PRODUCTOS -->
 <section class="productos">
     <h2>Productos destacados</h2>
 
     <div class="cards">
+
+        <!-- PRODUCTO 1 -->
         <div class="card">
-            <img src="img/producto1.png" alt="Audífonos Gamer">
-            <h3>Audífonos <span>Gamer RGB</span></h3>
+            <img src="img/producto1.png" alt="Audífonos Gamer RGB">
+            <h3>Audífonos Gamer RGB</h3>
+
             <ul>
                 <li>Sonido envolvente</li>
                 <li>Luces RGB</li>
                 <li>Micrófono HD</li>
             </ul>
+
             <p class="precio">$199.000 COP</p>
-            <button>Ver producto</button>
+
+            <a href="#" class="btn-card">Ver producto</a>
         </div>
 
+        <!-- PRODUCTO 2 -->
         <div class="card">
-            <img src="img/producto2.png" alt="Power Bank">
-            <h3>Power Bank <span>Pro</span></h3>
+            <img src="img/producto2.png" alt="Power Bank Pro">
+            <h3>Power Bank Pro</h3>
+
             <ul>
                 <li>Carga rápida</li>
                 <li>20.000 mAh</li>
             </ul>
-            <p class="precio">$129.000 COP</p>
-            <button>Ver producto</button>
+
+            <p class="precio">$12.900 COP</p>
+
+            <a href="#" class="btn-card">Ver producto</a>
         </div>
+
     </div>
 </section>
-
-<a href="https://wa.me/573000000000" class="whatsapp-float">💬</a>
 
 </body>
 </html>
