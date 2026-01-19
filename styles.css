@@ -8,12 +8,7 @@ body {
   font-family: 'Rajdhani', sans-serif;
   background: #020608;
   color: #eaffff;
-}
-
-/* IMÁGENES */
-img {
-  max-width: 100%;
-  height: auto;
+  overflow-x: hidden;
 }
 
 /* NAV */
@@ -21,167 +16,277 @@ img {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 14px 40px;
+  padding: 16px 5% 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(2,6,8,0.85);
-  backdrop-filter: blur(10px);
-  z-index: 10;
+  background: rgba(2, 6, 8, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 255, 200, 0.12);
 }
 
 .nav-logo {
-  width: 55px;
+  width: 60px;
+  filter: drop-shadow(0 0 8px #00ffcc);
 }
 
 .nav a {
-  margin-left: 30px;
+  margin-left: 40px;
   text-decoration: none;
   color: #baffff;
   font-family: 'Orbitron', sans-serif;
-  font-size: 13px;
-  letter-spacing: 2px;
+  font-size: 14px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  transition: all 0.3s;
 }
 
 .nav a:hover {
   color: #7cff00;
+  text-shadow: 0 0 12px #7cff00;
 }
 
-/* HERO */
+/* HERO - la parte más importante */
 .hero {
+  position: relative;
   height: 100vh;
+  min-height: 800px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background:
-    radial-gradient(circle at center, rgba(0,255,200,0.15), transparent 60%),
-    #020608;
-  padding-top: 80px;
+  background: 
+    radial-gradient(circle at 30% 70%, rgba(0, 255, 200, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(182, 255, 77, 0.15) 0%, transparent 60%),
+    #020608 url('img/fondo-hero.jpg') center/cover no-repeat fixed; /* ← Agrega una imagen de fondo espacial si tienes */
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(2,6,8,0.4), rgba(2,6,8,0.75));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Opcional: partículas o glow (puedes agregar JS después) */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0,255,200,0.08), transparent 70%);
+  animation: pulse 12s infinite alternate;
+  z-index: 0;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; transform: scale(1); }
+  100% { opacity: 0.8; transform: scale(1.15); }
 }
 
 .hero-content {
+  position: relative;
+  z-index: 2;
   text-align: center;
-  max-width: 700px;
-  padding: 20px;
+  max-width: 900px;
+  padding: 0 20px;
 }
 
 .hero-logo {
-  width: 140px;
-  margin-bottom: 25px;
+  width: 180px;
+  margin-bottom: 30px;
+  filter: drop-shadow(0 0 25px #00ffcc);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
 }
 
 .hero h1 {
   font-family: 'Orbitron', sans-serif;
-  font-size: clamp(44px, 6vw, 70px);
+  font-size: clamp(60px, 9vw, 110px);
+  font-weight: 800;
   color: #45fff3;
-  text-shadow: 0 0 30px #2fffd5;
+  text-shadow: 
+    0 0 20px #2fffd5,
+    0 0 40px #2fffd5,
+    0 0 80px rgba(47,255,213,0.4);
+  letter-spacing: 4px;
+  margin-bottom: 8px;
 }
 
 .hero h1 span {
   color: #b6ff4d;
+  text-shadow: 0 0 25px #7cff00;
 }
 
 .slogan {
-  margin-top: 12px;
-  letter-spacing: 3px;
-  opacity: 0.9;
+  font-size: clamp(18px, 3vw, 28px);
+  letter-spacing: 6px;
+  color: #baffff;
+  opacity: 0.92;
+  margin-bottom: 50px;
 }
 
-/* BOTÓN HERO */
+/* Botón hero */
 .btn-whatsapp-hero {
-  margin-top: 35px;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 36px;
-  border-radius: 50px;
-  background: linear-gradient(90deg, #1aff5c, #00ffcc);
-  color: #002e24;
+  gap: 14px;
+  padding: 18px 48px;
+  border-radius: 60px;
+  background: linear-gradient(90deg, #1aff5c, #00ffcc, #1aff5c);
+  background-size: 200% 100%;
+  color: #001a14;
+  font-weight: 800;
+  font-size: 18px;
   text-decoration: none;
-  font-weight: 700;
-  box-shadow: 0 0 35px #00ffcc;
+  box-shadow: 0 0 40px rgba(0,255,204,0.6);
+  transition: all 0.4s;
+  animation: shine 3s infinite linear;
+}
+
+.btn-whatsapp-hero:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 60px rgba(0,255,204,0.9);
 }
 
 .btn-whatsapp-hero img {
-  width: 22px;
+  width: 28px;
+}
+
+@keyframes shine {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
 }
 
 /* PRODUCTOS */
 .productos {
-  padding: 90px 20px 120px;
+  padding: 120px 5% 140px;
   background: #020608;
+  position: relative;
 }
 
 .productos h2 {
   text-align: center;
-  font-size: 34px;
-  margin-bottom: 60px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(36px, 6vw, 54px);
   color: #b6ff4d;
-  text-shadow: 0 0 20px #7cff00;
+  text-shadow: 0 0 25px #7cff00;
+  margin-bottom: 80px;
 }
 
 .grid-productos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 50px;
-  max-width: 1100px;
-  margin: auto;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .card {
-  background: radial-gradient(circle at top, #081c20, #020608);
-  border-radius: 22px;
-  padding: 30px;
+  background: linear-gradient(135deg, #081c20 0%, #020608 100%);
+  border-radius: 24px;
+  padding: 40px 25px;
   text-align: center;
-  box-shadow: 0 0 50px rgba(0,255,200,0.25);
+  border: 1px solid rgba(0,255,200,0.15);
+  box-shadow: 0 0 60px rgba(0,255,200,0.2);
+  transition: all 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 30px 80px rgba(0,255,200,0.35);
+  border-color: rgba(0,255,200,0.4);
 }
 
 .card img {
-  margin-bottom: 20px;
+  width: 100%;
+  max-width: 220px;
+  margin-bottom: 30px;
+  filter: drop-shadow(0 10px 30px rgba(0,255,200,0.4));
 }
 
 .card h3 {
   font-family: 'Orbitron', sans-serif;
   color: #46fff5;
-  margin-bottom: 10px;
+  font-size: 26px;
+  margin-bottom: 15px;
+  text-shadow: 0 0 15px rgba(70,255,245,0.5);
 }
 
-.card p {
+.card ul {
+  list-style: none;
+  margin-bottom: 25px;
   font-size: 15px;
-  opacity: 0.85;
+  opacity: 0.9;
+}
+
+.card ul li {
+  margin: 8px 0;
+  position: relative;
+  padding-left: 24px;
+}
+
+.card ul li::before {
+  content: "➤";
+  color: #7cff00;
+  position: absolute;
+  left: 0;
 }
 
 .precio {
   display: block;
-  margin: 20px 0;
-  font-size: 24px;
+  font-size: 28px;
+  font-weight: 700;
   color: #b6ff4d;
-  text-shadow: 0 0 15px #7cff00;
+  text-shadow: 0 0 18px #7cff00;
+  margin: 20px 0 30px;
 }
 
 .btn-card {
   display: inline-block;
-  padding: 12px 34px;
-  border-radius: 40px;
+  padding: 14px 40px;
+  border-radius: 50px;
   background: linear-gradient(90deg, #1aff5c, #00ffcc);
   color: #002e24;
-  text-decoration: none;
   font-weight: 700;
-  box-shadow: 0 0 25px #00ffcc;
+  text-decoration: none;
+  box-shadow: 0 0 30px rgba(0,255,204,0.5);
+  transition: all 0.3s;
+}
+
+.btn-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 50px rgba(0,255,204,0.8);
 }
 
 /* WHATSAPP FLOAT */
 .whatsapp-float {
   position: fixed;
-  right: 24px;
-  bottom: 24px;
+  right: 30px;
+  bottom: 30px;
   background: #25d366;
-  padding: 16px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
-  box-shadow: 0 0 30px #25d366;
-  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 40px rgba(37, 211, 102, 0.5);
+  z-index: 999;
+  transition: all 0.3s;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.15);
+  box-shadow: 0 15px 60px rgba(37, 211, 102, 0.7);
 }
 
 .whatsapp-float img {
-  width: 28px;
+  width: 38px;
 }
