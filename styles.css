@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background: radial-gradient(circle at top, #0a1a1f, #020b0f);
+  color: #eaffff;
+}
+
+.navbar {
+  padding: 20px;
+  text-align: center;
+}
+
+.navbar a {
+  margin: 0 20px;
+  text-decoration: none;
+  color: #eaffff;
+  font-family: 'Orbitron';
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.logo {
+  width: 160px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-family: 'Orbitron';
+  font-size: 64px;
+  color: #4ffcff;
+}
+
+.hero h1 span {
+  color: #7CFF00;
+}
+
+.tagline {
+  margin-top: 10px;
+  letter-spacing: 2px;
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 15px 40px;
+  background: #25d366;
+  color: #000;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 0 25px #25d366;
+}
+
+.section-title {
+  text-align: center;
+  margin: 80px 0 40px;
+  color: #7CFF00;
+  font-size: 32px;
+}
+
+.products {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding-bottom: 100px;
+}
+
+.card {
+  background: #041418;
+  padding: 30px;
+  width: 320px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(124,255,0,0.3);
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  color: #7CFF00;
+}
+
+.card ul {
+  list-style: none;
+  margin: 20px 0;
+}
+
+.price {
+  font-size: 22px;
+  color: #7CFF00;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 25px;
+  border-radius: 30px;
+  background: #7CFF00;
+  color: #000;
+  text-decoration: none;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.whatsapp-float img {
+  width: 60px;
+}
