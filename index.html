@@ -20,6 +20,7 @@
       position: relative;
     }
 
+    /* Sin glow verde lateral */
     .container::before,
     .container::after {
       content: none;
@@ -45,7 +46,7 @@
 
     .hero {
       height: 80vh;
-      background: url('img/logo.png') center/cover no-repeat fixed; /* Logo de vuelta y visible */
+      background: url('img/logo.png') center/cover no-repeat fixed;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -63,8 +64,8 @@
 
     .btn-container {
       position: relative;
-      z-index: 2; /* Aseguramos que el botón quede encima */
-      margin-bottom: 40px; /* Más espacio para bajar productos */
+      z-index: 1;
+      margin-bottom: 40px;
     }
     .btn-whatsapp {
       display: inline-flex;
@@ -92,7 +93,7 @@
       text-align: center;
       position: relative;
       z-index: 1;
-      margin-top: -450px; /* Bajados más para que queden en el lugar que quieres */
+      margin-top: -400px; /* Bajados otro poquito más como pediste */
     }
     .productos h2 {
       font-size: 2.6rem;
@@ -112,16 +113,16 @@
       margin: auto;
     }
     .card {
-      background: rgba(0,0,0,0.45); /* Menos oscuro, más claro y transparente */
-      border: 1px solid rgba(60,255,106,0.4);
+      background: rgba(0,0,0,0.35); /* Más claro y transparente para que el logo se vea nítido */
+      border: 1px solid rgba(60,255,106,0.35);
       border-radius: 18px;
       padding: 18px;
-      box-shadow: 0 0 25px rgba(60,255,106,0.4);
+      box-shadow: 0 0 25px rgba(60,255,106,0.35);
       transition: all 0.4s;
       backdrop-filter: blur(10px);
     }
     .card:hover {
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.5);
       box-shadow: 0 0 50px rgba(60,255,106,0.7);
       transform: translateY(-8px);
     }
@@ -140,7 +141,7 @@
       .hero { height: 85vh; padding-top: 90px; }
       .btn-whatsapp { padding: 12px 40px; font-size: 1.2rem; }
       .btn-whatsapp img { width: 32px; }
-      .productos { padding: 20px 5% 50px; margin-top: -420px; }
+      .productos { padding: 20px 5% 50px; margin-top: -380px; }
       .productos h2 { font-size: 2.2rem; }
       .grid { gap: 25px; }
     }
