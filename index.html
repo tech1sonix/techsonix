@@ -88,11 +88,11 @@
 
     .productos {
       padding: 40px 5% 100px;
-      background: transparent; /* Sin negro que tape */
+      background: transparent !important; /* QUITAMOS TODO EL NEGRO QUE TAPA */
       text-align: center;
       position: relative;
       z-index: 1;
-      margin-top: -500px; /* Mantenemos la posición que te gustó */
+      margin-top: -500px; /* Mantengo tu posición favorita */
     }
     .productos h2 {
       font-size: 2.6rem;
@@ -112,18 +112,17 @@
       margin: auto;
     }
     .card {
-      background: rgba(0,0,0,0.08); /* Casi transparente - logo se ve perfecto */
-      border: 1px solid rgba(60,255,106,0.2);
+      background: transparent !important; /* CARDS 100% TRANSPARENTES - logo se ve completo */
+      border: none;
       border-radius: 18px;
       padding: 18px;
-      box-shadow: 0 0 15px rgba(60,255,106,0.2);
+      box-shadow: none;
       transition: all 0.4s;
-      backdrop-filter: blur(6px); /* Blur sutil sin oscurecer */
+      backdrop-filter: none; /* Quitamos blur para que no oscurezca */
     }
     .card:hover {
-      background: rgba(0,0,0,0.2);
-      box-shadow: 0 0 30px rgba(60,255,106,0.5);
       transform: translateY(-8px);
+      box-shadow: 0 0 30px rgba(60,255,106,0.4);
     }
     .card img {
       width: 100%;
@@ -134,6 +133,7 @@
       margin-top: 10px;
       font-size: 1.3rem;
       color: #eafff3;
+      text-shadow: 0 0 5px #000;
     }
 
     @media (max-width:768px) {
