@@ -20,6 +20,7 @@
       position: relative;
     }
 
+    /* Sin glow verde lateral */
     .container::before,
     .container::after {
       content: none;
@@ -45,7 +46,7 @@
 
     .hero {
       height: 80vh;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('img/logo.png') center/cover no-repeat fixed; /* fallback negro si falla la imagen */
+      background: url('img/logo.png') center/cover no-repeat fixed;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -92,7 +93,7 @@
       text-align: center;
       position: relative;
       z-index: 1;
-      margin-top: -540px; /* Bajados otro poquito más */
+      margin-top: -500px; /* Bajados otro poquito más como pediste */
     }
     .productos h2 {
       font-size: 2.6rem;
@@ -140,7 +141,7 @@
       .hero { height: 85vh; padding-top: 90px; }
       .btn-whatsapp { padding: 12px 40px; font-size: 1.2rem; }
       .btn-whatsapp img { width: 32px; }
-      .productos { padding: 20px 5% 50px; margin-top: -500px; }
+      .productos { padding: 20px 5% 50px; margin-top: -460px; } /* Ajustado para móvil */
       .productos h2 { font-size: 2.2rem; }
       .grid { gap: 25px; }
     }
