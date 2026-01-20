@@ -22,25 +22,10 @@
       overflow: hidden;
     }
 
+    /* Quitamos el glow verde lateral para que no interfiera */
     .container::before,
     .container::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 400px;
-      z-index: -1;
-      pointer-events: none;
-    }
-    .container::before {
-      left: -200px;
-      background: linear-gradient(to right, rgba(0,255,150,0.25), transparent 70%);
-      box-shadow: inset -120px 0 200px rgba(0,255,150,0.4);
-    }
-    .container::after {
-      right: -200px;
-      background: linear-gradient(to left, rgba(0,255,150,0.25), transparent 70%);
-      box-shadow: inset 120px 0 200px rgba(0,255,150,0.4);
+      content: none; /* Desactivamos completamente el verde que causaba el problema */
     }
 
     nav {
@@ -62,7 +47,7 @@
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
 
     .hero {
-      height: 130vh; /* Más alto para cubrir todo al scroll */
+      height: 130vh;
       background: url('img/logo.png') center/cover no-repeat fixed;
       position: relative;
       display: flex;
@@ -75,7 +60,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.8));
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.85));
       z-index: 0;
     }
 
@@ -106,7 +91,7 @@
 
     .productos {
       padding: 40px 5% 100px;
-      background: transparent; /* 100% transparente para que se vea el logo completo */
+      background: transparent; /* Totalmente transparente para ver el logo limpio */
       text-align: center;
       position: relative;
       z-index: 1;
@@ -130,17 +115,17 @@
       margin: auto;
     }
     .card {
-      background: rgba(0,0,0,0.4); /* Negro oscuro sutil, sin verde */
-      border: 1px solid rgba(60,255,106,0.5);
+      background: rgba(0,0,0,0.55); /* Negro oscuro fuerte, sin verde */
+      border: 1px solid rgba(60,255,106,0.6);
       border-radius: 20px;
       padding: 20px;
-      box-shadow: 0 0 35px rgba(60,255,106,0.4);
+      box-shadow: 0 0 35px rgba(60,255,106,0.5);
       transition: all 0.4s;
-      backdrop-filter: blur(12px); /* Más efecto vidrio cyber */
+      backdrop-filter: blur(12px);
     }
     .card:hover {
-      background: rgba(0,0,0,0.55);
-      box-shadow: 0 0 70px rgba(60,255,106,0.8);
+      background: rgba(0,0,0,0.7);
+      box-shadow: 0 0 70px rgba(60,255,106,0.9);
       transform: translateY(-10px);
     }
     .card img {
