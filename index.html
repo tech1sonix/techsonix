@@ -70,7 +70,7 @@
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      padding-top: 140px; /* Espacio para que el botón quede arriba */
+      padding-top: 160px; /* Botón más arriba */
     }
     .hero::before {
       content: '';
@@ -83,7 +83,7 @@
     .btn-container {
       position: relative;
       z-index: 1;
-      margin-bottom: 40px; /* Reduce espacio abajo para que los productos suban */
+      margin-bottom: 20px; /* Reduce espacio para que productos suban */
     }
     .btn-whatsapp {
       display: inline-flex;
@@ -107,11 +107,11 @@
 
     .productos {
       padding: 40px 5% 80px;
-      background: rgba(0,0,0,0.4); /* Transparente para ver fondo */
+      background: rgba(0,0,0,0.35); /* Más transparente */
       text-align: center;
       position: relative;
       z-index: 1;
-      margin-top: -300px; /* Sube MUCHO más los productos (ajustado para que queden abajito del botón) */
+      margin-top: -380px; /* Sube FUERTE los productos para que queden abajito del botón */
     }
     .productos h2 {
       font-size: 2.8rem;
@@ -131,16 +131,16 @@
       margin: auto;
     }
     .card {
-      background: rgba(0,255,150,0.08);
-      border: 1px solid rgba(60,255,106,0.4);
+      background: rgba(0,255,150,0.06); /* Súper transparente para ver fondo */
+      border: 1px solid rgba(60,255,106,0.35);
       border-radius: 20px;
       padding: 20px;
-      box-shadow: 0 0 30px rgba(60,255,106,0.3);
+      box-shadow: 0 0 30px rgba(60,255,106,0.25);
       transition: all 0.4s;
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(8px);
     }
     .card:hover {
-      background: rgba(0,255,150,0.15);
+      background: rgba(0,255,150,0.12);
       box-shadow: 0 0 60px rgba(60,255,106,0.6);
       transform: translateY(-10px);
     }
@@ -161,7 +161,7 @@
       .hero { min-height: 80vh; padding-top: 100px; }
       .btn-whatsapp { padding: 14px 40px; font-size: 1.2rem; }
       .btn-whatsapp img { width: 32px; }
-      .productos { padding: 30px 5% 60px; margin-top: -250px; } /* Ajustado para móvil */
+      .productos { padding: 30px 5% 60px; margin-top: -320px; } /* Ajustado para móvil */
       .productos h2 { font-size: 2.2rem; }
     }
   </style>
