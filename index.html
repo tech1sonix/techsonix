@@ -14,25 +14,23 @@
       overflow-x:hidden;
     }
 
-    /* CONTENEDOR PRINCIPAL CENTRADO CON ESPACIO A LOS LADOS */
-    .wrapper {
-      max-width: 1400px;           /* ← Ancho máximo de la página */
-      margin: 0 auto;              /* Centrado horizontal */
-      padding: 0 20px;             /* Espacio interno pequeño */
+    /* CONTENEDOR PRINCIPAL: centra todo y deja márgenes negros a los lados */
+    .page-container {
+      max-width: 1400px;          /* ← Ancho máximo de la página (ajusta si quieres más/menos espacio a los lados) */
+      margin: 0 auto;             /* Centrado */
+      background: #000;
     }
 
-    /* NAV */
+    /* NAV - dentro del contenedor para que también quede centrado */
     nav {
-      position:fixed;
-      top:0;
-      left:0;
-      right:0;
-      z-index:1000;
-      background:rgba(0,0,0,0.7);
-      backdrop-filter:blur(8px);
       padding:15px 5%;
       display:flex;
       justify-content:flex-end;
+      background:rgba(0,0,0,0.6);
+      backdrop-filter:blur(8px);
+      position: sticky;
+      top:0;
+      z-index:1000;
     }
     nav a {
       color:#7fffd4;
@@ -42,37 +40,27 @@
     }
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
 
-    /* HERO - imagen como fondo, pero dentro del contenedor centrado */
+    /* HERO - fondo con tu imagen grande ocupando todo el ancho del contenedor */
     .hero {
-      min-height: 80vh;
-      padding: 120px 0 60px;
-      background: #000;
+      height: 100vh;
+      min-height: 700px;
+      background: url('img/logo.png') center/cover no-repeat;  /* ← Tu imagen grande aquí */
+      position: relative;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
     }
-    .hero-inner {
-      width: 100%;
-      max-width: 1000px;           /* ← Ancho máximo del hero (más pequeño que full) */
-      height: 500px;               /* Altura fija para controlar el tamaño */
-      background: url('img/logo.png') center/cover no-repeat;  /* ← Tu imagen grande aquí */
-      border-radius: 20px;
-      box-shadow: 0 0 80px rgba(0,255,150,0.4);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-inner::before {
+    .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.75));
     }
     .btn-container {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
+      position: relative;
       z-index: 2;
+      padding-bottom: 80px;
+      text-align: center;
     }
     .btn-whatsapp {
       display: inline-flex;
@@ -81,7 +69,7 @@
       padding: 16px 50px;
       background: #25d366;
       color: #000;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: bold;
       text-decoration: none;
       border-radius: 50px;
@@ -92,7 +80,7 @@
       transform: scale(1.05);
       box-shadow: 0 0 60px #25d366;
     }
-    .btn-whatsapp img { width: 34px; }
+    .btn-whatsapp img { width: 36px; }
 
     /* PRODUCTOS */
     .productos {
@@ -135,35 +123,34 @@
       font-size: 1.3rem;
     }
 
-    /* Responsive */
+    /* Responsive para celular */
     @media (max-width: 768px) {
-      .hero { padding: 100px 0 40px; min-height: auto; }
-      .hero-inner { height: 350px; max-width: 95%; }
-      .btn-whatsapp { padding: 14px 40px; font-size: 1.1rem; }
-      .btn-whatsapp img { width: 30px; }
-      .productos { padding: 40px 5% 80px; }
-      .productos h2 { font-size: 2rem; }
+      .page-container { max-width: 100%; padding: 0 10px; }
       nav { justify-content: center; padding: 12px 5%; flex-wrap: wrap; }
       nav a { margin: 8px 15px; font-size: 14px; }
+      .hero { min-height: 70vh; padding-bottom: 60px; }
+      .btn-whatsapp { padding: 14px 40px; font-size: 1.2rem; }
+      .btn-whatsapp img { width: 32px; }
+      .productos { padding: 40px 5% 80px; }
+      .productos h2 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="#">Inicio</a>
-    <a href="#">Productos</a>
-    <a href="#">Contacto</a>
-  </nav>
+  <div class="page-container">
 
-  <div class="wrapper">
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Productos</a>
+      <a href="#">Contacto</a>
+    </nav>
+
     <section class="hero">
-      <div class="hero-inner">
-        <div class="btn-container">
-          <a class="btn-whatsapp" href="https://wa.me/573XXXXXXXXX?text=Hola%2C%20quiero%20comprar" target="_blank">
-            <img src="img/whatsapp.png" alt="WhatsApp"> Comprar por WhatsApp
-          </a>
-        </div>
+      <div class="btn-container">
+        <a class="btn-whatsapp" href="https://wa.me/573XXXXXXXXX?text=Hola%2C%20quiero%20comprar" target="_blank">
+          <img src="img/whatsapp.png" alt="WhatsApp"> Comprar por WhatsApp
+        </a>
       </div>
     </section>
 
@@ -180,6 +167,7 @@
         </div>
       </div>
     </section>
+
   </div>
 
 </body>
