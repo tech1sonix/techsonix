@@ -9,19 +9,13 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family:Arial, sans-serif;
-      background:#000;
+      background:#000 url('img/logo.png') center top / cover no-repeat fixed;  /* ← Tu imagen grande como fondo completo */
+      min-height:100vh;
       color:#eafff3;
       overflow-x:hidden;
     }
 
-    /* Fondo global con imagen centrada (prioriza nombre y slogan) */
-    body {
-      background:url('img/logo.png') center top / cover no-repeat;  /* ← Imagen completa, centrada arriba */
-      background-attachment: scroll;  /* No fixed para evitar recortes en móvil */
-      min-height:100vh;
-    }
-
-    /* NAV */
+    /* NAV transparente */
     nav {
       position:fixed;
       top:0;
@@ -41,15 +35,14 @@
     }
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
 
-    /* HERO - flexible, sin altura fija */
+    /* HERO - solo el botón centrado abajo */
     .hero {
-      min-height:80vh;
+      height:100vh;
       display:flex;
-      align-items:center;
+      align-items:flex-end;
       justify-content:center;
-      padding:120px 5% 80px;
+      padding-bottom:80px;
       position:relative;
-      text-align:center;
     }
     .btn-whatsapp {
       display:inline-flex;
@@ -72,10 +65,10 @@
     }
     .btn-whatsapp img { width:36px; }
 
-    /* PRODUCTOS - integrados en la imagen */
+    /* PRODUCTOS - fondo semi-transparente para ver la imagen grande debajo */
     .productos {
       padding:60px 5% 100px;
-      background:rgba(0,0,0,0.65); /* Semi-transparente para ver imagen debajo */
+      background:rgba(0,0,0,0.65); /* Permite ver el fondo */
       text-align:center;
       position:relative;
       z-index:1;
@@ -115,14 +108,13 @@
       font-size:1.3rem;
     }
 
-    /* Responsive móvil - ajusta para que nombre y slogan se vean completos */
+    /* Responsive para celular */
     @media (max-width:768px) {
       body {
-        background-position: center 20%;  /* Prioriza más la parte superior (nombre + slogan) */
+        background-position: center 25%;  /* ← Ajusta más arriba para que se vea todo el nombre */
       }
       .hero {
-        min-height:70vh;
-        padding:100px 5% 60px;
+        padding-bottom:60px;
       }
       .btn-whatsapp {
         padding:14px 40px;
@@ -135,13 +127,6 @@
       .productos h2 { font-size:2rem; }
       nav { justify-content:center; padding:12px 5%; flex-wrap:wrap; }
       nav a { margin:8px 15px; font-size:14px; }
-    }
-
-    @media (max-height:800px) {  /* Celulares con pantalla corta */
-      body {
-        background-position: center 10%;  /* Aún más arriba */
-      }
-      .hero { min-height:90vh; }
     }
   </style>
 </head>
