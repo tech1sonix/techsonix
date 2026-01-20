@@ -14,14 +14,11 @@
       overflow-x:hidden;
     }
 
-    /* Fondo global con tu imagen grande (ocupa toda la pantalla) */
-    body::before {
-      content:'';
-      position:fixed;
-      inset:0;
-      background:url('img/logo.png') center/cover no-repeat fixed;
-      z-index:-2;
-      opacity:0.8; /* Ajusta si quieres más/menos transparencia */
+    /* Fondo global con tu imagen (full-screen, más visible) */
+    body {
+      background:url('img/logo.png') center/cover no-repeat fixed;  /* ← CAMBIA AQUÍ si el nombre es diferente */
+      background-attachment: fixed;
+      background-size: cover;
     }
 
     /* NAV */
@@ -32,8 +29,8 @@
       padding:15px 5%;
       display:flex;
       justify-content:flex-end;
-      background:rgba(0,0,0,0.6);
-      backdrop-filter:blur(8px);
+      background:rgba(0,0,0,0.65);
+      backdrop-filter:blur(10px);
       z-index:1000;
     }
     nav a {
@@ -44,7 +41,7 @@
     }
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
 
-    /* HERO - fondo ya en body, solo contenido encima */
+    /* HERO */
     .hero {
       height:100vh;
       min-height:700px;
@@ -54,9 +51,17 @@
       justify-content:center;
       text-align:center;
       position:relative;
-      z-index:1;
+    }
+    .hero::before {
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.75));
+      z-index:0;
     }
     .hero-content {
+      position:relative;
+      z-index:1;
       padding:0 20px;
     }
     .btn-whatsapp {
@@ -79,10 +84,10 @@
     }
     .btn-whatsapp img { width:36px; }
 
-    /* PRODUCTOS - fondo también visible */
+    /* PRODUCTOS */
     .productos {
       padding:60px 5% 100px;
-      background:rgba(0,0,0,0.6); /* Semi-transparente para ver el fondo */
+      background:rgba(0,0,0,0.7); /* Semi-transparente para ver fondo */
       text-align:center;
       position:relative;
       z-index:1;
