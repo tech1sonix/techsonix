@@ -34,24 +34,34 @@
     }
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
 
-    /* HERO - imagen grande + botón centrado verticalmente (no tan abajo) */
+    /* HERO - imagen centrada y reducida (no full-screen) */
     .hero {
-      height:100vh;
-      background:url('img/logo.png') center/cover no-repeat fixed;
-      position:relative;
+      min-height:80vh;
       display:flex;
-      align-items:center;           /* ← Cambiado a center para que quede en el medio */
+      flex-direction:column;
+      align-items:center;
       justify-content:center;
+      padding:100px 5% 60px;
+      background:#000;
     }
-    .hero::before {
-      content:'';
-      position:absolute;
-      inset:0;
-      background:linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.75));
+    .logo-container {
+      width:90%;
+      max-width:1100px;
+      height:500px;                /* altura fija para controlar el tamaño */
+      overflow:hidden;
+      border-radius:20px;
+      box-shadow:0 0 60px rgba(0,255,150,0.5);
+      position:relative;
+    }
+    .logo-container img {
+      width:100%;
+      height:100%;
+      object-fit:cover;            /* recorta los lados vacíos */
+      object-position:center;      /* centra la parte importante */
+      display:block;
     }
     .hero-content {
-      position:relative;
-      z-index:2;
+      margin-top:30px;
       text-align:center;
     }
     .btn-whatsapp {
@@ -74,9 +84,9 @@
     }
     .btn-whatsapp img { width:36px; }
 
-    /* PRODUCTOS */
+    /* PRODUCTOS - más arriba para menos scroll */
     .productos {
-      padding:60px 5% 100px;
+      padding:40px 5% 80px;
       background:#000;
       text-align:center;
     }
@@ -84,7 +94,7 @@
       font-size:2.5rem;
       color:#3cff6a;
       text-shadow:0 0 20px #3cff6a;
-      margin-bottom:50px;
+      margin-bottom:40px;
     }
     .grid {
       display:grid;
@@ -115,16 +125,16 @@
       font-size:1.3rem;
     }
 
-    /* Responsive */
+    /* Responsive móvil */
     @media (max-width:768px) {
-      nav { justify-content:center; padding:12px 5%; flex-wrap:wrap; }
-      nav a { margin:8px 15px; font-size:14px; }
-      .hero { height:auto; min-height:70vh; padding:80px 15px 60px; }
+      .hero { padding:90px 5% 40px; min-height:auto; }
+      .logo-container { height:350px; max-width:95%; }
       .btn-whatsapp { padding:14px 35px; font-size:1.2rem; }
       .btn-whatsapp img { width:32px; }
-      .productos { padding:50px 15px; }
+      .productos { padding:40px 5% 60px; }
       .productos h2 { font-size:2rem; }
-      .grid { gap:30px; }
+      nav { justify-content:center; padding:12px 5%; flex-wrap:wrap; }
+      nav a { margin:8px 15px; font-size:14px; }
     }
   </style>
 </head>
@@ -137,6 +147,9 @@
   </nav>
 
   <section class="hero">
+    <div class="logo-container">
+      <img src="img/logo.png" alt="TechSonix Logo">
+    </div>
     <div class="hero-content">
       <a class="btn-whatsapp" href="https://wa.me/573XXXXXXXXX?text=Hola%2C%20quiero%20comprar" target="_blank">
         <img src="img/whatsapp.png" alt="WhatsApp"> Comprar por WhatsApp
