@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TechSonix</title>
 
+<!-- IMPORTANTE: evitamos favicon -->
+<link rel="icon" href="data:,">
+
 <style>
 *{
   margin:0;
@@ -16,13 +19,14 @@
 body{
   background: radial-gradient(circle at top, #0f2a1e, #000);
   color:#eafff3;
+  overflow-x:hidden;
 }
 
-/* NAV */
+/* NAV SIN LOGO */
 nav{
   display:flex;
   justify-content:flex-end;
-  padding:20px 50px;
+  padding:20px 40px;
 }
 
 nav a{
@@ -32,43 +36,45 @@ nav a{
   font-size:14px;
 }
 
-/* HERO */
+/* HERO CONTROLADO */
 .hero{
-  padding:80px 20px 60px;
+  min-height:65vh;
   display:flex;
   flex-direction:column;
+  justify-content:center;
   align-items:center;
   text-align:center;
 }
 
 .hero img{
-  max-width:520px;
+  max-width:460px;
   width:90%;
   border-radius:16px;
-  box-shadow:0 0 60px rgba(0,255,150,.5);
+  box-shadow:0 0 50px rgba(0,255,150,.5);
 }
 
+/* BOTON */
 .btn{
-  margin-top:30px;
+  margin-top:25px;
   background:#3cff6a;
   color:#000;
   padding:14px 36px;
   border-radius:30px;
   text-decoration:none;
   font-weight:bold;
-  box-shadow:0 0 30px rgba(60,255,106,.8);
+  box-shadow:0 0 25px rgba(60,255,106,.8);
 }
 
 /* PRODUCTOS */
 .productos{
-  padding:60px 40px;
+  padding:40px 30px 80px;
   max-width:1200px;
   margin:auto;
 }
 
 .productos h2{
   text-align:center;
-  margin-bottom:40px;
+  margin-bottom:30px;
   color:#3cff6a;
 }
 
@@ -83,13 +89,12 @@ nav a{
   border-radius:18px;
   padding:20px;
   text-align:center;
-  box-shadow:0 0 25px rgba(0,255,150,.2);
+  box-shadow:0 0 20px rgba(0,255,150,.2);
 }
 
 .card img{
   width:100%;
   border-radius:14px;
-  margin-bottom:15px;
 }
 
 /* MOBILE */
@@ -122,12 +127,12 @@ nav a{
   <div class="grid">
     <div class="card">
       <img src="img/producto1.png">
-      <p>Producto Gamer 1</p>
+      <p>Audífonos Gamer</p>
     </div>
 
     <div class="card">
       <img src="img/producto2.png">
-      <p>Producto Gamer 2</p>
+      <p>Power Bank Pro</p>
     </div>
   </div>
 </section>
