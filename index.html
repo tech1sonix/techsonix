@@ -22,7 +22,7 @@
       padding:15px 5%;
       display:flex;
       justify-content:flex-end;
-      background:rgba(0,0,0,0.5);
+      background:rgba(0,0,0,0.6);
       backdrop-filter:blur(8px);
       z-index:1000;
     }
@@ -34,26 +34,26 @@
     }
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
 
-    /* HERO - solo imagen grande + botón encima */
+    /* HERO - SOLO tu imagen grande como fondo + botón abajo */
     .hero {
       height:100vh;
-      background:url('img/logo.png') center/cover no-repeat fixed;  /* ← Usa tu imagen grande aquí (la que ya tiene el texto) */
+      background:url('img/logo.png') center/cover no-repeat fixed;  /* ← Aquí va tu imagen grande (la que tiene el logo y texto integrado) */
       position:relative;
       display:flex;
-      align-items:center;
+      align-items:flex-end;  /* Botón abajo */
       justify-content:center;
     }
     .hero::before {
       content:'';
       position:absolute;
       inset:0;
-      background:linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.75));
+      background:linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.3) 60%, transparent 100%);
     }
     .hero-content {
       position:relative;
       z-index:2;
+      padding-bottom:80px;  /* Espacio para que el botón no quede pegado abajo */
       text-align:center;
-      padding:0 20px;
     }
     .btn-whatsapp {
       display:inline-flex;
@@ -66,7 +66,7 @@
       font-weight:bold;
       text-decoration:none;
       border-radius:50px;
-      box-shadow:0 0 40px #25d366;
+      box-shadow:0 0 40px #25d366, inset 0 0 15px rgba(255,255,255,0.3);
       transition:all 0.3s;
     }
     .btn-whatsapp:hover {
@@ -75,7 +75,7 @@
     }
     .btn-whatsapp img { width:36px; }
 
-    /* PRODUCTOS */
+    /* PRODUCTOS con glow */
     .productos {
       padding:60px 5% 100px;
       background:#000;
@@ -116,11 +116,11 @@
       font-size:1.3rem;
     }
 
-    /* Responsive */
+    /* Responsive para celular */
     @media (max-width:768px) {
       nav { justify-content:center; padding:12px 5%; flex-wrap:wrap; }
       nav a { margin:8px 15px; font-size:14px; }
-      .hero { height:auto; min-height:70vh; padding:100px 15px 60px; }
+      .hero { height:auto; min-height:70vh; padding-bottom:60px; }
       .btn-whatsapp { padding:14px 35px; font-size:1.2rem; }
       .btn-whatsapp img { width:32px; }
       .productos { padding:50px 15px; }
