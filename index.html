@@ -9,22 +9,17 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family:Arial, sans-serif;
-      background:#000;
+      background: #000 url('img/logo.png') center/cover repeat fixed; /* Fondo extendido a toda la página, fixed para parallax sutil en todo */
       color:#eafff3;
       overflow-x:hidden;
     }
-
     .container {
       max-width: 1400px;
       margin: 0 auto;
       position: relative;
+      background: rgba(0,0,0,0.4); /* Semi-transparente para que el fondo se vea pero no opaque los textos */
+      min-height: 100vh;
     }
-
-    .container::before,
-    .container::after {
-      content: none;
-    }
-
     nav {
       padding:12px 5%;
       display:flex;
@@ -45,23 +40,22 @@
 
     .hero {
       height: 100vh;
-      background: url('img/logo.png') center/cover no-repeat fixed;
+      background: url('img/logo.png') center/cover no-repeat fixed; /* Mantiene tu efecto fixed en hero */
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
       padding-top: 100px;
-      z-index: 1; /* Logo siempre por encima */
+      z-index: 1;
     }
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.2), transparent 70%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4), transparent 70%);
       z-index: 0;
     }
-
     .btn-container {
       position: relative;
       z-index: 4;
@@ -88,12 +82,11 @@
     .btn-whatsapp img { width: 36px; }
 
     .productos {
-      padding: 40px 5% 100px;
-      background: transparent !important;
+      padding: 60px 5% 100px; /* Más padding arriba para separar bien del hero */
+      background: transparent;
       text-align: center;
       position: relative;
       z-index: 2;
-      margin-top: -500px;
     }
     .productos h2 {
       font-size: 2.6rem;
@@ -113,17 +106,15 @@
       margin: auto;
     }
     .card {
-      background: transparent !important;
-      border: none !important;
+      background: transparent;
+      border: none;
       border-radius: 18px;
       padding: 18px;
-      box-shadow: none !important;
-      backdrop-filter: none !important; /* Quitamos blur para evitar acumulación */
       transition: transform 0.4s;
     }
     .card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 0 30px rgba(60,255,106,0.4) !important;
+      box-shadow: 0 0 30px rgba(60,255,106,0.4);
     }
     .card img {
       width: 100%;
@@ -141,22 +132,19 @@
       .hero { height: 85vh; padding-top: 90px; }
       .btn-whatsapp { padding: 12px 40px; font-size: 1.2rem; }
       .btn-whatsapp img { width: 32px; }
-      .productos { padding: 20px 5% 60px; margin-top: -460px; }
+      .productos { padding: 40px 5% 60px; }
       .productos h2 { font-size: 2.2rem; }
       .grid { gap: 25px; }
     }
   </style>
 </head>
 <body>
-
   <div class="container">
-
     <nav>
       <a href="#">Inicio</a>
       <a href="#">Productos</a>
       <a href="#">Contacto</a>
     </nav>
-
     <section class="hero">
       <div class="btn-container">
         <a class="btn-whatsapp" href="https://wa.me/573XXXXXXXXX?text=Hola%2C%20quiero%20comprar" target="_blank">
@@ -164,10 +152,10 @@
         </a>
       </div>
     </section>
-
     <section class="productos">
       <h2>Productos destacados</h2>
       <div class="grid">
+        <!-- Tus 9 cards -->
         <div class="card">
           <img src="img/producto1.png" alt="Audífonos Gamer RGB">
           <p>Audífonos Gamer RGB</p>
@@ -206,8 +194,6 @@
         </div>
       </div>
     </section>
-
   </div>
-
 </body>
 </html>
