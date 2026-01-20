@@ -20,7 +20,6 @@
       position: relative;
     }
 
-    /* Sin glow verde lateral */
     .container::before,
     .container::after {
       content: none;
@@ -46,7 +45,7 @@
 
     .hero {
       height: 80vh;
-      background: url('img/logo.png') center/cover no-repeat fixed;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('img/logo.png') center/cover no-repeat fixed; /* fallback negro si falla la imagen */
       position: relative;
       display: flex;
       flex-direction: column;
@@ -93,7 +92,7 @@
       text-align: center;
       position: relative;
       z-index: 1;
-      margin-top: -540px; /* Bajados otro poquito más como pediste */
+      margin-top: -540px; /* Bajados otro poquito más */
     }
     .productos h2 {
       font-size: 2.6rem;
