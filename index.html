@@ -22,7 +22,7 @@
       overflow: hidden;
     }
 
-    /* Glow lateral desactivado para eliminar el verde que rompe el logo */
+    /* Glow lateral desactivado (sin verde) */
     .container::before,
     .container::after {
       content: none;
@@ -47,14 +47,14 @@
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
 
     .hero {
-      height: 130vh; /* Alto para cubrir bien el scroll inicial */
+      height: 130vh;
       background: url('img/logo.png') center/cover no-repeat fixed;
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      padding-top: 160px;
+      padding-top: 140px; /* Reducido para que los productos suban más */
     }
     .hero::before {
       content: '';
@@ -67,7 +67,7 @@
     .btn-container {
       position: relative;
       z-index: 1;
-      margin-bottom: 20px;
+      margin-bottom: 10px; /* Poco espacio entre botón y productos */
     }
     .btn-whatsapp {
       display: inline-flex;
@@ -91,11 +91,11 @@
 
     .productos {
       padding: 40px 5% 100px;
-      background: transparent; /* 100% transparente - logo se ve completo */
+      background: transparent;
       text-align: center;
       position: relative;
       z-index: 1;
-      margin-top: -580px; /* Subido MÁS para que queden pegados al botón */
+      margin-top: -680px; /* Subidos FUERTE para que queden arriba del todo */
     }
     .productos h2 {
       font-size: 2.8rem;
@@ -115,7 +115,7 @@
       margin: auto;
     }
     .card {
-      background: rgba(0,0,0,0.65); /* Negro fuerte, sin verde ni transparencia verde */
+      background: rgba(0,0,0,0.65);
       border: 1px solid rgba(60,255,106,0.5);
       border-radius: 20px;
       padding: 20px;
@@ -143,10 +143,10 @@
       .container { max-width: 100%; }
       nav { justify-content: center; padding: 12px 5%; flex-wrap: wrap; }
       nav a { margin: 8px 15px; font-size: 14px; }
-      .hero { min-height: 100vh; padding-top: 140px; }
+      .hero { min-height: 100vh; padding-top: 120px; }
       .btn-whatsapp { padding: 14px 40px; font-size: 1.2rem; }
       .btn-whatsapp img { width: 32px; }
-      .productos { padding: 30px 5% 60px; margin-top: -480px; }
+      .productos { padding: 30px 5% 60px; margin-top: -560px; } /* Ajustado para móvil */
       .productos h2 { font-size: 2.2rem; }
     }
   </style>
