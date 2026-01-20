@@ -9,7 +9,7 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family:Arial, sans-serif;
-      background:#000;
+      background: linear-gradient(to bottom, #000, #001a0f); /* Fondo sutil oscuro para evitar negro puro al scroll */
       color:#eafff3;
       overflow-x:hidden;
     }
@@ -35,10 +35,9 @@
       font-size:14px;
     }
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
-
     .hero {
       height: 100vh;
-      background: url('img/logo.png') center/contain no-repeat fixed;  /* contain → ajustado al centro sin estirar */
+      background: url('img/logo.png') center/contain no-repeat fixed; /* contain → logo ajustado y centrado, no gigante */
       position: relative;
       display: flex;
       flex-direction: column;
@@ -51,10 +50,9 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.4), transparent 70%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent 60%);
       z-index: 0;
     }
-
     .btn-container {
       position: relative;
       z-index: 4;
@@ -79,14 +77,13 @@
       box-shadow: 0 0 70px #25d366;
     }
     .btn-whatsapp img { width: 36px; }
-
     .productos {
-      padding: 40px 5% 100px;
+      padding: 80px 5% 100px; /* Más espacio arriba para que no se vea tan "pegado" */
       background: transparent !important;
       text-align: center;
       position: relative;
       z-index: 2;
-      margin-top: -500px;  /* volvemos a tu superposición original */
+      margin-top: -300px; /* Reducido para superposición suave, sin crear huecos negros */
     }
     .productos h2 {
       font-size: 2.6rem;
@@ -128,12 +125,11 @@
       color: #eafff3;
       text-shadow: 0 0 5px #000;
     }
-
     @media (max-width:768px) {
       .hero { height: 85vh; padding-top: 90px; }
       .btn-whatsapp { padding: 12px 40px; font-size: 1.2rem; }
       .btn-whatsapp img { width: 32px; }
-      .productos { padding: 20px 5% 60px; margin-top: -460px; }
+      .productos { padding: 60px 5% 60px; margin-top: -250px; }
       .productos h2 { font-size: 2.2rem; }
       .grid { gap: 25px; }
     }
