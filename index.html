@@ -18,11 +18,9 @@
       max-width: 1400px;
       margin: 0 auto;
       position: relative;
-      min-height: 100vh;
-      overflow: hidden;
     }
 
-    /* Glow lateral desactivado (sin verde) */
+    /* Glow lateral desactivado */
     .container::before,
     .container::after {
       content: none;
@@ -47,27 +45,27 @@
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
 
     .hero {
-      height: 130vh;
+      height: 90vh; /* Reducido para que los productos queden arriba */
       background: url('img/logo.png') center/cover no-repeat fixed;
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      padding-top: 140px; /* Reducido para que los productos suban más */
+      padding-top: 120px; /* Menos espacio arriba */
     }
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.9));
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.85));
       z-index: 0;
     }
 
     .btn-container {
       position: relative;
       z-index: 1;
-      margin-bottom: 10px; /* Poco espacio entre botón y productos */
+      margin-bottom: 10px;
     }
     .btn-whatsapp {
       display: inline-flex;
@@ -95,7 +93,7 @@
       text-align: center;
       position: relative;
       z-index: 1;
-      margin-top: -680px; /* Subidos FUERTE para que queden arriba del todo */
+      margin-top: -750px; /* Subidos FUERTE para quedar en la zona de la flecha */
     }
     .productos h2 {
       font-size: 2.8rem;
@@ -143,10 +141,10 @@
       .container { max-width: 100%; }
       nav { justify-content: center; padding: 12px 5%; flex-wrap: wrap; }
       nav a { margin: 8px 15px; font-size: 14px; }
-      .hero { min-height: 100vh; padding-top: 120px; }
+      .hero { height: 100vh; padding-top: 100px; }
       .btn-whatsapp { padding: 14px 40px; font-size: 1.2rem; }
       .btn-whatsapp img { width: 32px; }
-      .productos { padding: 30px 5% 60px; margin-top: -560px; } /* Ajustado para móvil */
+      .productos { padding: 30px 5% 60px; margin-top: -620px; }
       .productos h2 { font-size: 2.2rem; }
     }
   </style>
