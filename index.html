@@ -13,18 +13,15 @@
       color:#eafff3;
       overflow-x:hidden;
     }
-
     .container {
       max-width: 1400px;
       margin: 0 auto;
       position: relative;
     }
-
     .container::before,
     .container::after {
       content: none;
     }
-
     nav {
       padding:12px 5%;
       display:flex;
@@ -42,25 +39,25 @@
       font-size:14px;
     }
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
-
     .hero {
       height: 100vh;
-      background: url('img/logo.png') center/cover no-repeat fixed;
+      background: url('img/logo.png') center / contain no-repeat fixed;
+      background-position: center 20%; /* sube un poco el logo para que quede mejor centrado */
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      padding-top: 100px;
+      padding-top: 80px;
+      z-index: 1;
     }
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.2), transparent 70%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.25), transparent 65%);
       z-index: 0;
     }
-
     .btn-container {
       position: relative;
       z-index: 3;
@@ -85,14 +82,13 @@
       box-shadow: 0 0 70px #25d366;
     }
     .btn-whatsapp img { width: 36px; }
-
     .productos {
       padding: 40px 5% 100px;
       background: transparent !important;
       text-align: center;
       position: relative;
       z-index: 2;
-      margin-top: -500px;
+      margin-top: -400px; /* reducido para que no se desborde tanto */
     }
     .productos h2 {
       font-size: 2.6rem;
@@ -134,27 +130,34 @@
       color: #eafff3;
       text-shadow: 0 0 5px #000;
     }
-
     @media (max-width:768px) {
-      .hero { height: 85vh; padding-top: 90px; }
-      .btn-whatsapp { padding: 12px 40px; font-size: 1.2rem; }
+      .hero {
+        height: 80vh;
+        background-size: 95% auto; /* logo más grande pero completo en móvil */
+        background-position: center 25%;
+        padding-top: 60px;
+      }
+      .btn-whatsapp {
+        padding: 12px 40px;
+        font-size: 1.2rem;
+      }
       .btn-whatsapp img { width: 32px; }
-      .productos { padding: 20px 5% 60px; margin-top: -460px; }
+      .productos {
+        padding: 20px 5% 60px;
+        margin-top: -300px; /* menos negativo en móvil para evitar huecos */
+      }
       .productos h2 { font-size: 2.2rem; }
       .grid { gap: 25px; }
     }
   </style>
 </head>
 <body>
-
   <div class="container">
-
     <nav>
       <a href="#">Inicio</a>
       <a href="#">Productos</a>
       <a href="#">Contacto</a>
     </nav>
-
     <section class="hero">
       <div class="btn-container">
         <a class="btn-whatsapp" href="https://wa.me/573XXXXXXXXX?text=Hola%2C%20quiero%20comprar" target="_blank">
@@ -162,11 +165,9 @@
         </a>
       </div>
     </section>
-
     <section class="productos">
       <h2>Productos destacados</h2>
       <div class="grid">
-        <!-- 9 productos para probar si rompe el recuadro negro -->
         <div class="card">
           <img src="img/producto1.png" alt="Audífonos Gamer RGB">
           <p>Audífonos Gamer RGB</p>
@@ -205,8 +206,6 @@
         </div>
       </div>
     </section>
-
   </div>
-
 </body>
 </html>
