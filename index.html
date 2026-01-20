@@ -20,7 +20,7 @@
       position: relative;
     }
 
-    /* Sin glow verde lateral */
+    /* Sin glow lateral que cause colores raros */
     .container::before,
     .container::after {
       content: none;
@@ -64,8 +64,8 @@
 
     .btn-container {
       position: relative;
-      z-index: 1;
-      margin-bottom: 40px;
+      z-index: 2;
+      margin-bottom: 50px; /* Más espacio para que los productos bajen */
     }
     .btn-whatsapp {
       display: inline-flex;
@@ -88,21 +88,21 @@
     .btn-whatsapp img { width: 36px; }
 
     .productos {
-      padding: 30px 5% 80px;
-      background: transparent;
+      padding: 40px 5% 100px;
+      background: transparent; /* 100% transparente - logo se ve completo */
       text-align: center;
       position: relative;
       z-index: 1;
-      margin-top: -400px; /* Bajados otro poquito más como pediste */
+      margin-top: -300px; /* Bajados MÁS para el espacio que quieres arriba */
     }
     .productos h2 {
       font-size: 2.6rem;
       color: #3cff6a;
       text-shadow: 0 0 20px #3cff6a;
-      margin-bottom: 40px;
-      background: rgba(0,0,0,0.65);
-      padding: 8px 25px;
-      border-radius: 12px;
+      margin-bottom: 50px;
+      background: rgba(0,0,0,0.6);
+      padding: 10px 30px;
+      border-radius: 15px;
       display: inline-block;
     }
     .grid {
@@ -113,17 +113,17 @@
       margin: auto;
     }
     .card {
-      background: rgba(0,0,0,0.35); /* Más claro y transparente para que el logo se vea nítido */
-      border: 1px solid rgba(60,255,106,0.35);
+      background: rgba(0,0,0,0.25); /* Muy claro y transparente - NO tapa el logo */
+      border: 1px solid rgba(60,255,106,0.3);
       border-radius: 18px;
       padding: 18px;
-      box-shadow: 0 0 25px rgba(60,255,106,0.35);
+      box-shadow: 0 0 20px rgba(60,255,106,0.3);
       transition: all 0.4s;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(8px); /* Efecto vidrio sutil */
     }
     .card:hover {
-      background: rgba(0,0,0,0.5);
-      box-shadow: 0 0 50px rgba(60,255,106,0.7);
+      background: rgba(0,0,0,0.4);
+      box-shadow: 0 0 40px rgba(60,255,106,0.6);
       transform: translateY(-8px);
     }
     .card img {
@@ -141,7 +141,7 @@
       .hero { height: 85vh; padding-top: 90px; }
       .btn-whatsapp { padding: 12px 40px; font-size: 1.2rem; }
       .btn-whatsapp img { width: 32px; }
-      .productos { padding: 20px 5% 50px; margin-top: -380px; }
+      .productos { padding: 20px 5% 60px; margin-top: -280px; }
       .productos h2 { font-size: 2.2rem; }
       .grid { gap: 25px; }
     }
