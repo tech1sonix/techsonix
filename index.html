@@ -9,7 +9,7 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family:Arial, sans-serif;
-      background:#000 url('img/logo.png') center/contain no-repeat fixed; /* ← AGREGADO: mismo logo en body con contain para que continúe al scroll */
+      background:#000;
       color:#eafff3;
       overflow-x:hidden;
     }
@@ -35,9 +35,10 @@
       font-size:14px;
     }
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
+
     .hero {
       height: 100vh;
-      background: url('img/logo.png') center/cover no-repeat fixed; /* tu original con cover */
+      background: url('img/logo.png') center/contain no-repeat fixed; /* contain → centrado y ajustado, no gigante */
       position: relative;
       display: flex;
       flex-direction: column;
@@ -50,9 +51,10 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.2), transparent 70%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent 70%);
       z-index: 0;
     }
+
     .btn-container {
       position: relative;
       z-index: 4;
@@ -77,13 +79,14 @@
       box-shadow: 0 0 70px #25d366;
     }
     .btn-whatsapp img { width: 36px; }
+
     .productos {
       padding: 40px 5% 100px;
       background: transparent !important;
       text-align: center;
       position: relative;
       z-index: 2;
-      margin-top: -500px;
+      margin-top: -500px; /* tu superposición original para que los primeros se vean sobre el logo */
     }
     .productos h2 {
       font-size: 2.6rem;
@@ -108,7 +111,6 @@
       border-radius: 18px;
       padding: 18px;
       box-shadow: none !important;
-      backdrop-filter: none !important;
       transition: transform 0.4s;
     }
     .card:hover {
@@ -126,6 +128,7 @@
       color: #eafff3;
       text-shadow: 0 0 5px #000;
     }
+
     @media (max-width:768px) {
       .hero { height: 85vh; padding-top: 90px; }
       .btn-whatsapp { padding: 12px 40px; font-size: 1.2rem; }
