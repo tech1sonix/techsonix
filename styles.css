@@ -2,12 +2,36 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Orbitron', sans-serif;
 }
 
 body {
-  background: #050b10;
+  background: radial-gradient(circle at top, #0b1f17, #000);
   color: #fff;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+.nav-logo img {
+  width: 55px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #9fffd0;
+  font-size: 14px;
 }
 
 /* HERO */
@@ -18,13 +42,13 @@ body {
   justify-content: center;
   align-items: center;
   padding: 40px 20px;
-  background: radial-gradient(circle at center, #0f2a1f, #050b10);
 }
 
 .logo-principal {
   max-width: 420px;
   width: 100%;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
+  filter: drop-shadow(0 0 25px #00ffb3);
 }
 
 .btn-whatsapp {
@@ -34,54 +58,38 @@ body {
   border-radius: 30px;
   font-weight: bold;
   text-decoration: none;
-  box-shadow: 0 0 15px #1aff4c88;
-
-}
-
-.logo {
-  max-width: 280px;
-  width: 100%;
-  margin-bottom: 25px;
-}
-
-.btn-whatsapp {
-  display: inline-block;
-  background: #1aff4c;
-  color: #000;
-  padding: 14px 28px;
-  border-radius: 30px;
-  font-weight: bold;
-  text-decoration: none;
+  box-shadow: 0 0 20px #1aff4c99;
 }
 
 /* PRODUCTOS */
 .productos {
-  padding: 40px 20px;
-  max-width: 1100px;
-  margin: auto;
+  padding: 60px 20px;
+  text-align: center;
 }
 
 .productos h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #1aff4c;
+  color: #7dff9b;
+  margin-bottom: 40px;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
 }
 
 .card {
-  background: #0c1a22;
-  border-radius: 15px;
-  padding: 20px;
-  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 0 15px rgba(0, 255, 180, 0.2);
 }
 
 .card img {
-  max-width: 100%;
+  width: 100%;
+  border-radius: 15px;
   margin-bottom: 15px;
 }
 
@@ -89,25 +97,40 @@ body {
   margin-bottom: 10px;
 }
 
-.card p {
-  font-size: 14px;
-  opacity: 0.8;
-  margin-bottom: 10px;
+.card ul {
+  list-style: none;
+  margin-bottom: 15px;
+  color: #baffd6;
 }
 
-.card span {
+.precio {
   display: block;
   margin-bottom: 15px;
-  color: #1aff4c;
-  font-weight: bold;
+  color: #7dff9b;
+  font-size: 18px;
 }
 
-.card button {
-  background: #1aff4c;
-  border: none;
+.btn-card {
+  display: inline-block;
   padding: 10px 20px;
   border-radius: 20px;
-  cursor: pointer;
+  background: #1aff4c;
+  color: #000;
+  text-decoration: none;
   font-weight: bold;
 }
 
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+  font-size: 13px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+}
