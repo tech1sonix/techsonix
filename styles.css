@@ -12,8 +12,30 @@ body {
 
 /* HERO */
 .hero {
-  text-align: center;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 40px 20px;
+  background: radial-gradient(circle at center, #0f2a1f, #050b10);
+}
+
+.logo-principal {
+  max-width: 420px;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.btn-whatsapp {
+  background: #1aff4c;
+  color: #000;
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 0 15px #1aff4c88;
+
 }
 
 .logo {
@@ -88,3 +110,4 @@ body {
   cursor: pointer;
   font-weight: bold;
 }
+
