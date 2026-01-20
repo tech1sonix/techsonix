@@ -70,3 +70,128 @@
       padding: 14px 32px;
       background: #6cff4d;
       border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(108, 255, 77, 0.6);
+    }
+
+    .hero button:hover {
+      background: #8bff6a;
+    }
+
+    /* ===== PRODUCTOS ===== */
+    .productos {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .productos h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #6cffb5;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0, 255, 170, 0.15);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .card h3 {
+      margin: 15px 0 10px;
+      color: #6cffb5;
+    }
+
+    .card p {
+      font-size: 14px;
+      opacity: 0.85;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #25d366;
+      color: #000;
+      text-decoration: none;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      nav {
+        display: none;
+      }
+
+      .hero {
+        min-height: 70vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <img src="img/logo.png" alt="TechSonix">
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#productos">Productos</a>
+      <a href="#">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="img/logo.png" alt="TechSonix Logo">
+    <button onclick="window.open('https://wa.me/573000000000','_blank')">
+      Comprar por WhatsApp
+    </button>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section class="productos" id="productos">
+    <h2>Productos destacados</h2>
+
+    <div class="grid">
+      <div class="card">
+        <img src="img/producto1.png" alt="Producto 1">
+        <h3>Auriculares Gamer</h3>
+        <p>Sonido envolvente, diseño premium y máxima comodidad.</p>
+        <a href="https://wa.me/573000000000">Comprar</a>
+      </div>
+
+      <div class="card">
+        <img src="img/producto2.png" alt="Producto 2">
+        <h3>Power Bank Pro</h3>
+        <p>Carga rápida, diseño compacto y alto rendimiento.</p>
+        <a href="https://wa.me/573000000000">Comprar</a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
