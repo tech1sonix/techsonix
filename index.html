@@ -63,13 +63,13 @@
 
     .hero {
       min-height: 100vh;
-      background: url('img/logo.png') center/cover no-repeat scroll; /* Cambiado a scroll para que el fondo se mueva y no se "quite" */
+      background: url('img/logo.png') center/cover no-repeat scroll;
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      padding-top: 180px; /* Botón arriba */
+      padding-top: 180px;
     }
     .hero::before {
       content: '';
@@ -105,12 +105,12 @@
     .btn-whatsapp img { width: 40px; }
 
     .productos {
-      padding: 40px 5% 80px;
+      padding: 40px 5% 100px;
       background: rgba(0,0,0,0.35);
       text-align: center;
       position: relative;
       z-index: 1;
-      margin-top: -520px; /* Mantiene los productos subidos fuerte */
+      margin-top: -520px;
     }
     .productos h2 {
       font-size: 2.8rem;
@@ -126,7 +126,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 40px;
-      max-width: 1100px;
+      max-width: 1200px;
       margin: auto;
     }
     .card {
@@ -190,6 +190,16 @@
           <img src="img/producto1.png" alt="Audífonos Gamer RGB">
           <p>Audífonos Gamer RGB</p>
         </div>
+        <div class="card">
+          <img src="img/producto2.png" alt="Power Bank Pro">
+          <p>Power Bank Pro</p>
+        </div>
+        <!-- Producto duplicado 1 -->
+        <div class="card">
+          <img src="img/producto1.png" alt="Audífonos Gamer RGB">
+          <p>Audífonos Gamer RGB</p>
+        </div>
+        <!-- Producto duplicado 2 -->
         <div class="card">
           <img src="img/producto2.png" alt="Power Bank Pro">
           <p>Power Bank Pro</p>
