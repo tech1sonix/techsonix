@@ -13,11 +13,18 @@
       color:#eafff3;
       overflow-x:hidden;
     }
+
     .container {
       max-width: 1400px;
       margin: 0 auto;
       position: relative;
     }
+
+    .container::before,
+    .container::after {
+      content: none;
+    }
+
     nav {
       padding:12px 5%;
       display:flex;
@@ -35,37 +42,39 @@
       font-size:14px;
     }
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
+
     .hero {
       height: 100vh;
-      background: url('img/logo.png') center / 90% auto no-repeat fixed; /* 90% para que quepa entero en móvil */
+      background: url('img/logo.png') center/cover no-repeat fixed;
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      padding-top: 80px; /* un poco menos padding arriba en general */
-      z-index: 1;
+      padding-top: 100px;
+      z-index: 1; /* Logo siempre por encima */
     }
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent 70%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.2), transparent 70%);
       z-index: 0;
     }
+
     .btn-container {
       position: relative;
       z-index: 4;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
     .btn-whatsapp {
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      padding: 14px 40px;
+      padding: 14px 50px;
       background: #25d366;
       color: #000;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: bold;
       text-decoration: none;
       border-radius: 50px;
@@ -76,20 +85,21 @@
       transform: scale(1.05);
       box-shadow: 0 0 70px #25d366;
     }
-    .btn-whatsapp img { width: 32px; }
+    .btn-whatsapp img { width: 36px; }
+
     .productos {
-      padding: 40px 5% 80px;
+      padding: 40px 5% 100px;
       background: transparent !important;
       text-align: center;
       position: relative;
       z-index: 2;
-      margin-top: -300px; /* REDUCIDO para que no se desborde tanto en móvil */
+      margin-top: -500px;
     }
     .productos h2 {
-      font-size: 2.4rem;
+      font-size: 2.6rem;
       color: #3cff6a;
       text-shadow: 0 0 20px #3cff6a;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
       background: rgba(0,0,0,0.6);
       padding: 10px 30px;
       border-radius: 15px;
@@ -98,7 +108,7 @@
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+      gap: 35px;
       max-width: 1100px;
       margin: auto;
     }
@@ -108,6 +118,7 @@
       border-radius: 18px;
       padding: 18px;
       box-shadow: none !important;
+      backdrop-filter: none !important; /* Quitamos blur para evitar acumulación */
       transition: transform 0.4s;
     }
     .card:hover {
@@ -126,34 +137,26 @@
       text-shadow: 0 0 5px #000;
     }
 
-    /* AJUSTES FUERTES PARA MÓVIL */
-    @media (max-width: 768px) {
-      .hero {
-        height: 70vh; /* REDUCIDO para que no ocupe toda la pantalla en móvil */
-        padding-top: 60px;
-        background-size: 85% auto; /* más pequeño en móvil */
-      }
-      .btn-whatsapp {
-        padding: 12px 30px;
-        font-size: 1.1rem;
-      }
-      .btn-whatsapp img { width: 28px; }
-      .productos {
-        margin-top: -200px; /* mucho menos negativo en móvil */
-        padding: 20px 5% 60px;
-      }
-      .productos h2 { font-size: 2rem; }
-      .grid { gap: 20px; }
+    @media (max-width:768px) {
+      .hero { height: 85vh; padding-top: 90px; }
+      .btn-whatsapp { padding: 12px 40px; font-size: 1.2rem; }
+      .btn-whatsapp img { width: 32px; }
+      .productos { padding: 20px 5% 60px; margin-top: -460px; }
+      .productos h2 { font-size: 2.2rem; }
+      .grid { gap: 25px; }
     }
   </style>
 </head>
 <body>
+
   <div class="container">
+
     <nav>
       <a href="#">Inicio</a>
       <a href="#">Productos</a>
       <a href="#">Contacto</a>
     </nav>
+
     <section class="hero">
       <div class="btn-container">
         <a class="btn-whatsapp" href="https://wa.me/573XXXXXXXXX?text=Hola%2C%20quiero%20comprar" target="_blank">
@@ -161,6 +164,7 @@
         </a>
       </div>
     </section>
+
     <section class="productos">
       <h2>Productos destacados</h2>
       <div class="grid">
@@ -202,6 +206,8 @@
         </div>
       </div>
     </section>
+
   </div>
+
 </body>
 </html>
