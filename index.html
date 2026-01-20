@@ -106,7 +106,7 @@
 
     .productos {
       padding: 40px 5% 100px;
-      background: rgba(0,0,0,0.35);
+      background: rgba(0,0,0,0.2); /* Casi transparente, sin verde */
       text-align: center;
       position: relative;
       z-index: 1;
@@ -117,7 +117,7 @@
       color: #3cff6a;
       text-shadow: 0 0 25px #3cff6a;
       margin-bottom: 50px;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.6);
       padding: 10px 30px;
       border-radius: 15px;
       display: inline-block;
@@ -130,27 +130,28 @@
       margin: auto;
     }
     .card {
-      background: rgba(0,255,150,0.06);
-      border: 1px solid rgba(60,255,106,0.35);
+      background: rgba(0,0,0,0.3); /* Más oscuro y transparente para no verde */
+      border: 1px solid rgba(60,255,106,0.4);
       border-radius: 20px;
       padding: 20px;
-      box-shadow: 0 0 30px rgba(60,255,106,0.25);
+      box-shadow: 0 0 30px rgba(60,255,106,0.4);
       transition: all 0.4s;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px); /* Más blur para efecto cyber */
     }
     .card:hover {
-      background: rgba(0,255,150,0.12);
-      box-shadow: 0 0 60px rgba(60,255,106,0.6);
+      background: rgba(0,0,0,0.4);
+      box-shadow: 0 0 60px rgba(60,255,106,0.8);
       transform: translateY(-10px);
     }
     .card img {
       width: 100%;
       border-radius: 16px;
-      box-shadow: 0 0 25px rgba(0,255,150,0.4);
+      box-shadow: 0 0 25px rgba(0,255,150,0.5);
     }
     .card p {
       margin-top: 12px;
       font-size: 1.4rem;
+      color: #eafff3;
     }
 
     @media (max-width:768px) {
@@ -202,12 +203,10 @@
           <img src="img/producto2.png" alt="Power Bank Pro">
           <p>Power Bank Pro</p>
         </div>
-        <!-- Producto adicional 5 -->
         <div class="card">
           <img src="img/producto1.png" alt="Audífonos Gamer RGB">
           <p>Audífonos Gamer RGB</p>
         </div>
-        <!-- Producto adicional 6 -->
         <div class="card">
           <img src="img/producto2.png" alt="Power Bank Pro">
           <p>Power Bank Pro</p>
