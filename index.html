@@ -62,15 +62,14 @@
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
 
     .hero {
-      height: 100vh;
-      min-height: 800px;
-      background: url('img/logo.png') center/cover no-repeat fixed;
+      min-height: 100vh;
+      background: url('img/logo.png') center/cover no-repeat scroll; /* Cambiado a scroll para que el fondo se mueva y no se "quite" */
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      padding-top: 200px; /* Botón aún más arriba */
+      padding-top: 180px; /* Botón arriba */
     }
     .hero::before {
       content: '';
@@ -83,7 +82,7 @@
     .btn-container {
       position: relative;
       z-index: 1;
-      margin-bottom: 0; /* Sin espacio abajo para subir al máximo los productos */
+      margin-bottom: 0;
     }
     .btn-whatsapp {
       display: inline-flex;
@@ -111,7 +110,7 @@
       text-align: center;
       position: relative;
       z-index: 1;
-      margin-top: -520px; /* Subido AÚN MÁS FUERTE para que queden justo abajito del botón */
+      margin-top: -520px; /* Mantiene los productos subidos fuerte */
     }
     .productos h2 {
       font-size: 2.8rem;
@@ -161,7 +160,7 @@
       .hero { min-height: 80vh; padding-top: 140px; }
       .btn-whatsapp { padding: 14px 40px; font-size: 1.2rem; }
       .btn-whatsapp img { width: 32px; }
-      .productos { padding: 30px 5% 60px; margin-top: -420px; } /* Ajustado para móvil */
+      .productos { padding: 30px 5% 60px; margin-top: -420px; }
       .productos h2 { font-size: 2.2rem; }
     }
   </style>
