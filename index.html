@@ -44,7 +44,7 @@
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
 
     .hero {
-      height: 100vh; /* Ajustado para cubrir toda la pantalla */
+      height: 100vh;
       background: url('img/logo.png') center/cover no-repeat fixed;
       position: relative;
       display: flex;
@@ -92,7 +92,7 @@
       text-align: center;
       position: relative;
       z-index: 1;
-      margin-top: -500px; /* Tu posición favorita, sin cambios */
+      margin-top: -500px; /* Tu posición favorita */
     }
     .productos h2 {
       font-size: 2.6rem;
@@ -112,16 +112,16 @@
       margin: auto;
     }
     .card {
-      background: transparent !important; /* Cuadros 100% transparentes */
+      background: transparent !important; /* CUADRITOS 100% TRANSPARENTES */
       border: none;
       border-radius: 18px;
       padding: 18px;
-      box-shadow: none;
+      box-shadow: none !important;
       transition: all 0.4s;
     }
     .card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 0 30px rgba(60,255,106,0.5);
+      box-shadow: 0 0 30px rgba(60,255,106,0.4) !important;
     }
     .card img {
       width: 100%;
