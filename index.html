@@ -9,19 +9,13 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family:Arial, sans-serif;
-      background:#000;
+      background:#000 url('img/logo.png') center top / cover no-repeat fixed;  /* ← Tu imagen grande como fondo de TODA la página */
       color:#eafff3;
-      overflow-x:hidden;
+      min-height:100vh;
+      position:relative;
     }
 
-    /* Fondo global con tu imagen (full-screen, más visible) */
-    body {
-      background:url('img/logo.png') center/cover no-repeat fixed;  /* ← CAMBIA AQUÍ si el nombre es diferente */
-      background-attachment: fixed;
-      background-size: cover;
-    }
-
-    /* NAV */
+    /* NAV transparente encima */
     nav {
       position:fixed;
       top:0;
@@ -29,7 +23,7 @@
       padding:15px 5%;
       display:flex;
       justify-content:flex-end;
-      background:rgba(0,0,0,0.65);
+      background:rgba(0,0,0,0.6);
       backdrop-filter:blur(10px);
       z-index:1000;
     }
@@ -41,28 +35,23 @@
     }
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
 
-    /* HERO */
-    .hero {
-      height:100vh;
-      min-height:700px;
+    /* CONTENIDO */
+    main {
+      min-height:100vh;
       display:flex;
       flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      position:relative;
-    }
-    .hero::before {
-      content:'';
-      position:absolute;
-      inset:0;
-      background:linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.75));
-      z-index:0;
-    }
-    .hero-content {
+      justify-content:space-between;
       position:relative;
       z-index:1;
-      padding:0 20px;
+    }
+
+    /* HERO - solo para el botón, el fondo ya está en body */
+    .hero {
+      flex:1;
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+      padding-bottom:80px;
     }
     .btn-whatsapp {
       display:inline-flex;
@@ -84,13 +73,12 @@
     }
     .btn-whatsapp img { width:36px; }
 
-    /* PRODUCTOS */
+    /* PRODUCTOS - superpuestos en la parte inferior de la imagen */
     .productos {
       padding:60px 5% 100px;
-      background:rgba(0,0,0,0.7); /* Semi-transparente para ver fondo */
+      background:rgba(0,0,0,0.65); /* Semi-transparente para ver la imagen de fondo */
       text-align:center;
-      position:relative;
-      z-index:1;
+      margin-top:auto; /* Empuja hacia abajo si hay espacio */
     }
     .productos h2 {
       font-size:2.5rem;
@@ -106,11 +94,11 @@
       margin:auto;
     }
     .card {
-      background:rgba(0,255,150,0.08);
-      border:1px solid rgba(60,255,106,0.4);
+      background:rgba(0,255,150,0.1);
+      border:1px solid rgba(60,255,106,0.5);
       border-radius:18px;
       padding:25px;
-      box-shadow:0 0 40px rgba(60,255,106,0.4);
+      box-shadow:0 0 40px rgba(60,255,106,0.5);
       transition:all 0.4s;
     }
     .card:hover {
@@ -129,13 +117,13 @@
 
     /* Responsive */
     @media (max-width:768px) {
-      .hero { min-height:70vh; padding:80px 15px 60px; }
+      nav { justify-content:center; padding:12px 5%; flex-wrap:wrap; }
+      nav a { margin:8px 15px; font-size:14px; }
+      .hero { padding-bottom:60px; }
       .btn-whatsapp { padding:14px 40px; font-size:1.2rem; }
       .btn-whatsapp img { width:32px; }
       .productos { padding:40px 5% 80px; }
       .productos h2 { font-size:2rem; }
-      nav { justify-content:center; padding:12px 5%; flex-wrap:wrap; }
-      nav a { margin:8px 15px; font-size:14px; }
     }
   </style>
 </head>
@@ -147,27 +135,29 @@
     <a href="#">Contacto</a>
   </nav>
 
-  <section class="hero">
-    <div class="hero-content">
-      <a class="btn-whatsapp" href="https://wa.me/573XXXXXXXXX?text=Hola%2C%20quiero%20comprar" target="_blank">
-        <img src="img/whatsapp.png" alt="WhatsApp"> Comprar por WhatsApp
-      </a>
-    </div>
-  </section>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <a class="btn-whatsapp" href="https://wa.me/573XXXXXXXXX?text=Hola%2C%20quiero%20comprar" target="_blank">
+          <img src="img/whatsapp.png" alt="WhatsApp"> Comprar por WhatsApp
+        </a>
+      </div>
+    </section>
 
-  <section class="productos">
-    <h2>Productos destacados</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="img/producto1.png" alt="Audífonos Gamer RGB">
-        <p>Audífonos Gamer RGB</p>
+    <section class="productos">
+      <h2>Productos destacados</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="img/producto1.png" alt="Audífonos Gamer RGB">
+          <p>Audífonos Gamer RGB</p>
+        </div>
+        <div class="card">
+          <img src="img/producto2.png" alt="Power Bank Pro">
+          <p>Power Bank Pro</p>
+        </div>
       </div>
-      <div class="card">
-        <img src="img/producto2.png" alt="Power Bank Pro">
-        <p>Power Bank Pro</p>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
 </body>
 </html>
