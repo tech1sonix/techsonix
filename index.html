@@ -3,46 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <title>TechSonix | Audio & Gadgets</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <img src="img/logo.png" alt="TechSonix">
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#">Nosotros</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </nav>
+
   <!-- HERO -->
-<header class="hero">
-  <img src="img/logo.png" alt="TechSonix" class="logo-principal">
+  <header class="hero">
+    <img src="img/logo.png" alt="TechSonix" class="logo-principal">
 
-  <a href="https://wa.me/57TU_NUMERO" class="btn-whatsapp" target="_blank">
-    Comprar por WhatsApp
-  </a>
-</header>
-
+    <a href="https://wa.me/57TU_NUMERO" target="_blank" class="btn-whatsapp">
+      Comprar por WhatsApp
+    </a>
+  </header>
 
   <!-- PRODUCTOS -->
-  <section class="productos">
+  <section id="productos" class="productos">
     <h2>Productos destacados</h2>
 
     <div class="grid">
-      <!-- Producto 1 -->
+
       <div class="card">
-        <img src="img/producto1.png" alt="Producto 1">
+        <img src="img/producto1.png" alt="Audífonos Gamer RGB">
         <h3>Audífonos Gamer RGB</h3>
-        <p>Sonido envolvente · Micrófono HD</p>
-        <span>$199.000 COP</span>
-        <button>Ver producto</button>
+        <ul>
+          <li>Sonido envolvente</li>
+          <li>Luces RGB</li>
+          <li>Micrófono HD</li>
+        </ul>
+        <span class="precio">$199.000 COP</span>
+        <a href="https://wa.me/57TU_NUMERO" target="_blank" class="btn-card">
+          Ver producto
+        </a>
       </div>
 
-      <!-- Producto 2 -->
       <div class="card">
-        <img src="img/producto2.png" alt="Producto 2">
+        <img src="img/producto2.png" alt="Power Bank Pro">
         <h3>Power Bank Pro</h3>
-        <p>20.000 mAh · Carga rápida</p>
-        <span>$129.000 COP</span>
-        <button>Ver producto</button>
+        <ul>
+          <li>Carga rápida</li>
+          <li>20.000 mAh</li>
+        </ul>
+        <span class="precio">$129.000 COP</span>
+        <a href="https://wa.me/57TU_NUMERO" target="_blank" class="btn-card">
+          Ver producto
+        </a>
       </div>
+
     </div>
   </section>
 
+  <!-- FOOTER -->
+  <footer>
+    © 2026 TechSonix
+  </footer>
+
 </body>
 </html>
-
-
