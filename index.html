@@ -13,18 +13,11 @@
       color:#eafff3;
       overflow-x:hidden;
     }
-
     .container {
       max-width: 1400px;
       margin: 0 auto;
       position: relative;
     }
-
-    .container::before,
-    .container::after {
-      content: none;
-    }
-
     nav {
       padding:12px 5%;
       display:flex;
@@ -41,31 +34,36 @@
       margin-left:25px;
       font-size:14px;
     }
-    nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
+    nav a:hover { 
+      color:#3cff6a; 
+      text-shadow:0 0 10px #3cff6a; 
+    }
 
+    /* Hero con logo como imagen */
     .hero {
-      height: 100vh;
-      background: url('img/logo.png') center/cover no-repeat fixed;
+      min-height: 100vh;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent 70%), #000;
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      padding-top: 100px;
-      z-index: 1; /* Logo siempre por encima */
+      padding: 120px 5% 80px;
+      text-align: center;
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.2), transparent 70%);
-      z-index: 0;
+
+    .hero-logo {
+      max-width: 90%;
+      width: 700px; /* ajusta este valor según el tamaño que quieras */
+      height: auto;
+      object-fit: contain;
+      margin-bottom: 40px;
+      filter: drop-shadow(0 0 30px rgba(60, 255, 106, 0.7));
+      z-index: 2;
     }
 
     .btn-container {
-      position: relative;
       z-index: 4;
-      margin-bottom: 40px;
     }
     .btn-whatsapp {
       display: inline-flex;
@@ -88,12 +86,11 @@
     .btn-whatsapp img { width: 36px; }
 
     .productos {
-      padding: 40px 5% 100px;
-      background: transparent !important;
+      padding: 80px 5% 100px;
+      background: transparent;
       text-align: center;
       position: relative;
       z-index: 2;
-      margin-top: -500px;
     }
     .productos h2 {
       font-size: 2.6rem;
@@ -113,17 +110,15 @@
       margin: auto;
     }
     .card {
-      background: transparent !important;
-      border: none !important;
+      background: transparent;
+      border: none;
       border-radius: 18px;
       padding: 18px;
-      box-shadow: none !important;
-      backdrop-filter: none !important; /* Quitamos blur para evitar acumulación */
       transition: transform 0.4s;
     }
     .card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 0 30px rgba(60,255,106,0.4) !important;
+      box-shadow: 0 0 30px rgba(60,255,106,0.4);
     }
     .card img {
       width: 100%;
@@ -137,20 +132,31 @@
       text-shadow: 0 0 5px #000;
     }
 
-    @media (max-width:768px) {
-      .hero { height: 85vh; padding-top: 90px; }
-      .btn-whatsapp { padding: 12px 40px; font-size: 1.2rem; }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 100px 5% 60px;
+        min-height: 80vh;
+      }
+      .hero-logo {
+        width: 90%;
+        max-width: 500px;
+      }
+      .btn-whatsapp {
+        padding: 12px 40px;
+        font-size: 1.2rem;
+      }
       .btn-whatsapp img { width: 32px; }
-      .productos { padding: 20px 5% 60px; margin-top: -460px; }
+      .productos {
+        padding: 60px 5% 80px;
+      }
       .productos h2 { font-size: 2.2rem; }
       .grid { gap: 25px; }
     }
   </style>
 </head>
 <body>
-
   <div class="container">
-
     <nav>
       <a href="#">Inicio</a>
       <a href="#">Productos</a>
@@ -158,6 +164,8 @@
     </nav>
 
     <section class="hero">
+      <img src="img/logo.png" alt="TechSonix Logo" class="hero-logo">
+
       <div class="btn-container">
         <a class="btn-whatsapp" href="https://wa.me/573XXXXXXXXX?text=Hola%2C%20quiero%20comprar" target="_blank">
           <img src="img/whatsapp.png" alt="WhatsApp"> Comprar por WhatsApp
@@ -184,30 +192,9 @@
           <img src="img/producto2.png" alt="Power Bank Pro">
           <p>Power Bank Pro</p>
         </div>
-        <div class="card">
-          <img src="img/producto1.png" alt="Audífonos Gamer RGB">
-          <p>Audífonos Gamer RGB</p>
-        </div>
-        <div class="card">
-          <img src="img/producto2.png" alt="Power Bank Pro">
-          <p>Power Bank Pro</p>
-        </div>
-        <div class="card">
-          <img src="img/producto1.png" alt="Audífonos Gamer RGB">
-          <p>Audífonos Gamer RGB</p>
-        </div>
-        <div class="card">
-          <img src="img/producto2.png" alt="Power Bank Pro">
-          <p>Power Bank Pro</p>
-        </div>
-        <div class="card">
-          <img src="img/producto1.png" alt="Audífonos Gamer RGB">
-          <p>Audífonos Gamer RGB</p>
-        </div>
+        <!-- Puedes agregar más si quieres, o repetir para que llene -->
       </div>
     </section>
-
   </div>
-
 </body>
 </html>
