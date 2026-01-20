@@ -64,13 +64,13 @@
     .hero {
       height: 100vh;
       min-height: 800px;
-      background: url('img/logo.png') center/cover no-repeat fixed; /* CAMBIA AQUÍ SI ES OTRO NOMBRE */
+      background: url('img/logo.png') center/cover no-repeat fixed;
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      padding-top: 120px;
+      padding-top: 140px; /* Espacio para que el botón quede arriba */
     }
     .hero::before {
       content: '';
@@ -83,7 +83,7 @@
     .btn-container {
       position: relative;
       z-index: 1;
-      margin-bottom: 80px;
+      margin-bottom: 40px; /* Reduce espacio abajo para que los productos suban */
     }
     .btn-whatsapp {
       display: inline-flex;
@@ -106,12 +106,12 @@
     .btn-whatsapp img { width: 40px; }
 
     .productos {
-      padding: 40px 5% 100px;
-      background: rgba(0,0,0,0.4); /* Más transparente para ver fondo */
+      padding: 40px 5% 80px;
+      background: rgba(0,0,0,0.4); /* Transparente para ver fondo */
       text-align: center;
       position: relative;
       z-index: 1;
-      margin-top: -220px;
+      margin-top: -300px; /* Sube MUCHO más los productos (ajustado para que queden abajito del botón) */
     }
     .productos h2 {
       font-size: 2.8rem;
@@ -131,16 +131,16 @@
       margin: auto;
     }
     .card {
-      background: rgba(0,255,150,0.05); /* Súper transparente */
-      border: 1px solid rgba(60,255,106,0.3);
+      background: rgba(0,255,150,0.08);
+      border: 1px solid rgba(60,255,106,0.4);
       border-radius: 20px;
       padding: 20px;
-      box-shadow: 0 0 30px rgba(60,255,106,0.2);
+      box-shadow: 0 0 30px rgba(60,255,106,0.3);
       transition: all 0.4s;
       backdrop-filter: blur(6px);
     }
     .card:hover {
-      background: rgba(0,255,150,0.12);
+      background: rgba(0,255,150,0.15);
       box-shadow: 0 0 60px rgba(60,255,106,0.6);
       transform: translateY(-10px);
     }
@@ -152,17 +152,16 @@
     .card p {
       margin-top: 12px;
       font-size: 1.4rem;
-      color: #eafff3;
     }
 
     @media (max-width:768px) {
       .container { max-width: 100%; }
       nav { justify-content: center; padding: 12px 5%; flex-wrap: wrap; }
       nav a { margin: 8px 15px; font-size: 14px; }
-      .hero { min-height: 80vh; padding-top: 80px; }
+      .hero { min-height: 80vh; padding-top: 100px; }
       .btn-whatsapp { padding: 14px 40px; font-size: 1.2rem; }
       .btn-whatsapp img { width: 32px; }
-      .productos { padding: 30px 5% 60px; margin-top: -180px; }
+      .productos { padding: 30px 5% 60px; margin-top: -250px; } /* Ajustado para móvil */
       .productos h2 { font-size: 2.2rem; }
     }
   </style>
