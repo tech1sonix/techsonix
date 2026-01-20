@@ -8,58 +8,77 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      font-family:Arial, sans-serif;
-      background: #000 url('img/logo.png') center/cover no-repeat fixed; /* Fondo fijo en TODO el body → se ve al scroll */
-      color:#eafff3;
-      overflow-x:hidden;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #eafff3;
+      overflow-x: hidden;
     }
+
+    /* Fondo con logo más controlado en todo el sitio */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url('img/logo.png') center / 90% auto no-repeat fixed;
+      opacity: 0.25;               /* reduce la intensidad del logo */
+      z-index: -2;
+      pointer-events: none;
+    }
+
     .container {
       max-width: 1400px;
       margin: 0 auto;
       position: relative;
-      background: rgba(0,0,0,0.45); /* Overlay oscuro semi-transparente → evita que el fondo tape textos/cards */
       min-height: 100vh;
     }
+
     nav {
-      padding:12px 5%;
-      display:flex;
-      justify-content:flex-end;
-      background:rgba(0,0,0,0.85);
-      backdrop-filter:blur(10px);
+      padding: 12px 5%;
+      display: flex;
+      justify-content: flex-end;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(10px);
       position: sticky;
-      top:0;
-      z-index:1000;
+      top: 0;
+      z-index: 1000;
     }
     nav a {
-      color:#7fffd4;
-      text-decoration:none;
-      margin-left:25px;
-      font-size:14px;
+      color: #7fffd4;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 14px;
     }
-    nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
+    nav a:hover { 
+      color: #3cff6a; 
+      text-shadow: 0 0 10px #3cff6a; 
+    }
+
     .hero {
-      height: 100vh;
-      background: transparent; /* Quitamos duplicado */
+      height: 85vh;                    /* reducido para que no ocupe toda la pantalla */
+      min-height: 600px;
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      padding-top: 100px;
-      z-index: 1;
+      padding-top: 90px;
+      text-align: center;
     }
+
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent 70%);
-      z-index: -1;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent 70%);
+      z-index: 0;
     }
+
     .btn-container {
       position: relative;
       z-index: 4;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
+
     .btn-whatsapp {
       display: inline-flex;
       align-items: center;
@@ -79,41 +98,44 @@
       box-shadow: 0 0 70px #25d366;
     }
     .btn-whatsapp img { width: 36px; }
+
     .productos {
-      padding: 60px 5% 100px; /* Quitamos margin-top negativo para evitar superposiciones raras */
-      background: transparent !important;
+      padding: 40px 5% 80px;
+      background: transparent;
       text-align: center;
       position: relative;
       z-index: 2;
     }
+
     .productos h2 {
-      font-size: 2.6rem;
+      font-size: 2.4rem;
       color: #3cff6a;
       text-shadow: 0 0 20px #3cff6a;
-      margin-bottom: 50px;
+      margin-bottom: 40px;
       background: rgba(0,0,0,0.6);
       padding: 10px 30px;
       border-radius: 15px;
       display: inline-block;
     }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 35px;
+      gap: 30px;
       max-width: 1100px;
       margin: auto;
     }
+
     .card {
-      background: transparent !important;
-      border: none !important;
+      background: transparent;
+      border: none;
       border-radius: 18px;
       padding: 18px;
-      box-shadow: none !important;
       transition: transform 0.4s;
     }
     .card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 0 30px rgba(60,255,106,0.4) !important;
+      box-shadow: 0 0 30px rgba(60,255,106,0.4);
     }
     .card img {
       width: 100%;
@@ -126,12 +148,13 @@
       color: #eafff3;
       text-shadow: 0 0 5px #000;
     }
-    @media (max-width:768px) {
-      .hero { height: 85vh; padding-top: 90px; }
+
+    @media (max-width: 768px) {
+      .hero { height: 70vh; padding-top: 80px; min-height: 500px; }
       .btn-whatsapp { padding: 12px 40px; font-size: 1.2rem; }
       .btn-whatsapp img { width: 32px; }
-      .productos { padding: 40px 5% 60px; }
-      .productos h2 { font-size: 2.2rem; }
+      .productos { padding: 30px 5% 60px; }
+      .productos h2 { font-size: 2rem; }
       .grid { gap: 25px; }
     }
   </style>
@@ -143,6 +166,7 @@
       <a href="#">Productos</a>
       <a href="#">Contacto</a>
     </nav>
+
     <section class="hero">
       <div class="btn-container">
         <a class="btn-whatsapp" href="https://wa.me/573XXXXXXXXX?text=Hola%2C%20quiero%20comprar" target="_blank">
@@ -150,6 +174,7 @@
         </a>
       </div>
     </section>
+
     <section class="productos">
       <h2>Productos destacados</h2>
       <div class="grid">
