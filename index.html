@@ -9,22 +9,49 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family:Arial, sans-serif;
-      background:#000 url('img/logo.png') center top / cover no-repeat fixed;  /* ← Tu imagen grande como fondo completo */
-      min-height:100vh;
+      background:#000;
       color:#eafff3;
       overflow-x:hidden;
     }
 
-    /* NAV transparente */
+    /* CONTENEDOR PRINCIPAL CENTRADO CON MÁRGENES NEGROS A LOS LADOS */
+    .container {
+      max-width: 1400px; /* Ancho máximo - puedes cambiar a 1200px si quieres más margen negro */
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* ILUMINADO/GLOW A LOS LADOS DEL CONTENEDOR */
+    .container::before,
+    .container::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100vw; /* Cubre todo el ancho de la pantalla */
+      z-index: -1;
+      pointer-events: none;
+    }
+    .container::before {
+      left: -50vw;
+      background: linear-gradient(to right, rgba(0,255,150,0.15), transparent);
+      box-shadow: inset -80px 0 120px rgba(0,255,150,0.3);
+    }
+    .container::after {
+      right: -50vw;
+      background: linear-gradient(to left, rgba(0,255,150,0.15), transparent);
+      box-shadow: inset 80px 0 120px rgba(0,255,150,0.3);
+    }
+
+    /* NAV */
     nav {
-      position:fixed;
-      top:0;
-      width:100%;
       padding:15px 5%;
       display:flex;
       justify-content:flex-end;
-      background:rgba(0,0,0,0.65);
+      background:rgba(0,0,0,0.7);
       backdrop-filter:blur(10px);
+      position: sticky;
+      top:0;
       z-index:1000;
     }
     nav a {
@@ -35,128 +62,130 @@
     }
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
 
-    /* HERO - solo el botón centrado abajo */
+    /* HERO - fondo con tu imagen grande centrada */
     .hero {
-      height:100vh;
-      display:flex;
-      align-items:flex-end;
-      justify-content:center;
-      padding-bottom:80px;
-      position:relative;
+      min-height: 90vh;
+      background: url('img/logo.png') center/cover no-repeat; /* ← Tu imagen grande */
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 80px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.75));
+      z-index: 0;
     }
     .btn-whatsapp {
-      display:inline-flex;
-      align-items:center;
-      gap:12px;
-      padding:16px 50px;
-      background:#25d366;
-      color:#000;
-      font-size:1.4rem;
-      font-weight:bold;
-      text-decoration:none;
-      border-radius:50px;
-      box-shadow:0 0 40px #25d366;
-      transition:all 0.3s;
-      z-index:2;
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 50px;
+      background: #25d366;
+      color: #000;
+      font-size: 1.4rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 0 0 40px #25d366;
+      transition: all 0.3s;
     }
     .btn-whatsapp:hover {
-      transform:scale(1.05);
-      box-shadow:0 0 60px #25d366;
+      transform: scale(1.05);
+      box-shadow: 0 0 60px #25d366;
     }
-    .btn-whatsapp img { width:36px; }
+    .btn-whatsapp img { width: 36px; }
 
-    /* PRODUCTOS - fondo semi-transparente para ver la imagen grande debajo */
+    /* PRODUCTOS */
     .productos {
-      padding:60px 5% 100px;
-      background:rgba(0,0,0,0.65); /* Permite ver el fondo */
-      text-align:center;
-      position:relative;
-      z-index:1;
+      padding: 60px 5% 100px;
+      background: rgba(0,0,0,0.7);
+      text-align: center;
     }
     .productos h2 {
-      font-size:2.5rem;
-      color:#3cff6a;
-      text-shadow:0 0 20px #3cff6a;
-      margin-bottom:50px;
+      font-size: 2.5rem;
+      color: #3cff6a;
+      text-shadow: 0 0 20px #3cff6a;
+      margin-bottom: 50px;
     }
     .grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
-      gap:40px;
-      max-width:1100px;
-      margin:auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      max-width: 1100px;
+      margin: auto;
     }
     .card {
-      background:rgba(0,255,150,0.1);
-      border:1px solid rgba(60,255,106,0.5);
-      border-radius:18px;
-      padding:25px;
-      box-shadow:0 0 40px rgba(60,255,106,0.5);
-      transition:all 0.4s;
+      background: rgba(0,255,150,0.1);
+      border: 1px solid rgba(60,255,106,0.5);
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 0 40px rgba(60,255,106,0.5);
+      transition: all 0.4s;
     }
     .card:hover {
-      box-shadow:0 0 70px rgba(60,255,106,0.8);
-      transform:translateY(-8px);
+      box-shadow: 0 0 70px rgba(60,255,106,0.8);
+      transform: translateY(-8px);
     }
     .card img {
-      width:100%;
-      border-radius:14px;
-      box-shadow:0 0 30px rgba(0,255,150,0.6);
+      width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 0 30px rgba(0,255,150,0.6);
     }
     .card p {
-      margin-top:15px;
-      font-size:1.3rem;
+      margin-top: 15px;
+      font-size: 1.3rem;
     }
 
-    /* Responsive para celular */
+    /* Responsive móvil */
     @media (max-width:768px) {
-      body {
-        background-position: center 25%;  /* ← Ajusta más arriba para que se vea todo el nombre */
-      }
-      .hero {
-        padding-bottom:60px;
-      }
-      .btn-whatsapp {
-        padding:14px 40px;
-        font-size:1.2rem;
-      }
-      .btn-whatsapp img { width:32px; }
-      .productos {
-        padding:40px 5% 80px;
-      }
-      .productos h2 { font-size:2rem; }
-      nav { justify-content:center; padding:12px 5%; flex-wrap:wrap; }
-      nav a { margin:8px 15px; font-size:14px; }
+      .container { max-width: 100%; }
+      nav { justify-content: center; padding: 12px 5%; flex-wrap: wrap; }
+      nav a { margin: 8px 15px; font-size: 14px; }
+      .hero { min-height: 70vh; padding-bottom: 60px; }
+      .btn-whatsapp { padding: 14px 40px; font-size: 1.2rem; }
+      .btn-whatsapp img { width: 32px; }
+      .productos { padding: 40px 5% 80px; }
+      .productos h2 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="#">Inicio</a>
-    <a href="#">Productos</a>
-    <a href="#">Contacto</a>
-  </nav>
+  <div class="container">
 
-  <section class="hero">
-    <a class="btn-whatsapp" href="https://wa.me/573XXXXXXXXX?text=Hola%2C%20quiero%20comprar" target="_blank">
-      <img src="img/whatsapp.png" alt="WhatsApp"> Comprar por WhatsApp
-    </a>
-  </section>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Productos</a>
+      <a href="#">Contacto</a>
+    </nav>
 
-  <section class="productos">
-    <h2>Productos destacados</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="img/producto1.png" alt="Audífonos Gamer RGB">
-        <p>Audífonos Gamer RGB</p>
+    <section class="hero">
+      <a class="btn-whatsapp" href="https://wa.me/573XXXXXXXXX?text=Hola%2C%20quiero%20comprar" target="_blank">
+        <img src="img/whatsapp.png" alt="WhatsApp"> Comprar por WhatsApp
+      </a>
+    </section>
+
+    <section class="productos">
+      <h2>Productos destacados</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="img/producto1.png" alt="Audífonos Gamer RGB">
+          <p>Audífonos Gamer RGB</p>
+        </div>
+        <div class="card">
+          <img src="img/producto2.png" alt="Power Bank Pro">
+          <p>Power Bank Pro</p>
+        </div>
       </div>
-      <div class="card">
-        <img src="img/producto2.png" alt="Power Bank Pro">
-        <p>Power Bank Pro</p>
-      </div>
-    </div>
-  </section>
+    </section>
+
+  </div>
 
 </body>
 </html>
