@@ -18,7 +18,7 @@
       max-width: 1400px;
       margin: 0 auto;
       position: relative;
-      background: rgba(0,0,0,0.08); /* ← MÁS TRANSPARENTE (antes era 0.15, ahora 0.08 para que el logo se vea mucho más) */
+      background: rgba(0,0,0,0.08);
       min-height: 100vh;
     }
     nav {
@@ -53,7 +53,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.25), transparent 70%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.35), transparent 70%);
       z-index: 0;
     }
     .btn-container {
@@ -79,11 +79,7 @@
       transform: scale(1.05);
       box-shadow: 0 0 70px #25d366;
     }
-    .btn-whatsapp img {
-      width: 36px;
-      position: relative;
-      top: -10px; /* ← ÍCONO SUBIDO MÁS (antes -8px o menos, ahora -10px para que quede bien arriba sin salirse) */
-    }
+    .btn-whatsapp img { width: 36px; }
     .productos {
       padding: 40px 5% 100px;
       background: transparent !important;
@@ -133,25 +129,22 @@
       text-shadow: 0 0 5px #000;
     }
     @media (max-width:768px) {
-      .hero {
-        height: 80vh;
-        padding-top: 60px;
-      }
       body {
-        background-size: 100% auto;
-        background-position: center 15%;
+        background-size: cover; /* ← CAMBIO CLAVE: en móvil usa cover para llenar toda la pantalla */
+        background-position: center top; /* sube el logo para que el nombre no se corte abajo */
+      }
+      .hero {
+        height: 85vh; /* un poco más alto para que el logo ocupe mejor la pantalla inicial */
+        padding-top: 50px;
       }
       .btn-whatsapp {
         padding: 12px 40px;
         font-size: 1.2rem;
       }
-      .btn-whatsapp img {
-        width: 32px;
-        top: -8px; /* subido proporcional en móvil */
-      }
+      .btn-whatsapp img { width: 32px; }
       .productos {
         padding: 20px 5% 60px;
-        margin-top: -300px;
+        margin-top: -280px; /* ajustado para que no deje hueco negro ni tape */
       }
       .productos h2 { font-size: 2.2rem; }
       .grid { gap: 25px; }
