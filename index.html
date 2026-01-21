@@ -130,11 +130,11 @@
     }
     @media (max-width:768px) {
       body {
-        background-size: cover; /* ← CAMBIO CLAVE: en móvil usa cover para llenar toda la pantalla */
-        background-position: center top; /* sube el logo para que el nombre no se corte abajo */
+        background-size: 100% auto; /* ← TÉRMINO MEDIO: llena todo el ancho sin estirar verticalmente, logo más grande y proporcional */
+        background-position: center top 10%; /* sube un poco para que el nombre quede bien visible */
       }
       .hero {
-        height: 85vh; /* un poco más alto para que el logo ocupe mejor la pantalla inicial */
+        height: 85vh;
         padding-top: 50px;
       }
       .btn-whatsapp {
@@ -144,7 +144,7 @@
       .btn-whatsapp img { width: 32px; }
       .productos {
         padding: 20px 5% 60px;
-        margin-top: -280px; /* ajustado para que no deje hueco negro ni tape */
+        margin-top: -280px;
       }
       .productos h2 { font-size: 2.2rem; }
       .grid { gap: 25px; }
