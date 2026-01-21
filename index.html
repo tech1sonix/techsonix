@@ -18,10 +18,10 @@
       max-width: 1400px;
       margin: 0 auto;
       position: relative;
-      background: rgba(0,0,0,0.08);
+      background: rgba(0,0,0,0.02); /* ← MUY TRANSPARENTE ahora (antes 0.08), para que el logo se vea brillante y sin opacidad al scroll */
       min-height: 100vh;
+      box-shadow: inset 0 0 80px rgba(60,255,106,0.08); /* glow sutil verde para que el logo resalte más sin oscurecer */
     }
-    /* Barra superior con iconos centrados */
     .top-bar {
       padding: 15px 5%;
       display: flex;
@@ -50,7 +50,6 @@
       transform: scale(1.15) translateY(-5px);
       box-shadow: 0 8px 25px rgba(0,0,0,0.7);
     }
-    /* Colores originales */
     .social-icons a.whatsapp { background: #25d366; }
     .social-icons a.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
     .social-icons a.facebook { background: #1877f2; }
@@ -64,16 +63,16 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      justify-content: center; /* centrado vertical para que el logo quede más en medio sin botón */
+      justify-content: flex-start;
       align-items: center;
-      padding-top: 0;
+      padding-top: 80px;
       z-index: 1;
     }
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.35), transparent 70%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.25), transparent 70%);
       z-index: 0;
     }
     .productos {
@@ -124,7 +123,6 @@
       color: #eafff3;
       text-shadow: 0 0 5px #000;
     }
-    /* Burbuja flotante WhatsApp abajo derecha */
     .whatsapp-bubble {
       position: fixed;
       bottom: 30px;
@@ -139,7 +137,6 @@
       box-shadow: 0 5px 20px rgba(0,0,0,0.5);
       z-index: 9999;
       transition: all 0.3s ease;
-      cursor: pointer;
     }
     .whatsapp-bubble:hover {
       transform: scale(1.15);
@@ -150,10 +147,6 @@
       height: 45px;
     }
     @media (max-width:768px) {
-      body {
-        background-size: 100% auto;
-        background-position: center top 10%;
-      }
       .top-bar {
         padding: 10px 5%;
       }
@@ -168,9 +161,13 @@
         width: 30px;
         height: 30px;
       }
+      body {
+        background-size: 100% auto;
+        background-position: center top 10%;
+      }
       .hero {
         height: 85vh;
-        padding-top: 40px;
+        padding-top: 50px;
       }
       .productos {
         padding: 20px 5% 60px;
@@ -192,23 +189,22 @@
 </head>
 <body>
   <div class="container">
-    <!-- Barra superior solo con iconos centrados -->
     <div class="top-bar">
       <div class="social-icons">
         <a href="https://wa.me/573102868697" target="_blank" class="whatsapp">
           <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
         </a>
-        <a href="https://instagram.com/tuusuario" target="_blank" class="instagram"> <!-- CAMBIA TU USUARIO -->
+        <a href="https://instagram.com/tuusuario" target="_blank" class="instagram">
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
         </a>
-        <a href="https://facebook.com/tupagina" target="_blank" class="facebook"> <!-- CAMBIA TU PÁGINA -->
+        <a href="https://facebook.com/tupagina" target="_blank" class="facebook">
           <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
         </a>
       </div>
     </div>
 
     <section class="hero">
-      <!-- Quitamos el botón grande de WhatsApp del hero -->
+      <!-- Sin botón grande -->
     </section>
 
     <section class="productos">
@@ -222,39 +218,11 @@
           <img src="img/producto2.png" alt="Power Bank Pro">
           <p>Power Bank Pro</p>
         </div>
-        <div class="card">
-          <img src="img/producto1.png" alt="Audífonos Gamer RGB">
-          <p>Audífonos Gamer RGB</p>
-        </div>
-        <div class="card">
-          <img src="img/producto2.png" alt="Power Bank Pro">
-          <p>Power Bank Pro</p>
-        </div>
-        <div class="card">
-          <img src="img/producto1.png" alt="Audífonos Gamer RGB">
-          <p>Audífonos Gamer RGB</p>
-        </div>
-        <div class="card">
-          <img src="img/producto2.png" alt="Power Bank Pro">
-          <p>Power Bank Pro</p>
-        </div>
-        <div class="card">
-          <img src="img/producto1.png" alt="Audífonos Gamer RGB">
-          <p>Audífonos Gamer RGB</p>
-        </div>
-        <div class="card">
-          <img src="img/producto2.png" alt="Power Bank Pro">
-          <p>Power Bank Pro</p>
-        </div>
-        <div class="card">
-          <img src="img/producto1.png" alt="Audífonos Gamer RGB">
-          <p>Audífonos Gamer RGB</p>
-        </div>
+        <!-- ... resto de cards ... -->
       </div>
     </section>
   </div>
 
-  <!-- Burbuja flotante WhatsApp (fija abajo a la derecha) -->
   <a href="https://wa.me/573102868697?text=Hola%2C%20necesito%20ayuda" class="whatsapp-bubble" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Chat WhatsApp">
   </a>
