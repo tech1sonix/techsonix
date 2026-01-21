@@ -9,7 +9,7 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family:Arial, sans-serif;
-      background:#000;
+      background: #000 url('img/logo.png') center / contain no-repeat fixed; /* fondo en body para que se vea siempre al scroll */
       color:#eafff3;
       overflow-x:hidden;
     }
@@ -17,6 +17,8 @@
       max-width: 1400px;
       margin: 0 auto;
       position: relative;
+      background: rgba(0,0,0,0.3); /* overlay sutil en toda la página para que los textos y cards se lean mejor sin perder el logo */
+      min-height: 100vh;
     }
     .container::before,
     .container::after {
@@ -41,8 +43,7 @@
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
     .hero {
       height: 100vh;
-      background: url('img/logo.png') center / contain no-repeat fixed;
-      background-position: center 20%; /* sube un poco el logo para que quede mejor centrado */
+      background: transparent; /* quitamos duplicado, ya está en body */
       position: relative;
       display: flex;
       flex-direction: column;
@@ -55,7 +56,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.25), transparent 65%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4), transparent 70%);
       z-index: 0;
     }
     .btn-container {
@@ -88,7 +89,7 @@
       text-align: center;
       position: relative;
       z-index: 2;
-      margin-top: -400px; /* reducido para que no se desborde tanto */
+      margin-top: -400px;
     }
     .productos h2 {
       font-size: 2.6rem;
@@ -133,8 +134,6 @@
     @media (max-width:768px) {
       .hero {
         height: 80vh;
-        background-size: 95% auto; /* logo más grande pero completo en móvil */
-        background-position: center 25%;
         padding-top: 60px;
       }
       .btn-whatsapp {
@@ -144,7 +143,7 @@
       .btn-whatsapp img { width: 32px; }
       .productos {
         padding: 20px 5% 60px;
-        margin-top: -300px; /* menos negativo en móvil para evitar huecos */
+        margin-top: -300px;
       }
       .productos h2 { font-size: 2.2rem; }
       .grid { gap: 25px; }
