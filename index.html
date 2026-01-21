@@ -9,7 +9,8 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family:Arial, sans-serif;
-      background:#000;
+      background: #000 url('img/logo.png') center / contain no-repeat fixed; /* logo sutil de respaldo en todo el body */
+      background-opacity: 0.3; /* logo muy transparente en body para continuidad sin negro */
       color:#eafff3;
       overflow-x:hidden;
     }
@@ -17,12 +18,8 @@
       max-width: 1400px;
       margin: 0 auto;
       position: relative;
-      background: rgba(0,0,0,0.15); /* ← BAJADO de 0.3 a 0.15 → logo más transparente y visible */
+      background: rgba(0,0,0,0.15); /* muy transparente como pediste */
       min-height: 100vh;
-    }
-    .container::before,
-    .container::after {
-      content: none;
     }
     nav {
       padding:12px 5%;
@@ -43,7 +40,7 @@
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
     .hero {
       height: 100vh;
-      background: transparent; /* fondo en body, hero solo overlay */
+      background: url('img/logo.png') center / contain no-repeat fixed; /* logo principal completo aquí */
       position: relative;
       display: flex;
       flex-direction: column;
@@ -56,7 +53,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.35), transparent 70%); /* ← overlay un poco más suave */
+      background: linear-gradient(to bottom, rgba(0,0,0,0.25), transparent 65%);
       z-index: 0;
     }
     .btn-container {
@@ -134,6 +131,8 @@
     @media (max-width:768px) {
       .hero {
         height: 80vh;
+        background-size: 95% auto;
+        background-position: center 25%;
         padding-top: 60px;
       }
       .btn-whatsapp {
