@@ -46,6 +46,7 @@
       align-items: center;
       justify-content: center;
       transition: all 0.4s ease;
+      overflow: hidden;
     }
     .social-icons a::after {
       content: '';
@@ -53,46 +54,40 @@
       inset: 0;
       border-radius: 50%;
       z-index: 0;
-      box-shadow: 0 0 60px 20px;
-      opacity: 0.8;
-      filter: blur(20px);
+      box-shadow: 0 0 50px 15px;
+      opacity: 0.9;
+      filter: blur(15px);
     }
-    .social-icons a.whatsapp::after { background: #25d366; box-shadow: 0 0 80px 30px #25d366; }
-    .social-icons a.instagram::after { background: #C13584; box-shadow: 0 0 80px 30px #C13584; }
-    .social-icons a.facebook::after { background: #1877f2; box-shadow: 0 0 80px 30px #1877f2; }
+    .social-icons a.whatsapp::after { background: #25d366; box-shadow: 0 0 70px 25px #25d366; }
+    .social-icons a.instagram::after { background: #C13584; box-shadow: 0 0 70px 25px #C13584; }
+    .social-icons a.facebook::after { background: #1877f2; box-shadow: 0 0 70px 25px #1877f2; }
 
     .social-icons a::before {
       content: '';
       position: absolute;
-      inset: -6px;
+      inset: -5px;
       border-radius: 50%;
       border: 5px solid #c0c0c0;
-      box-shadow: 
-        inset 0 0 20px rgba(192,192,192,0.9),
-        0 0 50px rgba(192,192,192,0.8),
-        inset 0 6px 15px rgba(255,255,255,0.5);
+      box-shadow: inset 0 0 15px rgba(192,192,192,0.7), 0 0 40px rgba(192,192,192,0.6), inset 0 5px 12px rgba(255,255,255,0.4);
       pointer-events: none;
       z-index: 1;
     }
     .social-icons a:hover {
-      transform: translateY(-8px) scale(1.1);
+      transform: translateY(-6px) scale(1.08);
     }
     .social-icons a:hover::before {
-      box-shadow: 
-        inset 0 0 30px rgba(192,192,192,0.95),
-        0 0 70px rgba(192,192,192,0.9),
-        inset 0 8px 20px rgba(255,255,255,0.6);
+      box-shadow: inset 0 0 25px rgba(192,192,192,0.85), 0 0 60px rgba(192,192,192,0.75), inset 0 7px 18px rgba(255,255,255,0.5);
     }
     .social-icons a:hover::after {
-      box-shadow: 0 0 100px 40px;
+      box-shadow: 0 0 90px 35px;
       opacity: 1;
-      filter: blur(25px);
+      filter: blur(20px);
     }
 
     .social-icons img {
-      width: 52px;
-      height: 52px;
-      filter: brightness(1.15) drop-shadow(0 0 8px rgba(255,255,255,0.5));
+      width: 50px;
+      height: 50px;
+      filter: brightness(1.1) drop-shadow(0 0 5px rgba(255,255,255,0.4));
       z-index: 2;
       position: relative;
     }
@@ -157,7 +152,7 @@
       text-shadow: 0 0 5px #000;
     }
 
-    /* Burbuja WhatsApp con el mismo estilo */
+    /* Burbuja WhatsApp con el mismo estilo plateado + resplandor */
     .whatsapp-bubble {
       position: fixed;
       bottom: 30px;
@@ -177,34 +172,38 @@
       inset: 0;
       border-radius: 50%;
       background: #25d366;
-      box-shadow: 0 0 80px 30px #25d366;
+      box-shadow: 0 0 70px 25px #25d366;
       z-index: 0;
     }
     .whatsapp-bubble::before {
       content: '';
       position: absolute;
-      inset: -6px;
+      inset: -5px;
       border-radius: 50%;
       border: 5px solid #c0c0c0;
-      box-shadow: inset 0 0 20px rgba(192,192,192,0.9), 0 0 50px rgba(192,192,192,0.8);
+      box-shadow: inset 0 0 15px rgba(192,192,192,0.7), 0 0 40px rgba(192,192,192,0.6);
       pointer-events: none;
       z-index: 1;
     }
     .whatsapp-bubble:hover {
-      transform: translateY(-8px) scale(1.1);
+      transform: translateY(-6px) scale(1.08);
     }
     .whatsapp-bubble:hover::before {
-      box-shadow: inset 0 0 30px rgba(192,192,192,0.95), 0 0 70px rgba(192,192,192,0.9);
+      box-shadow: inset 0 0 25px rgba(192,192,192,0.85), 0 0 60px rgba(192,192,192,0.75);
+    }
+    .whatsapp-bubble:hover::after {
+      box-shadow: 0 0 90px 35px #25d366;
     }
     .whatsapp-bubble img {
-      width: 52px;
-      height: 52px;
-      filter: brightness(1.15) drop-shadow(0 0 8px rgba(255,255,255,0.5));
+      width: 50px;
+      height: 50px;
+      filter: brightness(1.1) drop-shadow(0 0 5px rgba(255,255,255,0.4));
       z-index: 2;
       position: relative;
     }
 
     @media (max-width:768px) {
+      body { background-size: 100% auto; background-position: center top 10%; }
       .top-bar { padding: 10px 5%; }
       .social-icons { gap: 20px; }
       .social-icons a { width: 60px; height: 60px; }
@@ -214,7 +213,7 @@
       .productos h2 { font-size: 2.2rem; }
       .grid { gap: 25px; }
       .whatsapp-bubble { width: 70px; height: 70px; bottom: 20px; right: 20px; }
-      .whatsapp-bubble img { width: 42px; height: 42px; }
+      .whatsapp-bubble img { width: 38px; height: 38px; }
     }
   </style>
 </head>
