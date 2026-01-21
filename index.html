@@ -54,10 +54,7 @@
       inset: -4px;
       border-radius: 50%;
       border: 4px solid silver;
-      box-shadow: 
-        inset 0 0 25px rgba(192,192,192,0.8),
-        0 0 35px rgba(192,192,192,0.6),
-        inset 0 4px 12px rgba(255,255,255,0.4);
+      box-shadow: inset 0 0 25px rgba(192,192,192,0.8), 0 0 45px rgba(192,192,192,0.7);
       pointer-events: none;
       z-index: 1;
     }
@@ -65,16 +62,22 @@
       transform: translateY(-6px) scale(1.08);
     }
     .social-icons a:hover::before {
-      box-shadow: 
-        inset 0 0 35px rgba(192,192,192,0.9),
-        0 0 50px rgba(192,192,192,0.8),
-        inset 0 6px 18px rgba(255,255,255,0.5);
+      box-shadow: inset 0 0 35px rgba(192,192,192,0.9), 0 0 60px rgba(192,192,192,0.8);
     }
 
-    /* Colores de fondo oficiales de cada red */
-    .social-icons a.whatsapp { background: #25d366; }
-    .social-icons a.instagram { background: #C13584; } /* Morado clásico de Instagram */
-    .social-icons a.facebook { background: #1877f2; }
+    /* Fondo con color oficial y resplandor detrás más intenso */
+    .social-icons a.whatsapp {
+      background: #25d366;
+      box-shadow: 0 0 60px #25d366aa, inset 0 0 25px #25d36688;
+    }
+    .social-icons a.instagram {
+      background: #C13584;
+      box-shadow: 0 0 60px #C13584aa, inset 0 0 25px #C1358488;
+    }
+    .social-icons a.facebook {
+      background: #1877f2;
+      box-shadow: 0 0 60px #1877f2aa, inset 0 0 25px #1877f288;
+    }
 
     /* Iconos oficiales con brillo plateado sutil */
     .social-icons img {
@@ -145,7 +148,7 @@
       text-shadow: 0 0 5px #000;
     }
 
-    /* Burbuja WhatsApp con el mismo estilo plateado + verde */
+    /* Burbuja WhatsApp con el mismo estilo plateado + verde + resplandor mayor */
     .whatsapp-bubble {
       position: fixed;
       bottom: 30px;
@@ -158,7 +161,7 @@
       justify-content: center;
       transition: all 0.4s ease;
       background: #25d366;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+      box-shadow: 0 0 60px #25d366aa, inset 0 0 25px #25d36688;
       overflow: hidden;
       z-index: 9999;
     }
@@ -168,16 +171,16 @@
       inset: -4px;
       border-radius: 50%;
       border: 4px solid silver;
-      box-shadow: inset 0 0 20px rgba(192,192,192,0.7), 0 0 30px rgba(192,192,192,0.5);
+      box-shadow: inset 0 0 25px rgba(192,192,192,0.8), 0 0 45px rgba(192,192,192,0.7);
       pointer-events: none;
       z-index: 1;
     }
     .whatsapp-bubble:hover {
       transform: translateY(-8px) scale(1.1);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.9);
+      box-shadow: 0 0 80px #25d366cc, inset 0 0 35px #25d366aa;
     }
     .whatsapp-bubble:hover::before {
-      box-shadow: inset 0 0 30px rgba(192,192,192,0.9), 0 0 45px rgba(192,192,192,0.8);
+      box-shadow: inset 0 0 35px rgba(192,192,192,0.9), 0 0 60px rgba(192,192,192,0.8);
     }
     .whatsapp-bubble img {
       width: 48px;
