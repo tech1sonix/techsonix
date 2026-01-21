@@ -9,8 +9,7 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family:Arial, sans-serif;
-      background: #000 url('img/logo.png') center / contain no-repeat fixed; /* logo sutil de respaldo en todo el body */
-      background-opacity: 0.3; /* logo muy transparente en body para continuidad sin negro */
+      background:#000;
       color:#eafff3;
       overflow-x:hidden;
     }
@@ -18,7 +17,7 @@
       max-width: 1400px;
       margin: 0 auto;
       position: relative;
-      background: rgba(0,0,0,0.15); /* muy transparente como pediste */
+      background: rgba(0,0,0,0.15);
       min-height: 100vh;
     }
     nav {
@@ -40,7 +39,8 @@
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
     .hero {
       height: 100vh;
-      background: url('img/logo.png') center / contain no-repeat fixed; /* logo principal completo aquí */
+      background: url('img/logo.png') center / contain no-repeat fixed;
+      background-position: center 20%;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -130,10 +130,10 @@
     }
     @media (max-width:768px) {
       .hero {
-        height: 80vh;
-        background-size: 95% auto;
-        background-position: center 25%;
-        padding-top: 60px;
+        height: 90vh; /* más alto en móvil para que ocupe más pantalla */
+        background-size: 100% auto; /* logo ocupa todo el ancho posible sin cortarse */
+        background-position: center 15%; /* lo sube un poco más en móvil */
+        padding-top: 50px; /* menos padding arriba para que el logo entre mejor */
       }
       .btn-whatsapp {
         padding: 12px 40px;
@@ -142,7 +142,7 @@
       .btn-whatsapp img { width: 32px; }
       .productos {
         padding: 20px 5% 60px;
-        margin-top: -300px;
+        margin-top: -280px; /* ajustado para que no se vea hueco negro ni se desborde */
       }
       .productos h2 { font-size: 2.2rem; }
       .grid { gap: 25px; }
