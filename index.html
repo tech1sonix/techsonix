@@ -9,7 +9,8 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family:Arial, sans-serif;
-      background:#000;
+      background: #000 url('img/logo.png') center / contain no-repeat fixed;
+      background-position: center 20%;
       color:#eafff3;
       overflow-x:hidden;
     }
@@ -39,8 +40,7 @@
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
     .hero {
       height: 100vh;
-      background: url('img/logo.png') center / contain no-repeat fixed;
-      background-position: center 20%;
+      background: transparent;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -60,51 +60,26 @@
       position: relative;
       z-index: 3;
       margin-bottom: 40px;
-      margin-top: -20px; /* ← SUBIMOS EL BOTÓN UN POCO PARA QUE NO TAPE EL LOGO */
     }
     .btn-whatsapp {
       display: inline-flex;
       align-items: center;
-      gap: 16px;
-      padding: 18px 70px;
-      background: #0d1a0f;
-      color: #25d366;
-      font-size: 1.6rem;
-      font-weight: 900;
+      gap: 12px;
+      padding: 14px 50px;
+      background: #25d366;
+      color: #000;
+      font-size: 1.4rem;
+      font-weight: bold;
       text-decoration: none;
-      border-radius: 999px;
-      border: 3px solid #25d366;
-      box-shadow: 0 0 30px #25d36660, inset 0 0 20px #25d36630;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.4s;
-    }
-    .btn-whatsapp::after {
-      content: '';
-      position: absolute;
-      inset: -3px;
-      border-radius: 999px;
-      border: 3px solid transparent;
-      background: linear-gradient(#25d366, #128c7e) border-box;
-      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      animation: pulse-border 2s infinite;
-    }
-    @keyframes pulse-border {
-      0%, 100% { opacity: 0.7; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.04); }
+      border-radius: 50px;
+      box-shadow: 0 0 40px #25d366;
+      transition: all 0.3s;
     }
     .btn-whatsapp:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 0 100px #25d366cc;
-      color: white;
-      background: linear-gradient(135deg, #25d366, #128c7e);
+      transform: scale(1.05);
+      box-shadow: 0 0 70px #25d366;
     }
-    .btn-whatsapp img {
-      width: 48px;
-      filter: drop-shadow(0 0 12px #25d366);
-    }
+    .btn-whatsapp img { width: 36px; }
     .productos {
       padding: 40px 5% 100px;
       background: transparent !important;
@@ -159,10 +134,10 @@
         padding-top: 60px;
       }
       .btn-whatsapp {
-        padding: 14px 50px;
-        font-size: 1.3rem;
+        padding: 12px 40px;
+        font-size: 1.2rem;
       }
-      .btn-whatsapp img { width: 40px; }
+      .btn-whatsapp img { width: 32px; }
       .productos {
         padding: 20px 5% 60px;
         margin-top: -300px;
