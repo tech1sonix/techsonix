@@ -36,24 +36,51 @@
       display: flex;
       gap: 35px;
     }
-    .social-icons a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      transition: all 0.3s;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    }
-    .social-icons a:hover {
-      transform: scale(1.15) translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.7);
-    }
-    .social-icons a.whatsapp { background: #25d366; }
-    .social-icons a.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-    .social-icons a.facebook { background: #1877f2; }
-    .social-icons img {
+    .social-icons {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+.social-icons a {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6), inset 0 0 15px rgba(255,255,255,0.15);
+}
+.social-icons a::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.7;
+  filter: blur(12px);
+  z-index: -1;
+  transition: all 0.5s;
+}
+.social-icons a:hover {
+  transform: translateY(-8px) scale(1.1);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+}
+.social-icons a:hover::before {
+  opacity: 1;
+  filter: blur(18px);
+}
+/* Colores con neón */
+.social-icons a.whatsapp::before { background: #25d366; box-shadow: 0 0 30px #25d366aa; }
+.social-icons a.instagram::before { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); box-shadow: 0 0 30px #bc1888aa; }
+.social-icons a.facebook::before { background: #1877f2; box-shadow: 0 0 30px #1877f2aa; }
+.social-icons img {
+  width: 40px;
+  height: 40px;
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
+} img {
       width: 36px;
       height: 36px;
     }
@@ -250,3 +277,4 @@
   </a>
 </body>
 </html>
+
