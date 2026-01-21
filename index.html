@@ -21,63 +21,42 @@
       background: rgba(0,0,0,0.08);
       min-height: 100vh;
     }
-    nav {
-      padding:12px 5%;
-      display:flex;
-      flex-direction: column;
-      align-items:center;
-      background:rgba(0,0,0,0.85);
-      backdrop-filter:blur(10px);
+    /* Barra superior con iconos centrados */
+    .top-bar {
+      padding: 15px 5%;
+      display: flex;
+      justify-content: center;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(10px);
       position: sticky;
-      top:0;
-      z-index:1000;
-      gap: 10px;
+      top: 0;
+      z-index: 1000;
     }
-    .nav-links {
-      display:flex;
-      gap:25px;
-      margin-bottom: 5px;
-    }
-    .nav-links a {
-      color:#7fffd4;
-      text-decoration:none;
-      font-size:14px;
-    }
-    .nav-links a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
     .social-icons {
-      display:flex;
-      gap:25px; /* más espacio entre iconos */
-      justify-content:center;
+      display: flex;
+      gap: 35px;
     }
     .social-icons a {
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      width:50px; /* ← MÁS GRANDES */
-      height:50px;
-      border-radius:50%;
-      background:rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
       transition: all 0.3s;
-      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     }
     .social-icons a:hover {
-      transform: scale(1.15);
-      box-shadow: 0 0 25px rgba(255,255,255,0.3);
+      transform: scale(1.15) translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.7);
     }
-    /* Colores originales por red social */
-    .social-icons a[href*="wa.me"] {
-      background: #25d366; /* verde WhatsApp */
-    }
-    .social-icons a[href*="instagram"] {
-      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* gradiente Instagram */
-    }
-    .social-icons a[href*="facebook"] {
-      background: #1877f2; /* azul Facebook */
-    }
+    /* Colores originales */
+    .social-icons a.whatsapp { background: #25d366; }
+    .social-icons a.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+    .social-icons a.facebook { background: #1877f2; }
     .social-icons img {
-      width:32px; /* tamaño del ícono dentro del círculo */
-      height:32px;
-      filter: brightness(1.1); /* para que resalten bien */
+      width: 36px;
+      height: 36px;
     }
     .hero {
       height: 100vh;
@@ -85,9 +64,9 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: center; /* centrado vertical para que el logo quede más en medio sin botón */
       align-items: center;
-      padding-top: 80px;
+      padding-top: 0;
       z-index: 1;
     }
     .hero::before {
@@ -97,30 +76,6 @@
       background: linear-gradient(to bottom, rgba(0,0,0,0.35), transparent 70%);
       z-index: 0;
     }
-    .btn-container {
-      position: relative;
-      z-index: 3;
-      margin-bottom: 40px;
-    }
-    .btn-whatsapp {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 50px;
-      background: #25d366;
-      color: #000;
-      font-size: 1.4rem;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 50px;
-      box-shadow: 0 0 40px #25d366;
-      transition: all 0.3s;
-    }
-    .btn-whatsapp:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 70px #25d366;
-    }
-    .btn-whatsapp img { width: 36px; }
     .productos {
       padding: 40px 5% 100px;
       background: transparent !important;
@@ -169,79 +124,93 @@
       color: #eafff3;
       text-shadow: 0 0 5px #000;
     }
+    /* Burbuja flotante WhatsApp abajo derecha */
+    .whatsapp-bubble {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 70px;
+      height: 70px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+      z-index: 9999;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .whatsapp-bubble:hover {
+      transform: scale(1.15);
+      box-shadow: 0 10px 30px rgba(37,211,102,0.7);
+    }
+    .whatsapp-bubble img {
+      width: 45px;
+      height: 45px;
+    }
     @media (max-width:768px) {
-      nav {
-        padding: 10px 5%;
-        gap: 8px;
-      }
-      .nav-links {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .nav-links a {
-        font-size: 13px;
-      }
-      .social-icons {
-        gap: 18px;
-      }
-      .social-icons a {
-        width: 42px;
-        height: 42px;
-      }
-      .social-icons img {
-        width: 26px;
-        height: 26px;
-      }
       body {
         background-size: 100% auto;
         background-position: center top 10%;
       }
+      .top-bar {
+        padding: 10px 5%;
+      }
+      .social-icons {
+        gap: 20px;
+      }
+      .social-icons a {
+        width: 50px;
+        height: 50px;
+      }
+      .social-icons img {
+        width: 30px;
+        height: 30px;
+      }
       .hero {
         height: 85vh;
-        padding-top: 50px;
+        padding-top: 40px;
       }
-      .btn-whatsapp {
-        padding: 12px 40px;
-        font-size: 1.2rem;
-      }
-      .btn-whatsapp img { width: 32px; }
       .productos {
         padding: 20px 5% 60px;
         margin-top: -280px;
       }
       .productos h2 { font-size: 2.2rem; }
-      .grid { gap: 25px; }
+      .whatsapp-bubble {
+        width: 60px;
+        height: 60px;
+        bottom: 20px;
+        right: 20px;
+      }
+      .whatsapp-bubble img {
+        width: 38px;
+        height: 38px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <nav>
-      <div class="nav-links">
-        <a href="#">Inicio</a>
-        <a href="#">Productos</a>
-        <a href="#">Contacto</a>
-      </div>
+    <!-- Barra superior solo con iconos centrados -->
+    <div class="top-bar">
       <div class="social-icons">
-        <a href="https://wa.me/573XXXXXXXXX" target="_blank">
+        <a href="https://wa.me/573102868697" target="_blank" class="whatsapp">
           <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
         </a>
-        <a href="https://instagram.com/tuusuario" target="_blank"> <!-- CAMBIA TU USUARIO -->
+        <a href="https://instagram.com/tuusuario" target="_blank" class="instagram"> <!-- CAMBIA TU USUARIO -->
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
         </a>
-        <a href="https://facebook.com/tupagina" target="_blank"> <!-- CAMBIA TU PÁGINA -->
+        <a href="https://facebook.com/tupagina" target="_blank" class="facebook"> <!-- CAMBIA TU PÁGINA -->
           <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
         </a>
       </div>
-    </nav>
+    </div>
+
     <section class="hero">
-      <div class="btn-container">
-        <a class="btn-whatsapp" href="https://wa.me/573XXXXXXXXX?text=Hola%2C%20quiero%20comprar" target="_blank">
-          <img src="img/whatsapp.png" alt="WhatsApp"> Comprar por WhatsApp
-        </a>
-      </div>
+      <!-- Quitamos el botón grande de WhatsApp del hero -->
     </section>
+
     <section class="productos">
       <h2>Productos destacados</h2>
       <div class="grid">
@@ -284,5 +253,10 @@
       </div>
     </section>
   </div>
+
+  <!-- Burbuja flotante WhatsApp (fija abajo a la derecha) -->
+  <a href="https://wa.me/573102868697?text=Hola%2C%20necesito%20ayuda" class="whatsapp-bubble" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Chat WhatsApp">
+  </a>
 </body>
 </html>
