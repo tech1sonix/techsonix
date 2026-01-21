@@ -9,7 +9,8 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family:Arial, sans-serif;
-      background:#000;
+      background: #000 url('img/logo.png') center / contain no-repeat fixed; /* logo siempre visible en todo el scroll */
+      background-position: center 20%; /* un poco más arriba */
       color:#eafff3;
       overflow-x:hidden;
     }
@@ -17,6 +18,8 @@
       max-width: 1400px;
       margin: 0 auto;
       position: relative;
+      background: rgba(0,0,0,0.15); /* overlay transparente para que el logo se note */
+      min-height: 100vh;
     }
     nav {
       padding:12px 5%;
@@ -37,8 +40,7 @@
     nav a:hover { color:#3cff6a; text-shadow:0 0 10px #3cff6a; }
     .hero {
       height: 100vh;
-      background: url('img/logo.png') center/contain no-repeat fixed;
-      background-position: center 20%;
+      background: transparent; /* sin fondo duplicado */
       position: relative;
       display: flex;
       flex-direction: column;
@@ -51,7 +53,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.25), transparent 65%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.35), transparent 70%);
       z-index: 0;
     }
     .btn-container {
@@ -127,10 +129,23 @@
       text-shadow: 0 0 5px #000;
     }
     @media (max-width:768px) {
-      .hero { height: 80vh; padding-top: 60px; }
-      .btn-whatsapp { padding: 12px 40px; font-size: 1.2rem; }
+      body {
+        background-size: 100% auto; /* logo más grande en móvil */
+        background-position: center 15%;
+      }
+      .hero {
+        height: 80vh;
+        padding-top: 60px;
+      }
+      .btn-whatsapp {
+        padding: 12px 40px;
+        font-size: 1.2rem;
+      }
       .btn-whatsapp img { width: 32px; }
-      .productos { padding: 20px 5% 60px; margin-top: -300px; }
+      .productos {
+        padding: 20px 5% 60px;
+        margin-top: -300px;
+      }
       .productos h2 { font-size: 2.2rem; }
       .grid { gap: 25px; }
     }
