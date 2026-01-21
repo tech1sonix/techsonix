@@ -47,31 +47,34 @@
       justify-content: center;
       transition: all 0.4s ease;
       overflow: hidden;
-      background: #000; /* base oscura para que el glow destaque */
     }
+    /* Fondo de color sólido + resplandor fuerte detrás */
     .social-icons a::after {
       content: '';
       position: absolute;
       inset: 0;
       border-radius: 50%;
       z-index: 0;
-      filter: blur(18px);
-      opacity: 0.85;
+      filter: blur(12px);
+      opacity: 0.9;
+      box-shadow: 0 0 60px 20px;
     }
-    .social-icons a.whatsapp::after { background: #25d366; box-shadow: 0 0 80px 30px #25d366; }
-    .social-icons a.instagram::after { background: #C13584; box-shadow: 0 0 80px 30px #C13584; }
-    .social-icons a.facebook::after { background: #1877f2; box-shadow: 0 0 80px 30px #1877f2; }
+    .social-icons a.whatsapp::after { background: #25d366; box-shadow: 0 0 90px 30px #25d366; }
+    .social-icons a.instagram::after { background: #C13584; box-shadow: 0 0 90px 30px #C13584; }
+    .social-icons a.facebook::after { background: #1877f2; box-shadow: 0 0 90px 30px #1877f2; }
 
+    /* Borde plateado MUY FUERTE y brillante (más grueso y con relieve intenso) */
     .social-icons a::before {
       content: '';
       position: absolute;
-      inset: -6px;
+      inset: -7px;
       border-radius: 50%;
-      border: 6px solid #c0c0c0;
+      border: 7px solid #d0d0d0;
       box-shadow: 
-        inset 0 0 20px rgba(192,192,192,0.8),
-        0 0 60px rgba(192,192,192,0.9),
-        inset 0 8px 18px rgba(255,255,255,0.5);
+        inset 0 0 25px rgba(208,208,208,0.9),
+        0 0 70px rgba(208,208,208,0.95),
+        inset 0 10px 20px rgba(255,255,255,0.6),
+        inset 0 -8px 15px rgba(160,160,160,0.5);
       pointer-events: none;
       z-index: 1;
     }
@@ -80,14 +83,15 @@
     }
     .social-icons a:hover::before {
       box-shadow: 
-        inset 0 0 30px rgba(192,192,192,0.95),
-        0 0 80px rgba(192,192,192,0.95),
-        inset 0 10px 25px rgba(255,255,255,0.6);
+        inset 0 0 35px rgba(208,208,208,0.95),
+        0 0 100px rgba(208,208,208,0.98),
+        inset 0 12px 25px rgba(255,255,255,0.7),
+        inset 0 -10px 20px rgba(160,160,160,0.6);
     }
     .social-icons a:hover::after {
-      box-shadow: 0 0 110px 45px;
+      box-shadow: 0 0 120px 40px;
       opacity: 1;
-      filter: blur(25px);
+      filter: blur(18px);
     }
 
     .social-icons img {
@@ -158,7 +162,7 @@
       text-shadow: 0 0 5px #000;
     }
 
-    /* Burbuja WhatsApp con el mismo estilo plateado intenso + resplandor */
+    /* Burbuja WhatsApp con borde plateado aún más fuerte */
     .whatsapp-bubble {
       position: fixed;
       bottom: 30px;
@@ -178,16 +182,20 @@
       inset: 0;
       border-radius: 50%;
       background: #25d366;
-      box-shadow: 0 0 80px 30px #25d366;
+      box-shadow: 0 0 90px 30px #25d366;
       z-index: 0;
     }
     .whatsapp-bubble::before {
       content: '';
       position: absolute;
-      inset: -6px;
+      inset: -7px;
       border-radius: 50%;
-      border: 6px solid #c0c0c0;
-      box-shadow: inset 0 0 20px rgba(192,192,192,0.8), 0 0 60px rgba(192,192,192,0.9);
+      border: 7px solid #d0d0d0;
+      box-shadow: 
+        inset 0 0 25px rgba(208,208,208,0.9),
+        0 0 80px rgba(208,208,208,0.95),
+        inset 0 10px 20px rgba(255,255,255,0.6),
+        inset 0 -8px 15px rgba(160,160,160,0.5);
       pointer-events: none;
       z-index: 1;
     }
@@ -195,10 +203,14 @@
       transform: translateY(-8px) scale(1.1);
     }
     .whatsapp-bubble:hover::before {
-      box-shadow: inset 0 0 30px rgba(192,192,192,0.95), 0 0 80px rgba(192,192,192,0.95);
+      box-shadow: 
+        inset 0 0 35px rgba(208,208,208,0.95),
+        0 0 110px rgba(208,208,208,0.98),
+        inset 0 12px 25px rgba(255,255,255,0.7),
+        inset 0 -10px 20px rgba(160,160,160,0.6);
     }
     .whatsapp-bubble:hover::after {
-      box-shadow: 0 0 110px 45px #25d366;
+      box-shadow: 0 0 130px 45px #25d366;
     }
     .whatsapp-bubble img {
       width: 52px;
