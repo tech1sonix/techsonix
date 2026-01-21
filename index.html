@@ -18,9 +18,9 @@
       max-width: 1400px;
       margin: 0 auto;
       position: relative;
-      background: rgba(0,0,0,0.02);
+      background: rgba(0,0,0,0.02); /* muy transparente para que el logo se vea brillante */
       min-height: 100vh;
-      box-shadow: inset 0 0 80px rgba(60,255,106,0.08);
+      box-shadow: inset 0 0 120px rgba(60,255,106,0.12); /* glow verde sutil para resaltar el logo */
     }
     .top-bar {
       padding: 15px 5%;
@@ -72,33 +72,9 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.35), transparent 70%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.25), transparent 70%);
       z-index: 0;
     }
-    .btn-container {
-      position: relative;
-      z-index: 3;
-      margin-bottom: 40px;
-    }
-    .btn-whatsapp {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 50px;
-      background: #25d366;
-      color: #000;
-      font-size: 1.4rem;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 50px;
-      box-shadow: 0 0 40px #25d366;
-      transition: all 0.3s;
-    }
-    .btn-whatsapp:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 70px #25d366;
-    }
-    .btn-whatsapp img { width: 36px; }
     .productos {
       padding: 40px 5% 100px;
       background: transparent !important;
@@ -193,11 +169,6 @@
         height: 85vh;
         padding-top: 50px;
       }
-      .btn-whatsapp {
-        padding: 12px 40px;
-        font-size: 1.2rem;
-      }
-      .btn-whatsapp img { width: 32px; }
       .productos {
         padding: 20px 5% 60px;
         margin-top: -280px;
@@ -219,6 +190,7 @@
 </head>
 <body>
   <div class="container">
+    <!-- Barra superior solo con iconos de redes sociales centrados -->
     <div class="top-bar">
       <div class="social-icons">
         <a href="https://wa.me/573102868697" target="_blank" class="whatsapp">
@@ -234,11 +206,7 @@
     </div>
 
     <section class="hero">
-      <div class="btn-container">
-        <a class="btn-whatsapp" href="https://wa.me/573102868697?text=Hola%2C%20quiero%20comprar" target="_blank">
-          <img src="img/whatsapp.png" alt="WhatsApp"> Comprar por WhatsApp
-        </a>
-      </div>
+      <!-- Sin botón grande de WhatsApp -->
     </section>
 
     <section class="productos">
@@ -284,6 +252,7 @@
     </section>
   </div>
 
+  <!-- Burbuja flotante WhatsApp -->
   <a href="https://wa.me/573102868697?text=Hola%2C%20necesito%20ayuda" class="whatsapp-bubble" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Chat WhatsApp">
   </a>
