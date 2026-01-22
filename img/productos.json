@@ -1,1 +1,23 @@
-
+[
+  {
+    "nombre": "Audífonos Gamer RGB",
+    "precio": "$150.000",
+    "imagen": "img/producto1.png"
+  },
+  {
+    "nombre": "Power Bank Pro",
+    "precio": "$80.000",
+    "imagen": "img/producto2.png"
+  },
+  {
+    "nombre": "Teclado Mecánico LED",
+    "precio": "$200.000",
+    "imagen": "img/producto3.png"
+  },
+  // Agrega más aquí, separados por coma
+  {
+    "nombre": "Mouse Inalámbrico",
+    "precio": "$50.000",
+    "imagen": "img/producto4.png"
+  }
+]
