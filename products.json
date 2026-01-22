@@ -19,4 +19,10 @@
     "precio": "$50.000",
     "imagen": "img/producto2.png"
   }
+
+  ,{
+    "nombre": "Cargador Rápido 65W",
+    "precio": "$120.000",
+    "imagen": "img/cargador.png"
+  }
 ]
