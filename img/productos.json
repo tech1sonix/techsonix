@@ -12,12 +12,12 @@
   {
     "nombre": "Teclado Mecánico LED",
     "precio": "$200.000",
-    "imagen": "img/producto3.png"
+    "imagen": "img/producto1.png"
   },
   // Agrega más aquí, separados por coma
   {
     "nombre": "Mouse Inalámbrico",
     "precio": "$50.000",
-    "imagen": "img/producto4.png"
+    "imagen": "img/producto2.png"
   }
 ]
