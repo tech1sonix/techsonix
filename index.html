@@ -39,84 +39,61 @@ body{
 
 .social-icons{
   display:flex;
-  gap:40px;
+  gap:42px;
 }
 
-/* ===== ICONO METÁLICO ===== */
-.icon-metal{
-  position:relative;
-  width:64px;              /* ⬅ círculo más pequeño */
-  height:64px;
-  border-radius:50%;
+/* ===== ICONO CON CONTORNO METÁLICO ===== */
+.icon-outline{
   display:flex;
   align-items:center;
   justify-content:center;
-  background:radial-gradient(circle at 30% 30%, #e6e6e6, #9a9a9a 60%, #6b6b6b);
-  box-shadow:
-    inset 0 3px 8px rgba(255,255,255,.45),
-    inset 0 -6px 12px rgba(0,0,0,.6),
-    0 10px 25px rgba(0,0,0,.9);
   transition:.25s ease;
 }
 
-/* aro plata oscuro */
-.icon-metal::before{
-  content:'';
-  position:absolute;
-  inset:-4px;
+.icon-outline img{
+  width:48px;
+  height:48px;
+
+  /* contorno metálico pegado */
+  outline:2.5px solid #bdbdbd;
+  outline-offset:-3px;
   border-radius:50%;
-  background:linear-gradient(
-    145deg,
-    #f1f1f1,
-    #9c9c9c,
-    #4f4f4f,
-    #8e8e8e,
-    #e2e2e2
-  );
+
+  /* reflejo sutil */
   box-shadow:
-    inset 0 0 10px rgba(255,255,255,.35),
-    inset 0 -6px 10px rgba(0,0,0,.75),
-    0 0 14px rgba(0,0,0,.9);
-  z-index:-1;
+    inset 0 1px 2px rgba(255,255,255,.35),
+    inset 0 -2px 3px rgba(0,0,0,.5);
+
+  transition:.25s ease;
 }
 
-/* halos */
-.icon-metal::after{
-  content:'';
-  position:absolute;
-  inset:-22px;
-  border-radius:50%;
-  filter:blur(26px);
-  opacity:.95;
-  z-index:-2;
+/* halos por color */
+.whatsapp img{
+  filter:
+    drop-shadow(0 0 12px #25d366)
+    drop-shadow(0 0 28px #25d366);
 }
 
-.whatsapp::after{background:#25d366}
-.instagram::after{background:#ff2a2a}   /* 🔴 rojo intenso */
-.facebook::after{background:#1877f2}
-
-/* reflejo vidrio */
-.icon-metal span{
-  position:absolute;
-  inset:3px;
-  border-radius:50%;
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.35),
-    rgba(255,255,255,0) 55%
-  );
+.instagram img{
+  filter:
+    drop-shadow(0 0 12px #ff2a2a)
+    drop-shadow(0 0 28px #ff2a2a);
 }
 
-/* icono interno más grande */
-.icon-metal img{
-  width:42px;              /* ⬅ icono más grande */
-  height:42px;
-  z-index:2;
+.facebook img{
+  filter:
+    drop-shadow(0 0 12px #1877f2)
+    drop-shadow(0 0 28px #1877f2);
 }
 
-/* presión click */
-.icon-metal:active{
-  transform:translateY(3px) scale(.96);
+/* hover premium */
+.icon-outline:hover img{
+  transform:translateY(-4px) scale(1.05);
+}
+
+/* click presión */
+.icon-outline:active img{
+  transform:translateY(1px) scale(.96);
 }
 
 /* ================= HERO ================= */
@@ -169,8 +146,10 @@ body{
 
 /* mobile */
 @media(max-width:768px){
-  .icon-metal{width:56px;height:56px}
-  .icon-metal img{width:36px;height:36px}
+  .icon-outline img{
+    width:40px;
+    height:40px;
+  }
 }
 </style>
 </head>
@@ -181,20 +160,19 @@ body{
 
   <div class="top-bar">
     <div class="social-icons">
-      <a href="https://wa.me/573102868697" target="_blank" class="icon-metal whatsapp">
-        <span></span>
+
+      <a href="https://wa.me/573102868697" target="_blank" class="icon-outline whatsapp">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
       </a>
 
-      <a href="https://instagram.com/tuusuario" target="_blank" class="icon-metal instagram">
-        <span></span>
+      <a href="https://instagram.com/tuusuario" target="_blank" class="icon-outline instagram">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
       </a>
 
-      <a href="https://facebook.com/tupagina" target="_blank" class="icon-metal facebook">
-        <span></span>
+      <a href="https://facebook.com/tupagina" target="_blank" class="icon-outline facebook">
         <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
       </a>
+
     </div>
   </div>
 
@@ -214,8 +192,7 @@ body{
 
 </div>
 
-<a href="https://wa.me/573102868697" target="_blank" class="whatsapp-bubble icon-metal whatsapp">
-  <span></span>
+<a href="https://wa.me/573102868697" target="_blank" class="whatsapp-bubble icon-outline whatsapp">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
 
