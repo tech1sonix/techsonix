@@ -130,3 +130,129 @@ body{
 
 .grid{
   display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:35px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.card img{
+  width:100%;
+  border-radius:14px;
+  box-shadow:0 0 25px rgba(0,255,150,.6);
+}
+
+.card p{
+  margin-top:10px;
+  font-size:1.3rem;
+}
+
+/* ================= WHATSAPP ================= */
+.whatsapp-bubble{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#0b0b0b;
+  z-index:9999;
+}
+
+.whatsapp-bubble::after{
+  content:'';
+  position:absolute;
+  inset:-18px;
+  border-radius:50%;
+  background:#25d366;
+  filter:blur(22px);
+}
+
+.whatsapp-bubble::before{
+  content:'';
+  position:absolute;
+  inset:-6px;
+  border-radius:50%;
+  background:linear-gradient(
+    145deg,
+    #cfcfcf,
+    #8b8b8b,
+    #4b4b4b,
+    #9a9a9a,
+    #e1e1e1
+  );
+}
+
+.whatsapp-bubble span{
+  position:absolute;
+  inset:4px;
+  background:#0b0b0b;
+  border-radius:50%;
+}
+
+.whatsapp-bubble img{
+  width:46px;
+  height:46px;
+  z-index:2;
+}
+
+/* mobile */
+@media(max-width:768px){
+  .social-icons a{width:60px;height:60px}
+  .social-icons img{width:34px;height:34px}
+  .whatsapp-bubble{width:70px;height:70px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="top-bar">
+    <div class="social-icons">
+      <a href="https://wa.me/573102868697" target="_blank" class="whatsapp">
+        <span></span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+      </a>
+      <a href="https://instagram.com/tuusuario" target="_blank" class="instagram">
+        <span></span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
+      </a>
+      <a href="https://facebook.com/tupagina" target="_blank" class="facebook">
+        <span></span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
+      </a>
+    </div>
+  </div>
+
+  <section class="hero"></section>
+
+  <!-- 🔒 PRODUCTOS COMPLETOS (NO BORRADOS) -->
+  <section class="productos">
+    <h2>Productos destacados</h2>
+    <div class="grid">
+      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
+      <div class="card"><img src="img/producto2.png"><p>Power Bank Pro</p></div>
+      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
+      <div class="card"><img src="img/producto2.png"><p>Power Bank Pro</p></div>
+      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
+      <div class="card"><img src="img/producto2.png"><p>Power Bank Pro</p></div>
+      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
+      <div class="card"><img src="img/producto2.png"><p>Power Bank Pro</p></div>
+      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
+    </div>
+  </section>
+
+</div>
+
+<a href="https://wa.me/573102868697" target="_blank" class="whatsapp-bubble">
+  <span></span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+</a>
+
+</body>
+</html>
