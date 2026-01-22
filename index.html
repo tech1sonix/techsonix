@@ -39,14 +39,14 @@ body{
 
 .social-icons{
   display:flex;
-  gap:42px;
+  gap:40px;
 }
 
-/* ===== ICONO METÁLICO PRO ===== */
+/* ===== ICONO METÁLICO ===== */
 .icon-metal{
   position:relative;
-  width:72px;
-  height:72px;
+  width:64px;              /* ⬅ círculo más pequeño */
+  height:64px;
   border-radius:50%;
   display:flex;
   align-items:center;
@@ -80,7 +80,7 @@ body{
   z-index:-1;
 }
 
-/* halo intenso */
+/* halos */
 .icon-metal::after{
   content:'';
   position:absolute;
@@ -92,7 +92,7 @@ body{
 }
 
 .whatsapp::after{background:#25d366}
-.instagram::after{background:linearxzlinear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)}
+.instagram::after{background:#ff2a2a}   /* 🔴 rojo intenso */
 .facebook::after{background:#1877f2}
 
 /* reflejo vidrio */
@@ -107,14 +107,14 @@ body{
   );
 }
 
-/* icono */
+/* icono interno más grande */
 .icon-metal img{
-  width:36px;
-  height:36px;
+  width:42px;              /* ⬅ icono más grande */
+  height:42px;
   z-index:2;
 }
 
-/* presión */
+/* presión click */
 .icon-metal:active{
   transform:translateY(3px) scale(.96);
 }
@@ -169,8 +169,8 @@ body{
 
 /* mobile */
 @media(max-width:768px){
-  .icon-metal{width:60px;height:60px}
-  .icon-metal img{width:30px;height:30px}
+  .icon-metal{width:56px;height:56px}
+  .icon-metal img{width:36px;height:36px}
 }
 </style>
 </head>
