@@ -97,6 +97,7 @@ body{
 /* ===== TARJETAS ===== */
 .card{
   transition:.35s ease;
+  cursor: pointer; /* Mano para indicar que es clickable */
 }
 .card img{
   width:100%;
@@ -106,11 +107,15 @@ body{
 }
 .card:hover{
   transform:translateY(-12px);
+  box-shadow:0 0 40px rgba(60,255,150,.7); /* glow más fuerte al hover */
 }
 .card:hover img{
   box-shadow:
     0 0 35px rgba(60,255,150,.85),
     0 0 65px rgba(60,255,150,.45);
+}
+.card:active {
+  transform: translateY(-4px); /* efecto presionado al clic */
 }
 .card p{
   margin-top:10px;
@@ -164,7 +169,7 @@ body{
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
 
-<!-- Script para cargar productos desde JSON -->
+<!-- Script para cargar productos desde JSON y hacer tarjetas clicables -->
 <script>
   async function cargarProductos() {
     try {
@@ -175,7 +180,7 @@ body{
       const productos = await response.json();
       
       const grid = document.getElementById('productos-grid');
-      grid.innerHTML = ''; // Limpiamos lo que haya
+      grid.innerHTML = ''; // Limpiamos
 
       if (productos.length === 0) {
         grid.innerHTML = '<p style="grid-column: 1 / -1; font-size: 1.4rem; opacity: 0.7;">No hay productos disponibles por el momento...</p>';
@@ -185,10 +190,20 @@ body{
       productos.forEach(producto => {
         const card = document.createElement('div');
         card.className = 'card';
+        card.style.cursor = 'pointer';
+
         card.innerHTML = `
           <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
           <p>${producto.nombre}<br><strong>${producto.precio}</strong></p>
         `;
+
+        // Al hacer clic en toda la tarjeta, abre WhatsApp
+        card.addEventListener('click', () => {
+          const mensaje = `Hola! Me interesa el ${producto.nombre} que vi en tu página. ¿Disponible?`;
+          const url = `https://wa.me/573102868697?text=${encodeURIComponent(mensaje)}`;
+          window.open(url, '_blank');
+        });
+
         grid.appendChild(card);
       });
     } catch (error) {
