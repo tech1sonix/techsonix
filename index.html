@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TechSonix</title>
 <link rel="icon" href="data:,">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -43,28 +42,38 @@ body{
   gap:36px;
 }
 
-/* ===== BOTONES METÁLICOS ===== */
+/* ===== BOTÓN METÁLICO BASE (TODOS) ===== */
 .social-icons a,
 .whatsapp-bubble{
   position:relative;
-  width:74px;
-  height:74px;
+  width:72px;
+  height:72px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
+  background:#0b0b0b;
+  transition:.25s ease;
+}
 
-  background:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,.45), rgba(255,255,255,.08) 35%, transparent 60%),
-    linear-gradient(145deg,#b5b5b5,#5f5f5f);
-
+/* aro metálico oscuro */
+.social-icons a::before,
+.whatsapp-bubble::before{
+  content:'';
+  position:absolute;
+  inset:-5px;
+  border-radius:50%;
+  background:linear-gradient(
+    145deg,
+    #9a9a9a,
+    #5f5f5f,
+    #2e2e2e,
+    #7b7b7b
+  );
   box-shadow:
-    inset 0 2px 4px rgba(255,255,255,.35),
-    inset 0 -6px 8px rgba(0,0,0,.85),
-    0 10px 18px rgba(0,0,0,.8);
-
-  transition:transform .15s ease, box-shadow .15s ease;
-  overflow:hidden;
+    inset 0 0 14px rgba(255,255,255,.25),
+    inset 0 -6px 12px rgba(0,0,0,.85),
+    0 0 18px rgba(0,0,0,.9);
 }
 
 /* reflejo vidrio */
@@ -75,11 +84,11 @@ body{
   inset:-60%;
   background:linear-gradient(
     120deg,
-    transparent 42%,
-    rgba(255,255,255,.22) 50%,
-    transparent 58%
+    transparent 45%,
+    rgba(255,255,255,.18) 50%,
+    transparent 55%
   );
-  transition:transform .6s ease;
+  transition:.6s;
 }
 
 .social-icons a:hover::after,
@@ -87,42 +96,34 @@ body{
   transform:translateX(55%) rotate(25deg);
 }
 
-/* presión click */
+/* presión */
 .social-icons a:active,
 .whatsapp-bubble:active{
   transform:scale(.94);
-  box-shadow:
-    inset 0 6px 10px rgba(0,0,0,.9),
-    0 5px 10px rgba(0,0,0,.7);
 }
 
-/* círculo color */
+/* contenedor interno */
 .social-icons span,
 .whatsapp-bubble span{
   position:absolute;
-  inset:8px;
+  inset:6px;
+  background:#0b0b0b;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-}
-
-/* ==== ICON COLORS ==== */
-.whatsapp span i { color:#25D366; }  /* WhatsApp VERDE */
-.instagram span { background:radial-gradient(circle at 30% 30%,#ffd86f,#f56040,#bc2a8d,#4c68d7); }
-.facebook span { background:#1877f2; }
-
-/* ICONO SIZE */
-.social-icons i,
-.whatsapp-bubble i{
-  font-size:30px;
   z-index:2;
 }
 
-/* ================= HERO ================= */
-.hero{
-  height:100vh;
+/* ICONOS */
+.social-icons img,
+.whatsapp-bubble img{
+  width:32px; /* MÁS PEQUEÑOS */
+  height:32px;
 }
+
+/* ================= HERO ================= */
+.hero{height:100vh}
 
 /* ================= PRODUCTOS ================= */
 .productos{
@@ -169,11 +170,18 @@ body{
   z-index:9999;
 }
 
-/* mobile */
+/* MOBILE */
 @media(max-width:768px){
-  .social-icons a{width:62px;height:62px}
-  .social-icons i{font-size:26px}
-  .whatsapp-bubble{width:64px;height:64px}
+  .social-icons a,
+  .whatsapp-bubble{
+    width:60px;
+    height:60px;
+  }
+  .social-icons img,
+  .whatsapp-bubble img{
+    width:26px;
+    height:26px;
+  }
 }
 </style>
 </head>
@@ -184,15 +192,25 @@ body{
 
   <div class="top-bar">
     <div class="social-icons">
-      <a href="https://wa.me/573102868697" target="_blank" class="whatsapp">
-        <span><i class="fab fa-whatsapp"></i></span>
+
+      <a href="https://wa.me/573102868697" target="_blank">
+        <span>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+        </span>
       </a>
-      <a href="https://instagram.com/tuusuario" target="_blank" class="instagram">
-        <span><i class="fab fa-instagram"></i></span>
+
+      <a href="https://instagram.com/tuusuario" target="_blank">
+        <span>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
+        </span>
       </a>
-      <a href="https://facebook.com/tupagina" target="_blank" class="facebook">
-        <span><i class="fab fa-facebook-f"></i></span>
+
+      <a href="https://facebook.com/tupagina" target="_blank">
+        <span>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
+        </span>
       </a>
+
     </div>
   </div>
 
@@ -216,7 +234,9 @@ body{
 </div>
 
 <a href="https://wa.me/573102868697" target="_blank" class="whatsapp-bubble">
-  <span><i class="fab fa-whatsapp"></i></span>
+  <span>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+  </span>
 </a>
 
 </body>
