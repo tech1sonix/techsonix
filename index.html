@@ -42,88 +42,68 @@ body{
   gap:36px;
 }
 
-/* ===== BOTÓN METÁLICO BASE (TODOS) ===== */
+/* ===== ICONO METÁLICO LIMPIO ===== */
 .social-icons a,
 .whatsapp-bubble{
   position:relative;
-  width:72px;
-  height:72px;
+  width:68px;
+  height:68px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#0b0b0b;
-  transition:.25s ease;
+  background:#111;
+  transition:transform .25s ease;
 }
 
-/* aro metálico oscuro */
+/* aro plata oscuro */
 .social-icons a::before,
 .whatsapp-bubble::before{
   content:'';
   position:absolute;
-  inset:-5px;
+  inset:-4px;
   border-radius:50%;
   background:linear-gradient(
     145deg,
-    #9a9a9a,
+    #9c9c9c,
     #5f5f5f,
-    #2e2e2e,
-    #7b7b7b
+    #3f3f3f,
+    #6d6d6d,
+    #b5b5b5
   );
   box-shadow:
-    inset 0 0 14px rgba(255,255,255,.25),
-    inset 0 -6px 12px rgba(0,0,0,.85),
-    0 0 18px rgba(0,0,0,.9);
+    inset 0 2px 6px rgba(255,255,255,.35),
+    inset 0 -4px 6px rgba(0,0,0,.7),
+    0 4px 10px rgba(0,0,0,.8);
 }
 
-/* reflejo vidrio */
-.social-icons a::after,
-.whatsapp-bubble::after{
-  content:'';
-  position:absolute;
-  inset:-60%;
-  background:linear-gradient(
-    120deg,
-    transparent 45%,
-    rgba(255,255,255,.18) 50%,
-    transparent 55%
-  );
-  transition:.6s;
-}
-
-.social-icons a:hover::after,
-.whatsapp-bubble:hover::after{
-  transform:translateX(55%) rotate(25deg);
-}
-
-/* presión */
-.social-icons a:active,
-.whatsapp-bubble:active{
-  transform:scale(.94);
-}
-
-/* contenedor interno */
-.social-icons span,
+/* fondo interno */
+.social-icons a span,
 .whatsapp-bubble span{
   position:absolute;
-  inset:6px;
-  background:#0b0b0b;
+  inset:4px;
   border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  background:#111;
+}
+
+/* íconos */
+.social-icons img,
+.whatsapp-bubble img{
+  width:34px;
+  height:34px;
   z-index:2;
 }
 
-/* ICONOS */
-.social-icons img,
-.whatsapp-bubble img{
-  width:32px; /* MÁS PEQUEÑOS */
-  height:32px;
+/* hover limpio */
+.social-icons a:hover,
+.whatsapp-bubble:hover{
+  transform:translateY(-4px) scale(1.05);
 }
 
 /* ================= HERO ================= */
-.hero{height:100vh}
+.hero{
+  height:100vh;
+}
 
 /* ================= PRODUCTOS ================= */
 .productos{
@@ -165,22 +145,22 @@ body{
 /* ================= WHATSAPP FLOAT ================= */
 .whatsapp-bubble{
   position:fixed;
-  bottom:30px;
-  right:30px;
+  bottom:28px;
+  right:28px;
   z-index:9999;
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 @media(max-width:768px){
   .social-icons a,
   .whatsapp-bubble{
-    width:60px;
-    height:60px;
+    width:58px;
+    height:58px;
   }
   .social-icons img,
   .whatsapp-bubble img{
-    width:26px;
-    height:26px;
+    width:30px;
+    height:30px;
   }
 }
 </style>
@@ -194,21 +174,18 @@ body{
     <div class="social-icons">
 
       <a href="https://wa.me/573102868697" target="_blank">
-        <span>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-        </span>
+        <span></span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
       </a>
 
       <a href="https://instagram.com/tuusuario" target="_blank">
-        <span>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
-        </span>
+        <span></span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
       </a>
 
       <a href="https://facebook.com/tupagina" target="_blank">
-        <span>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
-        </span>
+        <span></span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
       </a>
 
     </div>
@@ -234,9 +211,8 @@ body{
 </div>
 
 <a href="https://wa.me/573102868697" target="_blank" class="whatsapp-bubble">
-  <span>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-  </span>
+  <span></span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
 
 </body>
