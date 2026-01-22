@@ -169,7 +169,7 @@ body{
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
 
-<!-- Script para cargar productos desde JSON y hacer tarjetas clicables con preview de imagen -->
+<!-- Script para cargar productos desde JSON y hacer tarjetas clicables (versión limpia) -->
 <script>
   async function cargarProductos() {
     try {
@@ -197,17 +197,9 @@ body{
           <p>${producto.nombre}<br><strong>${producto.precio}</strong></p>
         `;
 
-        // Al hacer clic en toda la tarjeta, abre WhatsApp con preview de imagen (link al final para que no moleste)
+        // Al hacer clic en toda la tarjeta, abre WhatsApp (mensaje limpio sin imagen)
         card.addEventListener('click', () => {
-          const baseUrl = 'https://tech1sonix.github.io/techsonix/';
-          const imagenUrl = baseUrl + producto.imagen;
-
-          const mensaje = `Hola! 😎 Me interesa este producto que vi en tu página:\n\n` +
-                          `*${producto.nombre}*\n` +
-                          `Precio: ${producto.precio}\n\n` +
-                          `¿Está disponible? ¿Cuánto sería con envío?\n\n` +
-                          `(imagen del producto: ${imagenUrl})`;
-
+          const mensaje = `Hola! Me interesa el ${producto.nombre} que vi en tu página. ¿Disponible?`;
           const url = `https://wa.me/573102868697?text=${encodeURIComponent(mensaje)}`;
           window.open(url, '_blank');
         });
