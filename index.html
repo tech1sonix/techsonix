@@ -1,187 +1,257 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TechSonix</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechSonix</title>
+<link rel="icon" href="data:,">
 
-  <!-- ICONOS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+body{
+  font-family:Arial,sans-serif;
+  background:#000 url('img/logo.png') center 20%/contain no-repeat fixed;
+  color:#eafff3;
+  overflow-x:hidden;
+}
 
-    body {
-      background: #0f0f0f;
-      color: #fff;
-    }
+.container{
+  max-width:1400px;
+  margin:auto;
+  min-height:100vh;
+  box-shadow:
+    inset 0 0 220px rgba(60,255,106,.25),
+    inset 0 0 450px rgba(60,255,106,.12);
+}
 
-    /* ================= HERO ================= */
-    .hero {
-      min-height: 100vh;
-      background: radial-gradient(circle at top, #1a1a1a, #000);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 40px 20px;
-    }
+/* ================= TOP BAR ================= */
+.top-bar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  padding:15px 5%;
+  display:flex;
+  justify-content:center;
+  background:rgba(0,0,0,.85);
+  backdrop-filter:blur(10px);
+}
 
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-      letter-spacing: 2px;
-    }
+.social-icons{
+  display:flex;
+  gap:36px;
+}
 
-    .hero p {
-      color: #aaa;
-      margin-bottom: 30px;
-      font-size: 1.1rem;
-    }
+.social-icons a{
+  position:relative;
+  width:70px;        /* más pequeño */
+  height:70px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#0b0b0b;
+  transition:.35s ease;
+}
 
-    /* ================= SOCIAL ICONS ================= */
-    .socials {
-      display: flex;
-      gap: 20px;
-    }
+/* halo color */
+.social-icons a::after{
+  content:'';
+  position:absolute;
+  inset:-16px;
+  border-radius:50%;
+  filter:blur(22px);
+  opacity:.9;
+  z-index:-1;
+}
+.whatsapp::after{background:#25d366}
+.instagram::after{background:#c13584}
+.facebook::after{background:#1877f2}
 
-    .social {
-      width: 72px;            /* MÁS PEQUEÑO */
-      height: 72px;
-      border-radius: 50%;
-      background: radial-gradient(circle at top, #3a3a3a, #1a1a1a);
-      border: 3px solid #7a7a7a;   /* PLATA OSCURO */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow:
-        inset 0 2px 4px rgba(255,255,255,0.15),
-        inset 0 -2px 4px rgba(0,0,0,0.6),
-        0 6px 14px rgba(0,0,0,0.7);
-      transition: transform 0.3s ease;
-    }
+/* aro plata MÁS OSCURO y MÁS DELGADO */
+.social-icons a::before{
+  content:'';
+  position:absolute;
+  inset:-4px; /* aro más delgado */
+  border-radius:50%;
+  background:linear-gradient(
+    145deg,
+    #9b9b9b,
+    #5f5f5f,
+    #2f2f2f,
+    #6a6a6a,
+    #a8a8a8
+  );
+  box-shadow:
+    inset 0 0 12px rgba(255,255,255,.25),
+    inset 0 -5px 10px rgba(0,0,0,.85),
+    0 0 18px rgba(0,0,0,.9);
+}
 
-    .social:hover {
-      transform: scale(1.08);
-    }
+.social-icons a span{
+  position:absolute;
+  inset:4px;
+  background:#0b0b0b;
+  border-radius:50%;
+}
 
-    .social i {
-      font-size: 28px; /* ICONO MÁS PEQUEÑO */
-    }
+.social-icons img{
+  width:40px;   /* icono más pequeño */
+  height:40px;
+  z-index:2;
+}
 
-    .whatsapp i { color: #25D366; }
-    .instagram i {
-      background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .facebook i { color: #1877F2; }
+.social-icons a:hover{
+  transform:translateY(-5px) scale(1.06);
+}
 
-    /* ================= PRODUCTS ================= */
-    .products {
-      padding: 60px 20px;
-      background: #111;
-    }
+/* ================= HERO ================= */
+.hero{
+  height:100vh;
+}
 
-    .products h2 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 2rem;
-    }
+/* ================= PRODUCTOS ================= */
+.productos{
+  padding:40px 5% 100px;
+  text-align:center;
+  margin-top:-480px;
+}
 
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      max-width: 1200px;
-      margin: auto;
-    }
+.productos h2{
+  font-size:2.6rem;
+  color:#3cff6a;
+  text-shadow:0 0 20px #3cff6a;
+  margin-bottom:50px;
+  background:rgba(0,0,0,.6);
+  padding:10px 30px;
+  border-radius:15px;
+  display:inline-block;
+}
 
-    .product {
-      background: #1c1c1c;
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-    }
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:35px;
+  max-width:1100px;
+  margin:auto;
+}
 
-    .product img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
+.card img{
+  width:100%;
+  border-radius:14px;
+  box-shadow:0 0 25px rgba(0,255,150,.6);
+}
 
-    .product h3 {
-      margin-bottom: 8px;
-    }
+.card p{
+  margin-top:10px;
+  font-size:1.3rem;
+}
 
-    .product p {
-      color: #aaa;
-      font-size: 0.95rem;
-    }
+/* ================= WHATSAPP ================= */
+.whatsapp-bubble{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  width:70px;     /* más pequeño */
+  height:70px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#0b0b0b;
+  z-index:9999;
+}
 
-    /* ================= MOBILE ================= */
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 2.2rem;
-      }
+.whatsapp-bubble::after{
+  content:'';
+  position:absolute;
+  inset:-16px;
+  border-radius:50%;
+  background:#25d366;
+  filter:blur(22px);
+}
 
-      .social {
-        width: 64px;
-        height: 64px;
-      }
+.whatsapp-bubble::before{
+  content:'';
+  position:absolute;
+  inset:-4px; /* aro más delgado */
+  border-radius:50%;
+  background:linear-gradient(
+    145deg,
+    #9b9b9b,
+    #5f5f5f,
+    #2f2f2f,
+    #6a6a6a,
+    #a8a8a8
+  );
+}
 
-      .social i {
-        font-size: 24px;
-      }
-    }
-  </style>
+.whatsapp-bubble span{
+  position:absolute;
+  inset:4px;
+  background:#0b0b0b;
+  border-radius:50%;
+}
+
+.whatsapp-bubble img{
+  width:40px;
+  height:40px;
+  z-index:2;
+}
+
+/* mobile */
+@media(max-width:768px){
+  .social-icons a{width:56px;height:56px}
+  .social-icons img{width:32px;height:32px}
+  .whatsapp-bubble{width:62px;height:62px}
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>TechSonix</h1>
-    <p>Tecnología que conecta contigo</p>
+<div class="container">
 
-    <div class="socials">
-      <a href="#" class="social whatsapp"><i class="fab fa-whatsapp"></i></a>
-      <a href="#" class="social instagram"><i class="fab fa-instagram"></i></a>
-      <a href="#" class="social facebook"><i class="fab fa-facebook-f"></i></a>
+  <div class="top-bar">
+    <div class="social-icons">
+      <a href="https://wa.me/573102868697" target="_blank" class="whatsapp">
+        <span></span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+      </a>
+      <a href="https://instagram.com/tuusuario" target="_blank" class="instagram">
+        <span></span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
+      </a>
+      <a href="https://facebook.com/tupagina" target="_blank" class="facebook">
+        <span></span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
+      </a>
+    </div>
+  </div>
+
+  <section class="hero"></section>
+
+  <section class="productos">
+    <h2>Productos destacados</h2>
+    <div class="grid">
+      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
+      <div class="card"><img src="img/producto2.png"><p>Power Bank Pro</p></div>
+      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
+      <div class="card"><img src="img/producto2.png"><p>Power Bank Pro</p></div>
+      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
+      <div class="card"><img src="img/producto2.png"><p>Power Bank Pro</p></div>
+      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
+      <div class="card"><img src="img/producto2.png"><p>Power Bank Pro</p></div>
+      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
     </div>
   </section>
 
-  <!-- PRODUCTS -->
-  <section class="products">
-    <h2>Productos</h2>
+</div>
 
-    <div class="product-grid">
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200" alt="Producto">
-        <h3>Producto 1</h3>
-        <p>Descripción del producto.</p>
-      </div>
-
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200" alt="Producto">
-        <h3>Producto 2</h3>
-        <p>Descripción del producto.</p>
-      </div>
-
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200" alt="Producto">
-        <h3>Producto 3</h3>
-        <p>Descripción del producto.</p>
-      </div>
-    </div>
-  </section>
+<a href="https://wa.me/573102868697" target="_blank" class="whatsapp-bubble">
+  <span></span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+</a>
 
 </body>
 </html>
