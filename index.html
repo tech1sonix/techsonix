@@ -5,17 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TechSonix</title>
 <link rel="icon" href="data:,">
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-
 body{
   font-family:Arial,sans-serif;
   background:#000 url('img/logo.png') center 20%/contain no-repeat fixed;
   color:#eafff3;
   overflow-x:hidden;
 }
-
 .container{
   max-width:1400px;
   margin:auto;
@@ -24,7 +21,6 @@ body{
     inset 0 0 220px rgba(60,255,106,.25),
     inset 0 0 450px rgba(60,255,106,.12);
 }
-
 /* ================= TOP BAR ================= */
 .top-bar{
   position:sticky;
@@ -36,19 +32,16 @@ body{
   background:rgba(0,0,0,.85);
   backdrop-filter:blur(10px);
 }
-
 .social-icons{
   display:flex;
   gap:42px;
 }
-
-/* ===== ICONOS (NO TOCADOS) ===== */
+/* ===== ICONOS ===== */
 .icon-outline{
   display:flex;
   align-items:center;
   justify-content:center;
 }
-
 .icon-outline img{
   width:48px;
   height:48px;
@@ -61,7 +54,6 @@ body{
     0 0 12px rgba(255,255,255,.15);
   transition:.25s ease;
 }
-
 .whatsapp img{
   filter:drop-shadow(0 0 14px #25d366) drop-shadow(0 0 34px #25d366);
 }
@@ -71,24 +63,20 @@ body{
 .facebook img{
   filter:drop-shadow(0 0 14px #1877f2) drop-shadow(0 0 34px #1877f2);
 }
-
 .icon-outline:hover img{
   transform:translateY(-4px) scale(1.06);
 }
 .icon-outline:active img{
   transform:translateY(1px) scale(.95);
 }
-
 /* ================= HERO ================= */
 .hero{height:100vh}
-
 /* ================= PRODUCTOS ================= */
 .productos{
   padding:40px 5% 100px;
   text-align:center;
   margin-top:-480px;
 }
-
 .productos h2{
   font-size:2.6rem;
   color:#3cff6a;
@@ -99,7 +87,6 @@ body{
   border-radius:15px;
   display:inline-block;
 }
-
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -107,34 +94,28 @@ body{
   max-width:1100px;
   margin:auto;
 }
-
-/* ===== TARJETAS CON EFECTO RESTAURADO ===== */
+/* ===== TARJETAS ===== */
 .card{
   transition:.35s ease;
 }
-
 .card img{
   width:100%;
   border-radius:14px;
   box-shadow:0 0 18px rgba(0,255,150,.45);
   transition:.35s ease;
 }
-
 .card:hover{
   transform:translateY(-12px);
 }
-
 .card:hover img{
   box-shadow:
     0 0 35px rgba(60,255,150,.85),
     0 0 65px rgba(60,255,150,.45);
 }
-
 .card p{
   margin-top:10px;
   font-size:1.3rem;
 }
-
 /* ================= WHATSAPP FLOAT ================= */
 .whatsapp-bubble{
   position:fixed;
@@ -142,7 +123,6 @@ body{
   right:30px;
   z-index:9999;
 }
-
 /* mobile */
 @media(max-width:768px){
   .icon-outline img{
@@ -152,52 +132,75 @@ body{
 }
 </style>
 </head>
-
 <body>
-
 <div class="container">
-
   <div class="top-bar">
     <div class="social-icons">
-
       <a href="https://wa.me/573102868697" target="_blank" class="icon-outline whatsapp">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
       </a>
-
       <a href="https://instagram.com/tuusuario" target="_blank" class="icon-outline instagram">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
       </a>
-
       <a href="https://facebook.com/tupagina" target="_blank" class="icon-outline facebook">
         <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
       </a>
-
     </div>
   </div>
 
   <section class="hero"></section>
 
-  <!-- PRODUCTOS COMPLETOS -->
+  <!-- PRODUCTOS que se cargan automáticamente -->
   <section class="productos">
     <h2>Productos destacados</h2>
-    <div class="grid">
-      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
-      <div class="card"><img src="img/producto2.png"><p>Power Bank Pro</p></div>
-      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
-      <div class="card"><img src="img/producto2.png"><p>Power Bank Pro</p></div>
-      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
-      <div class="card"><img src="img/producto2.png"><p>Power Bank Pro</p></div>
-      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
-      <div class="card"><img src="img/producto2.png"><p>Power Bank Pro</p></div>
-      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
+    <div class="grid" id="productos-grid">
+      <!-- Aquí se insertan las tarjetas con JavaScript -->
     </div>
   </section>
-
 </div>
 
+<!-- WhatsApp flotante -->
 <a href="https://wa.me/573102868697" target="_blank" class="whatsapp-bubble icon-outline whatsapp">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
+
+<!-- Script para cargar productos desde JSON -->
+<script>
+  async function cargarProductos() {
+    try {
+      const response = await fetch('products.json');
+      if (!response.ok) {
+        throw new Error('No se pudo cargar products.json');
+      }
+      const productos = await response.json();
+      
+      const grid = document.getElementById('productos-grid');
+      grid.innerHTML = ''; // Limpiamos lo que haya
+
+      if (productos.length === 0) {
+        grid.innerHTML = '<p style="grid-column: 1 / -1; font-size: 1.4rem; opacity: 0.7;">No hay productos disponibles por el momento...</p>';
+        return;
+      }
+
+      productos.forEach(producto => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
+          <p>${producto.nombre}<br><strong>${producto.precio}</strong></p>
+        `;
+        grid.appendChild(card);
+      });
+    } catch (error) {
+      console.error('Error al cargar los productos:', error);
+      const grid = document.getElementById('productos-grid');
+      grid.innerHTML = '<p style="grid-column: 1 / -1; color: #ff5555; font-size: 1.3rem;">Error al cargar los productos. Revisa products.json</p>';
+    }
+  }
+
+  // Ejecutar cuando la página cargue
+  window.addEventListener('DOMContentLoaded', cargarProductos);
+</script>
 
 </body>
 </html>
