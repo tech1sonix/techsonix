@@ -30,7 +30,7 @@ body{
   position:sticky;
   top:0;
   z-index:1000;
-  padding:18px 5%;
+  padding:15px 5%;
   display:flex;
   justify-content:center;
   background:rgba(0,0,0,.85);
@@ -39,65 +39,68 @@ body{
 
 .social-icons{
   display:flex;
-  gap:42px;
+  gap:36px;
 }
 
-/* ===== ICONO CON CONTORNO METÁLICO ===== */
-.icon-outline{
+/* ===== ICONO BASE ===== */
+.icon-btn{
+  position:relative;
+  width:64px;
+  height:64px;
   display:flex;
   align-items:center;
   justify-content:center;
-  transition:.25s ease;
+  transition:.3s ease;
 }
 
-.icon-outline img{
-  width:48px;
-  height:48px;
+.icon-btn img{
+  width:42px;
+  height:42px;
+  z-index:2;
+}
 
-  /* contorno metálico pegado */
-  outline:2.5px solid #bdbdbd;
-  outline-offset:-3px;
+/* ===== ARO ACERO INDUSTRIAL ===== */
+.icon-btn::before{
+  content:'';
+  position:absolute;
+  inset:-6px;
   border-radius:50%;
-
-  /* reflejo sutil */
+  border:3px solid;
+  border-image:linear-gradient(
+    145deg,
+    #5f5f5f,
+    #2f2f2f,
+    #9a9a9a,
+    #3b3b3b
+  ) 1;
   box-shadow:
-    inset 0 1px 2px rgba(255,255,255,.35),
-    inset 0 -2px 3px rgba(0,0,0,.5);
-
-  transition:.25s ease;
+    inset 0 0 6px rgba(255,255,255,.25),
+    inset 0 -4px 8px rgba(0,0,0,.9);
 }
 
-/* halos por color */
-.whatsapp img{
-  filter:
-    drop-shadow(0 0 12px #25d366)
-    drop-shadow(0 0 28px #25d366);
+/* ===== LUZ EXTERNA ===== */
+.icon-btn::after{
+  content:'';
+  position:absolute;
+  inset:-22px;
+  border-radius:50%;
+  filter:blur(26px);
+  opacity:.95;
+  z-index:-1;
 }
 
-.instagram img{
-  filter:
-    drop-shadow(0 0 12px #ff2a2a)
-    drop-shadow(0 0 28px #ff2a2a);
-}
+.whatsapp::after{background:#25d366}
+.instagram::after{background:#ff0033}
+.facebook::after{background:#1877f2}
 
-.facebook img{
-  filter:
-    drop-shadow(0 0 12px #1877f2)
-    drop-shadow(0 0 28px #1877f2);
-}
-
-/* hover premium */
-.icon-outline:hover img{
-  transform:translateY(-4px) scale(1.05);
-}
-
-/* click presión */
-.icon-outline:active img{
-  transform:translateY(1px) scale(.96);
+.icon-btn:hover{
+  transform:translateY(-4px) scale(1.08);
 }
 
 /* ================= HERO ================= */
-.hero{height:100vh}
+.hero{
+  height:100vh;
+}
 
 /* ================= PRODUCTOS ================= */
 .productos{
@@ -139,17 +142,15 @@ body{
 /* ================= WHATSAPP FLOAT ================= */
 .whatsapp-bubble{
   position:fixed;
-  bottom:30px;
-  right:30px;
+  bottom:28px;
+  right:28px;
   z-index:9999;
 }
 
-/* mobile */
+/* móvil */
 @media(max-width:768px){
-  .icon-outline img{
-    width:40px;
-    height:40px;
-  }
+  .icon-btn{width:54px;height:54px}
+  .icon-btn img{width:36px;height:36px}
 }
 </style>
 </head>
@@ -160,19 +161,15 @@ body{
 
   <div class="top-bar">
     <div class="social-icons">
-
-      <a href="https://wa.me/573102868697" target="_blank" class="icon-outline whatsapp">
+      <a href="https://wa.me/573102868697" target="_blank" class="icon-btn whatsapp">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
       </a>
-
-      <a href="https://instagram.com/tuusuario" target="_blank" class="icon-outline instagram">
+      <a href="https://instagram.com/tuusuario" target="_blank" class="icon-btn instagram">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
       </a>
-
-      <a href="https://facebook.com/tupagina" target="_blank" class="icon-outline facebook">
+      <a href="https://facebook.com/tupagina" target="_blank" class="icon-btn facebook">
         <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
       </a>
-
     </div>
   </div>
 
@@ -187,12 +184,15 @@ body{
       <div class="card"><img src="img/producto2.png"><p>Power Bank Pro</p></div>
       <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
       <div class="card"><img src="img/producto2.png"><p>Power Bank Pro</p></div>
+      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
+      <div class="card"><img src="img/producto2.png"><p>Power Bank Pro</p></div>
+      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
     </div>
   </section>
 
 </div>
 
-<a href="https://wa.me/573102868697" target="_blank" class="whatsapp-bubble icon-outline whatsapp">
+<a href="https://wa.me/573102868697" target="_blank" class="icon-btn whatsapp whatsapp-bubble">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
 
