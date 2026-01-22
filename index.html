@@ -1,302 +1,261 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TechSonix</title>
-  <link rel="icon" href="data:,">
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family:Arial, sans-serif;
-      background: #000 url('img/logo.png') center / contain no-repeat fixed;
-      background-position: center 20%;
-      color:#eafff3;
-      overflow-x:hidden;
-    }
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      position: relative;
-      background: rgba(0,0,0,0.015);
-      min-height: 100vh;
-      box-shadow: inset 0 0 220px rgba(60,255,106,0.25), inset 0 0 450px rgba(60,255,106,0.12);
-    }
-    .top-bar {
-      padding: 15px 5%;
-      display: flex;
-      justify-content: center;
-      background: rgba(0,0,0,0.85);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .social-icons {
-      display: flex;
-      gap: 40px;
-      justify-content: center;
-    }
-    .social-icons a {
-      position: relative;
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.4s ease;
-      overflow: hidden;
-    }
-    /* Fondo color sólido + resplandor sutil detrás */
-    .social-icons a::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      z-index: 0;
-      filter: blur(8px);
-      opacity: 0.6;
-      box-shadow: 0 0 40px 12px;
-    }
-    .social-icons a.whatsapp::after { background: #25d366; box-shadow: 0 0 60px 20px #25d366; }
-    .social-icons a.instagram::after { background: #C13584; box-shadow: 0 0 60px 20px #C13584; }
-    .social-icons a.facebook::after { background: #1877f2; box-shadow: 0 0 60px 20px #1877f2; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechSonix</title>
+<link rel="icon" href="data:,">
 
-    /* Borde plateado FUERTE, grueso y con relieve metálico intenso (como en tu imagen) */
-    .social-icons a::before {
-      content: '';
-      position: absolute;
-      inset: -8px;
-      border-radius: 50%;
-      border: 8px solid #d0d0d0;
-      box-shadow: 
-        inset 0 0 35px rgba(208,208,208,0.95),
-        0 0 90px rgba(208,208,208,0.98),
-        inset 0 15px 30px rgba(255,255,255,0.8),
-        inset 0 -12px 25px rgba(140,140,140,0.7),
-        0 0 140px rgba(255,255,255,0.5);
-      pointer-events: none;
-      z-index: 1;
-    }
-    .social-icons a:hover {
-      transform: translateY(-8px) scale(1.1);
-    }
-    .social-icons a:hover::before {
-      box-shadow: 
-        inset 0 0 45px rgba(208,208,208,0.98),
-        0 0 130px rgba(208,208,208,0.99),
-        inset 0 18px 35px rgba(255,255,255,0.85),
-        inset 0 -15px 30px rgba(140,140,140,0.75),
-        0 0 180px rgba(255,255,255,0.6);
-    }
-    .social-icons a:hover::after {
-      box-shadow: 0 0 100px 40px;
-      opacity: 0.9;
-      filter: blur(12px);
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-    .social-icons img {
-      width: 52px;
-      height: 52px;
-      filter: brightness(1.15) drop-shadow(0 0 6px rgba(255,255,255,0.5));
-      z-index: 2;
-      position: relative;
-    }
+body{
+  font-family:Arial,sans-serif;
+  background:#000 url('img/logo.png') center 20%/contain no-repeat fixed;
+  color:#eafff3;
+  overflow-x:hidden;
+}
 
-    .hero {
-      height: 100vh;
-      background: transparent;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      padding-top: 80px;
-      z-index: 1;
-    }
-    .productos {
-      padding: 40px 5% 100px;
-      background: transparent !important;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-      margin-top: -480px;
-    }
-    .productos h2 {
-      font-size: 2.6rem;
-      color: #3cff6a;
-      text-shadow: 0 0 20px #3cff6a;
-      margin-bottom: 50px;
-      background: rgba(0,0,0,0.6);
-      padding: 10px 30px;
-      border-radius: 15px;
-      display: inline-block;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 35px;
-      max-width: 1100px;
-      margin: auto;
-    }
-    .card {
-      background: transparent !important;
-      border: none !important;
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: none !important;
-      transition: all 0.4s;
-    }
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 30px rgba(60,255,106,0.4) !important;
-    }
-    .card img {
-      width: 100%;
-      border-radius: 14px;
-      box-shadow: 0 0 25px rgba(0,255,150,0.6);
-    }
-    .card p {
-      margin-top: 10px;
-      font-size: 1.3rem;
-      color: #eafff3;
-      text-shadow: 0 0 5px #000;
-    }
+.container{
+  max-width:1400px;
+  margin:auto;
+  min-height:100vh;
+  box-shadow:
+    inset 0 0 220px rgba(60,255,106,.25),
+    inset 0 0 450px rgba(60,255,106,.12);
+}
 
-    /* Burbuja WhatsApp con el mismo diseño plateado fuerte */
-    .whatsapp-bubble {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.4s ease;
-      z-index: 9999;
-    }
-    .whatsapp-bubble::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      background: #25d366;
-      box-shadow: 0 0 90px 35px #25d366;
-      z-index: 0;
-    }
-    .whatsapp-bubble::before {
-      content: '';
-      position: absolute;
-      inset: -8px;
-      border-radius: 50%;
-      border: 8px solid #d0d0d0;
-      box-shadow: 
-        inset 0 0 30px rgba(208,208,208,0.9),
-        0 0 90px rgba(208,208,208,0.98),
-        inset 0 12px 25px rgba(255,255,255,0.7),
-        inset 0 -10px 20px rgba(140,140,140,0.6),
-        0 0 140px rgba(255,255,255,0.5);
-      pointer-events: none;
-      z-index: 1;
-    }
-    .whatsapp-bubble:hover {
-      transform: translateY(-8px) scale(1.1);
-    }
-    .whatsapp-bubble:hover::before {
-      box-shadow: 
-        inset 0 0 40px rgba(208,208,208,0.95),
-        0 0 130px rgba(208,208,208,0.99),
-        inset 0 15px 30px rgba(255,255,255,0.8),
-        inset 0 -12px 25px rgba(140,140,140,0.7),
-        0 0 180px rgba(255,255,255,0.6);
-    }
-    .whatsapp-bubble:hover::after {
-      box-shadow: 0 0 140px 50px #25d366;
-    }
-    .whatsapp-bubble img {
-      width: 52px;
-      height: 52px;
-      filter: brightness(1.15) drop-shadow(0 0 6px rgba(255,255,255,0.5));
-      z-index: 2;
-      position: relative;
-    }
+/* ================= TOP BAR ================= */
+.top-bar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  padding:15px 5%;
+  display:flex;
+  justify-content:center;
+  background:rgba(0,0,0,.85);
+  backdrop-filter:blur(10px);
+}
 
-    @media (max-width:768px) {
-      .social-icons a { width: 60px; height: 60px; }
-      .social-icons img { width: 38px; height: 38px; }
-      .whatsapp-bubble { width: 70px; height: 70px; bottom: 20px; right: 20px; }
-      .whatsapp-bubble img { width: 42px; height: 42px; }
-    }
-  </style>
+.social-icons{
+  display:flex;
+  gap:36px;
+}
+
+.social-icons a{
+  position:relative;
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#0b0b0b;
+  transition:.35s ease;
+}
+
+/* halo color */
+.social-icons a::after{
+  content:'';
+  position:absolute;
+  inset:-16px;
+  border-radius:50%;
+  filter:blur(20px);
+  opacity:.9;
+  z-index:-1;
+}
+.whatsapp::after{background:#25d366}
+.instagram::after{background:#c13584}
+.facebook::after{background:#1877f2}
+
+/* 🔥 aro plata REALISTA y más delgado */
+.social-icons a::before{
+  content:'';
+  position:absolute;
+  inset:-4px;
+  border-radius:50%;
+  background:linear-gradient(
+    145deg,
+    #f1f1f1,
+    #b5b5b5,
+    #7a7a7a,
+    #c9c9c9,
+    #ffffff
+  );
+  box-shadow:
+    inset 0 0 10px rgba(255,255,255,.45),
+    inset 0 -6px 10px rgba(0,0,0,.65),
+    0 0 16px rgba(0,0,0,.85);
+}
+
+.social-icons a span{
+  position:absolute;
+  inset:5px;
+  background:#0b0b0b;
+  border-radius:50%;
+}
+
+.social-icons img{
+  width:42px;
+  height:42px;
+  z-index:2;
+}
+
+.social-icons a:hover{
+  transform:translateY(-6px) scale(1.06);
+}
+
+/* ================= HERO ================= */
+.hero{
+  height:100vh;
+}
+
+/* ================= PRODUCTOS ================= */
+.productos{
+  padding:40px 5% 100px;
+  text-align:center;
+  margin-top:-480px;
+}
+
+.productos h2{
+  font-size:2.6rem;
+  color:#3cff6a;
+  text-shadow:0 0 20px #3cff6a;
+  margin-bottom:50px;
+  background:rgba(0,0,0,.6);
+  padding:10px 30px;
+  border-radius:15px;
+  display:inline-block;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:35px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.card img{
+  width:100%;
+  border-radius:14px;
+  box-shadow:0 0 25px rgba(0,255,150,.6);
+}
+
+.card p{
+  margin-top:10px;
+  font-size:1.3rem;
+}
+
+/* ================= WHATSAPP ================= */
+.whatsapp-bubble{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#0b0b0b;
+  z-index:9999;
+}
+
+.whatsapp-bubble::after{
+  content:'';
+  position:absolute;
+  inset:-16px;
+  border-radius:50%;
+  background:#25d366;
+  filter:blur(20px);
+}
+
+.whatsapp-bubble::before{
+  content:'';
+  position:absolute;
+  inset:-4px;
+  border-radius:50%;
+  background:linear-gradient(
+    145deg,
+    #f1f1f1,
+    #b5b5b5,
+    #7a7a7a,
+    #c9c9c9,
+    #ffffff
+  );
+  box-shadow:
+    inset 0 0 10px rgba(255,255,255,.45),
+    inset 0 -6px 10px rgba(0,0,0,.65),
+    0 0 16px rgba(0,0,0,.85);
+}
+
+.whatsapp-bubble span{
+  position:absolute;
+  inset:5px;
+  background:#0b0b0b;
+  border-radius:50%;
+}
+
+.whatsapp-bubble img{
+  width:42px;
+  height:42px;
+  z-index:2;
+}
+
+/* mobile */
+@media(max-width:768px){
+  .social-icons a{width:58px;height:58px}
+  .social-icons img{width:32px;height:32px}
+  .whatsapp-bubble{width:64px;height:64px}
+}
+</style>
 </head>
+
 <body>
-  <div class="container">
-    <div class="top-bar">
-      <div class="social-icons">
-        <a href="https://wa.me/573102868697" target="_blank" class="whatsapp">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-        </a>
-        <a href="https://instagram.com/tuusuario" target="_blank" class="instagram">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-        </a>
-        <a href="https://facebook.com/tupagina" target="_blank" class="facebook">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
-        </a>
-      </div>
+
+<div class="container">
+
+  <div class="top-bar">
+    <div class="social-icons">
+      <a href="https://wa.me/573102868697" target="_blank" class="whatsapp">
+        <span></span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+      </a>
+      <a href="https://instagram.com/tuusuario" target="_blank" class="instagram">
+        <span></span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
+      </a>
+      <a href="https://facebook.com/tupagina" target="_blank" class="facebook">
+        <span></span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
+      </a>
     </div>
-
-    <section class="hero">
-      <!-- Sin botón grande -->
-    </section>
-
-    <section class="productos">
-      <h2>Productos destacados</h2>
-      <div class="grid">
-        <div class="card">
-          <img src="img/producto1.png" alt="Audífonos Gamer RGB">
-          <p>Audífonos Gamer RGB</p>
-        </div>
-        <div class="card">
-          <img src="img/producto2.png" alt="Power Bank Pro">
-          <p>Power Bank Pro</p>
-        </div>
-        <div class="card">
-          <img src="img/producto1.png" alt="Audífonos Gamer RGB">
-          <p>Audífonos Gamer RGB</p>
-        </div>
-        <div class="card">
-          <img src="img/producto2.png" alt="Power Bank Pro">
-          <p>Power Bank Pro</p>
-        </div>
-        <div class="card">
-          <img src="img/producto1.png" alt="Audífonos Gamer RGB">
-          <p>Audífonos Gamer RGB</p>
-        </div>
-        <div class="card">
-          <img src="img/producto2.png" alt="Power Bank Pro">
-          <p>Power Bank Pro</p>
-        </div>
-        <div class="card">
-          <img src="img/producto1.png" alt="Audífonos Gamer RGB">
-          <p>Audífonos Gamer RGB</p>
-        </div>
-        <div class="card">
-          <img src="img/producto2.png" alt="Power Bank Pro">
-          <p>Power Bank Pro</p>
-        </div>
-        <div class="card">
-          <img src="img/producto1.png" alt="Audífonos Gamer RGB">
-          <p>Audífonos Gamer RGB</p>
-        </div>
-      </div>
-    </section>
   </div>
 
-  <a href="https://wa.me/573102868697?text=Hola%2C%20necesito%20ayuda" class="whatsapp-bubble" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Chat WhatsApp">
-  </a>
+  <section class="hero"></section>
+
+  <section class="productos">
+    <h2>Productos destacados</h2>
+    <div class="grid">
+      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
+      <div class="card"><img src="img/producto2.png"><p>Power Bank Pro</p></div>
+      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
+      <div class="card"><img src="img/producto2.png"><p>Power Bank Pro</p></div>
+      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
+      <div class="card"><img src="img/producto2.png"><p>Power Bank Pro</p></div>
+      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
+      <div class="card"><img src="img/producto2.png"><p>Power Bank Pro</p></div>
+      <div class="card"><img src="img/producto1.png"><p>Audífonos Gamer RGB</p></div>
+    </div>
+  </section>
+
+</div>
+
+<a href="https://wa.me/573102868697" target="_blank" class="whatsapp-bubble">
+  <span></span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+</a>
+
 </body>
 </html>
