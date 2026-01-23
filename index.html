@@ -77,20 +77,55 @@ body{
   text-align:center;
   margin-top:-480px;
 }
-.productos h2 {
-  font-size: 4rem;
-  color: #3cff6a;
-  text-shadow: 0 0 30px #3cff6a, 0 0 60px #3cff6a;
-  margin-bottom: 20px;
-  letter-spacing: 3px;
-  font-weight: bold;
+.productos .header-destacados {
+  margin-bottom: 70px;
+  position: relative;
 }
-.productos .subtitle {
-  font-size: 1.6rem;
-  color: #eafff3;
-  opacity: 0.9;
-  margin-bottom: 60px;
-  text-shadow: 0 0 10px rgba(60,255,106,0.5);
+.productos h2 {
+  font-size: 5.5rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin: 0;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(180deg, #3cff6a 0%, #00ff88 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 
+    0 0 40px rgba(60,255,106,0.9),
+    0 0 80px rgba(60,255,106,0.6),
+    0 0 120px rgba(60,255,106,0.4);
+  animation: energyGlow 6s infinite alternate;
+}
+@keyframes energyGlow {
+  0%   { text-shadow: 0 0 40px rgba(60,255,106,0.9), 0 0 80px rgba(60,255,106,0.6); }
+  100% { text-shadow: 0 0 70px rgba(60,255,106,1),   0 0 140px rgba(60,255,106,0.8); }
+}
+/* Efecto de chispas/partículas (simulado con pseudo-elementos) */
+.productos h2::before,
+.productos h2::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(60,255,106,0.4) 0%, transparent 60%);
+  opacity: 0.6;
+  pointer-events: none;
+  animation: sparkles 8s infinite;
+}
+@keyframes sparkles {
+  0%,100% { transform: scale(1); opacity: 0.6; }
+  50%     { transform: scale(1.05); opacity: 0.9; }
+}
+.productos .subtitulo-destacados {
+  font-size: 1.8rem;
+  color: #d0ffe0;
+  margin-top: 15px;
+  text-shadow: 0 0 15px rgba(60,255,106,0.7);
 }
 .grid{
   display:grid;
@@ -158,10 +193,10 @@ body{
     height:40px;
   }
   .productos h2 {
-    font-size: 3rem;
+    font-size: 3.8rem;
   }
-  .productos .subtitle {
-    font-size: 1.3rem;
+  .productos .subtitulo-destacados {
+    font-size: 1.4rem;
   }
 }
 </style>
@@ -184,11 +219,13 @@ body{
 
   <section class="hero"></section>
 
-  <!-- PRODUCTOS que se cargan automáticamente -->
+  <!-- PRODUCTOS -->
   <section class="productos">
-    <h2>Productos destacados</h2>
-    <div class="subtitle">
-      Lo mejor en gadgets gamer y tech • Envío rápido a toda Colombia
+    <div class="header-destacados">
+      <h2>Productos destacados</h2>
+      <div class="subtitulo-destacados">
+        Lo mejor en gadgets gamer y tech • Envío rápido a toda Colombia
+      </div>
     </div>
     <div class="grid" id="productos-grid">
       <!-- Aquí se insertan las tarjetas con JavaScript -->
@@ -201,18 +238,16 @@ body{
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
 
-<!-- Script para cargar productos desde JSON y hacer tarjetas clicables -->
+<!-- Script -->
 <script>
   async function cargarProductos() {
     try {
       const response = await fetch('products.json');
-      if (!response.ok) {
-        throw new Error('No se pudo cargar products.json');
-      }
+      if (!response.ok) throw new Error('No se pudo cargar products.json');
       const productos = await response.json();
       
       const grid = document.getElementById('productos-grid');
-      grid.innerHTML = ''; // Limpiamos
+      grid.innerHTML = '';
 
       if (productos.length === 0) {
         grid.innerHTML = '<p style="grid-column: 1 / -1; font-size: 1.4rem; opacity: 0.7;">No hay productos disponibles por el momento...</p>';
@@ -232,20 +267,15 @@ body{
         `;
 
         card.addEventListener('click', () => {
-          const mensaje = `Hola! 😎 Me interesa el ${producto.nombre} que vi en tu página.\n\n` +
-                          `Precio: ${producto.precio}\n\n` +
-                          `¿Está disponible? ¿Cuánto sería con envío?`;
-
-          const url = `https://wa.me/573102868697?text=${encodeURIComponent(mensaje)}`;
-          window.open(url, '_blank');
+          const mensaje = `Hola! 😎 Me interesa el ${producto.nombre} que vi en tu página.\n\nPrecio: ${producto.precio}\n\n¿Está disponible? ¿Cuánto sería con envío?`;
+          window.open(`https://wa.me/573102868697?text=${encodeURIComponent(mensaje)}`, '_blank');
         });
 
         grid.appendChild(card);
       });
     } catch (error) {
-      console.error('Error al cargar los productos:', error);
-      const grid = document.getElementById('productos-grid');
-      grid.innerHTML = '<p style="grid-column: 1 / -1; color: #ff5555; font-size: 1.3rem;">Error al cargar los productos. Revisa products.json</p>';
+      console.error('Error:', error);
+      document.getElementById('productos-grid').innerHTML = '<p style="grid-column: 1 / -1; color: #ff5555; font-size: 1.3rem;">Error al cargar productos. Revisa products.json</p>';
     }
   }
 
