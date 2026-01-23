@@ -4,15 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TechSonix</title>
-<link rel="icon" href="data:,">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+
 body{
-  font-family:Arial,sans-serif;
-  background:#000 url('img/logo.png') center 20%/contain no-repeat fixed;
+  font-family:Arial, sans-serif;
+  background:#000;
   color:#eafff3;
   overflow-x:hidden;
 }
+
 .container{
   max-width:1400px;
   margin:auto;
@@ -37,11 +39,6 @@ body{
   display:flex;
   gap:42px;
 }
-.icon-outline{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
 .icon-outline img{
   width:48px;
   height:48px;
@@ -54,21 +51,10 @@ body{
     0 0 12px rgba(255,255,255,.15);
   transition:.25s ease;
 }
-.whatsapp img{
-  filter:drop-shadow(0 0 14px #25d366) drop-shadow(0 0 34px #25d366);
-}
-.instagram img{
-  filter:drop-shadow(0 0 14px #ff2a2a) drop-shadow(0 0 34px #ff2a2a);
-}
-.facebook img{
-  filter:drop-shadow(0 0 14px #1877f2) drop-shadow(0 0 34px #1877f2);
-}
-.icon-outline:hover img{
-  transform:translateY(-4px) scale(1.06);
-}
-.icon-outline:active img{
-  transform:translateY(1px) scale(.95);
-}
+.whatsapp img{filter:drop-shadow(0 0 18px #25d366)}
+.instagram img{filter:drop-shadow(0 0 18px #ff2a2a)}
+.facebook img{filter:drop-shadow(0 0 18px #1877f2)}
+.icon-outline:hover img{transform:translateY(-4px) scale(1.06)}
 
 /* ================= HERO ================= */
 .hero{height:100vh}
@@ -80,43 +66,49 @@ body{
   margin-top:-480px;
 }
 
-/* ================= TITULO INDUSTRIAL ================= */
-.titulo-industrial{
+/* ================= TITULO NEÓN ================= */
+.titulo-neon{
   display:inline-block;
-  padding:18px 46px;
-  margin-bottom:55px;
-  background:linear-gradient(145deg,#2f2f2f,#1b1b1b,#3a3a3a);
-  border:2px solid #6b6b6b;
-  border-radius:14px;
-  box-shadow:
-    inset 0 2px 4px rgba(255,255,255,.35),
-    inset 0 -4px 8px rgba(0,0,0,.85),
-    0 0 18px rgba(60,255,106,.35);
+  padding:18px 60px;
+  margin-bottom:60px;
   position:relative;
-}
-.titulo-industrial span{
-  font-size:2.4rem;
-  font-weight:900;
-  letter-spacing:2px;
   color:#eafff3;
+  font-size:2.3rem;
+  font-weight:800;
+  letter-spacing:1px;
   text-shadow:
-    0 0 10px #3cff6a,
-    0 0 22px rgba(60,255,106,.6);
+    0 0 12px #3cff6a,
+    0 0 30px rgba(60,255,106,.8);
 }
-.titulo-industrial::before,
-.titulo-industrial::after{
+
+/* Marco */
+.titulo-neon::before{
   content:"";
   position:absolute;
-  width:12px;
-  height:12px;
-  background:radial-gradient(circle at 30% 30%, #eee, #666);
-  border-radius:50%;
-  box-shadow:0 0 6px rgba(0,0,0,.8);
-  top:50%;
-  transform:translateY(-50%);
+  inset:-12px;
+  border:2px solid #3cff6a;
+  border-radius:6px;
+  box-shadow:
+    0 0 25px rgba(60,255,106,.9),
+    inset 0 0 15px rgba(60,255,106,.6);
 }
-.titulo-industrial::before{left:14px}
-.titulo-industrial::after{right:14px}
+
+/* Detalles laterales */
+.titulo-neon::after{
+  content:"";
+  position:absolute;
+  left:-30px;
+  right:-30px;
+  top:50%;
+  height:2px;
+  background:linear-gradient(
+    to right,
+    transparent,
+    #3cff6a,
+    transparent
+  );
+  box-shadow:0 0 12px #3cff6a;
+}
 
 /* ================= GRID ================= */
 .grid{
@@ -147,27 +139,19 @@ body{
     0 0 35px rgba(60,255,150,.85),
     0 0 65px rgba(60,255,150,.45);
 }
-.card:active{
-  transform:translateY(-4px);
-}
 .card .product-info{
   background:rgba(0,0,0,.7);
-  padding:15px 10px 12px;
+  padding:15px 10px;
   margin-top:-10px;
   border-radius:0 0 14px 14px;
   border-top:2px solid #3cff6a;
-  box-shadow:0 4px 12px rgba(60,255,106,.25);
 }
 .card .product-info p{
-  margin:0;
   font-size:1.4rem;
   font-weight:bold;
-  color:#f0fff8;
-  text-shadow:1px 1px 3px #000;
 }
 .card .product-info strong{
   display:block;
-  margin-top:6px;
   font-size:1.7rem;
   color:#3cff6a;
   text-shadow:0 0 10px #3cff6a;
@@ -183,8 +167,8 @@ body{
 
 /* ================= MOBILE ================= */
 @media(max-width:768px){
+  .titulo-neon{font-size:1.8rem}
   .icon-outline img{width:40px;height:40px}
-  .titulo-industrial span{font-size:1.8rem}
 }
 </style>
 </head>
@@ -194,7 +178,7 @@ body{
 
   <div class="top-bar">
     <div class="social-icons">
-      <a href="https://wa.me/573102868697" target="_blank" class="icon-outline whatsapp">
+      <a href="#" class="icon-outline whatsapp">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
       </a>
       <a href="#" class="icon-outline instagram">
@@ -209,15 +193,13 @@ body{
   <section class="hero"></section>
 
   <section class="productos">
-    <div class="titulo-industrial">
-      <span>PRODUCTOS DESTACADOS</span>
-    </div>
+    <div class="titulo-neon">Productos destacados</div>
     <div class="grid" id="productos-grid"></div>
   </section>
 
 </div>
 
-<a href="https://wa.me/573102868697" target="_blank" class="whatsapp-bubble icon-outline whatsapp">
+<a href="#" class="whatsapp-bubble icon-outline whatsapp">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
 
@@ -235,10 +217,6 @@ async function cargarProductos(){
       <div class="product-info">
         <p>${p.nombre}<br><strong>${p.precio}</strong></p>
       </div>`;
-    card.onclick=()=>window.open(
-      `https://wa.me/573102868697?text=${encodeURIComponent(
-        'Hola! Me interesa el '+p.nombre+' ('+p.precio+')'
-      )}`,'_blank');
     grid.appendChild(card);
   });
 }
