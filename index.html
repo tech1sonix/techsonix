@@ -117,9 +117,27 @@ body{
 .card:active {
   transform: translateY(-4px);
 }
-.card p{
-  margin-top:10px;
-  font-size:1.3rem;
+/* Fondo semi-transparente para el texto */
+.card .product-info {
+  background: rgba(0, 0, 0, 0.70);
+  padding: 15px 10px 12px;
+  margin-top: -10px;
+  border-radius: 0 0 14px 14px;
+  text-align: center;
+}
+.card .product-info p {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #f0fff8;
+  text-shadow: 1px 1px 3px #000;
+}
+.card .product-info p strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 1.7rem;
+  color: #3cff6a;
+  text-shadow: 0 0 10px #3cff6a;
 }
 /* ================= WHATSAPP FLOAT ================= */
 .whatsapp-bubble{
@@ -169,7 +187,7 @@ body{
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
 
-<!-- Script para cargar productos desde JSON y hacer tarjetas clicables (versión limpia) -->
+<!-- Script para cargar productos desde JSON y hacer tarjetas clicables -->
 <script>
   async function cargarProductos() {
     try {
@@ -194,12 +212,17 @@ body{
 
         card.innerHTML = `
           <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
-          <p>${producto.nombre}<br><strong>${producto.precio}</strong></p>
+          <div class="product-info">
+            <p>${producto.nombre}<br><strong>${producto.precio}</strong></p>
+          </div>
         `;
 
-        // Al hacer clic en toda la tarjeta, abre WhatsApp (mensaje limpio sin imagen)
+        // Al hacer clic en toda la tarjeta, abre WhatsApp con mensaje limpio
         card.addEventListener('click', () => {
-          const mensaje = `Hola! Me interesa el ${producto.nombre} que vi en tu página. ¿Disponible?`;
+          const mensaje = `Hola! 😎 Me interesa el ${producto.nombre} que vi en tu página.\n\n` +
+                          `Precio: ${producto.precio}\n\n` +
+                          `¿Está disponible? ¿Cuánto sería con envío?`;
+
           const url = `https://wa.me/573102868697?text=${encodeURIComponent(mensaje)}`;
           window.open(url, '_blank');
         });
