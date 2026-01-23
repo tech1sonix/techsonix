@@ -21,6 +21,7 @@ body{
     inset 0 0 220px rgba(60,255,106,.25),
     inset 0 0 450px rgba(60,255,106,.12);
 }
+
 /* ================= TOP BAR ================= */
 .top-bar{
   position:sticky;
@@ -36,6 +37,7 @@ body{
   display:flex;
   gap:42px;
 }
+
 /* ===== ICONOS ===== */
 .icon-outline{
   display:flex;
@@ -69,24 +71,48 @@ body{
 .icon-outline:active img{
   transform:translateY(1px) scale(.95);
 }
+
 /* ================= HERO ================= */
 .hero{height:100vh}
+
 /* ================= PRODUCTOS ================= */
 .productos{
   padding:40px 5% 100px;
   text-align:center;
   margin-top:-480px;
 }
+
+/* ===== TITULO PRO, FINO ===== */
 .productos h2{
-  font-size:2.6rem;
+  font-size:2.2rem;
+  font-weight:600;
   color:#3cff6a;
-  text-shadow:0 0 20px #3cff6a;
-  margin-bottom:50px;
-  background:rgba(0,0,0,.6);
-  padding:10px 30px;
-  border-radius:15px;
+  text-shadow:0 0 18px rgba(60,255,106,.9);
+  margin-bottom:45px;
+  position:relative;
   display:inline-block;
+  padding-bottom:14px;
 }
+
+/* Línea inferior elegante */
+.productos h2::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:0;
+  width:160px;
+  height:2px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    #3cff6a,
+    transparent
+  );
+  transform:translateX(-50%);
+  box-shadow:0 0 12px #3cff6a;
+}
+
+/* ================= GRID ================= */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -94,10 +120,11 @@ body{
   max-width:1100px;
   margin:auto;
 }
+
 /* ===== TARJETAS ===== */
 .card{
   transition:.35s ease;
-  cursor: pointer;
+  cursor:pointer;
 }
 .card img{
   width:100%;
@@ -114,31 +141,32 @@ body{
     0 0 35px rgba(60,255,150,.85),
     0 0 65px rgba(60,255,150,.45);
 }
-.card:active {
-  transform: translateY(-4px);
+.card:active{
+  transform:translateY(-4px);
 }
-/* Fondo semi-transparente para el texto */
-.card .product-info {
-  background: rgba(0, 0, 0, 0.70);
-  padding: 15px 10px 12px;
-  margin-top: -10px;
-  border-radius: 0 0 14px 14px;
-  text-align: center;
+
+.card .product-info{
+  background:rgba(0,0,0,.70);
+  padding:15px 10px 12px;
+  margin-top:-10px;
+  border-radius:0 0 14px 14px;
+  text-align:center;
 }
-.card .product-info p {
-  margin: 0;
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #f0fff8;
-  text-shadow: 1px 1px 3px #000;
+.card .product-info p{
+  margin:0;
+  font-size:1.4rem;
+  font-weight:bold;
+  color:#f0fff8;
+  text-shadow:1px 1px 3px #000;
 }
-.card .product-info p strong {
-  display: block;
-  margin-top: 6px;
-  font-size: 1.7rem;
-  color: #3cff6a;
-  text-shadow: 0 0 10px #3cff6a;
+.card .product-info p strong{
+  display:block;
+  margin-top:6px;
+  font-size:1.7rem;
+  color:#3cff6a;
+  text-shadow:0 0 10px #3cff6a;
 }
+
 /* ================= WHATSAPP FLOAT ================= */
 .whatsapp-bubble{
   position:fixed;
@@ -146,15 +174,15 @@ body{
   right:30px;
   z-index:9999;
 }
-/* mobile */
+
+/* ================= MOBILE ================= */
 @media(max-width:768px){
-  .icon-outline img{
-    width:40px;
-    height:40px;
-  }
+  .icon-outline img{width:40px;height:40px}
+  .productos h2{font-size:1.9rem}
 }
 </style>
 </head>
+
 <body>
 <div class="container">
   <div class="top-bar">
@@ -162,10 +190,10 @@ body{
       <a href="https://wa.me/573102868697" target="_blank" class="icon-outline whatsapp">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
       </a>
-      <a href="https://instagram.com/tuusuario" target="_blank" class="icon-outline instagram">
+      <a href="#" class="icon-outline instagram">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
       </a>
-      <a href="https://facebook.com/tupagina" target="_blank" class="icon-outline facebook">
+      <a href="#" class="icon-outline facebook">
         <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
       </a>
     </div>
@@ -173,71 +201,34 @@ body{
 
   <section class="hero"></section>
 
-  <!-- PRODUCTOS que se cargan automáticamente -->
   <section class="productos">
     <h2>Productos destacados</h2>
-    <div class="grid" id="productos-grid">
-      <!-- Aquí se insertan las tarjetas con JavaScript -->
-    </div>
+    <div class="grid" id="productos-grid"></div>
   </section>
 </div>
 
-<!-- WhatsApp flotante -->
 <a href="https://wa.me/573102868697" target="_blank" class="whatsapp-bubble icon-outline whatsapp">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
 
-<!-- Script para cargar productos desde JSON y hacer tarjetas clicables -->
 <script>
-  async function cargarProductos() {
-    try {
-      const response = await fetch('products.json');
-      if (!response.ok) {
-        throw new Error('No se pudo cargar products.json');
-      }
-      const productos = await response.json();
-      
-      const grid = document.getElementById('productos-grid');
-      grid.innerHTML = ''; // Limpiamos
-
-      if (productos.length === 0) {
-        grid.innerHTML = '<p style="grid-column: 1 / -1; font-size: 1.4rem; opacity: 0.7;">No hay productos disponibles por el momento...</p>';
-        return;
-      }
-
-      productos.forEach(producto => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.style.cursor = 'pointer';
-
-        card.innerHTML = `
-          <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
-          <div class="product-info">
-            <p>${producto.nombre}<br><strong>${producto.precio}</strong></p>
-          </div>
-        `;
-
-        // Al hacer clic en toda la tarjeta, abre WhatsApp con mensaje limpio
-        card.addEventListener('click', () => {
-          const mensaje = `Hola! 😎 Me interesa el ${producto.nombre} que vi en tu página.\n\n` +
-                          `Precio: ${producto.precio}\n\n` +
-                          `¿Está disponible? ¿Cuánto sería con envío?`;
-
-          const url = `https://wa.me/573102868697?text=${encodeURIComponent(mensaje)}`;
-          window.open(url, '_blank');
-        });
-
-        grid.appendChild(card);
-      });
-    } catch (error) {
-      console.error('Error al cargar los productos:', error);
-      const grid = document.getElementById('productos-grid');
-      grid.innerHTML = '<p style="grid-column: 1 / -1; color: #ff5555; font-size: 1.3rem;">Error al cargar los productos. Revisa products.json</p>';
-    }
-  }
-
-  // Ejecutar cuando la página cargue
-  window.addEventListener('DOMContentLoaded', cargarProductos);
+async function cargarProductos(){
+  const res = await fetch('products.json');
+  const productos = await res.json();
+  const grid = document.getElementById('productos-grid');
+  grid.innerHTML='';
+  productos.forEach(p=>{
+    const card=document.createElement('div');
+    card.className='card';
+    card.innerHTML=`
+      <img src="${p.imagen}" alt="${p.nombre}">
+      <div class="product-info">
+        <p>${p.nombre}<br><strong>${p.precio}</strong></p>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+window.addEventListener('DOMContentLoaded', cargarProductos);
 </script>
 
 </body>
