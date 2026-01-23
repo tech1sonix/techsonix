@@ -77,15 +77,20 @@ body{
   text-align:center;
   margin-top:-480px;
 }
-.productos h2{
-  font-size:2.6rem;
-  color:#3cff6a;
-  text-shadow:0 0 20px #3cff6a;
-  margin-bottom:50px;
-  background:rgba(0,0,0,.6);
-  padding:10px 30px;
-  border-radius:15px;
-  display:inline-block;
+.productos h2 {
+  font-size: 4rem;
+  color: #3cff6a;
+  text-shadow: 0 0 30px #3cff6a, 0 0 60px #3cff6a;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+.productos .subtitle {
+  font-size: 1.6rem;
+  color: #eafff3;
+  opacity: 0.9;
+  margin-bottom: 60px;
+  text-shadow: 0 0 10px rgba(60,255,106,0.5);
 }
 .grid{
   display:grid;
@@ -117,7 +122,7 @@ body{
 .card:active {
   transform: translateY(-4px);
 }
-/* Fondo semi-transparente para el texto (versión que te gustaba) */
+/* Fondo semi-transparente para el texto */
 .card .product-info {
   background: rgba(0, 0, 0, 0.70);
   padding: 15px 10px 12px;
@@ -152,6 +157,12 @@ body{
     width:40px;
     height:40px;
   }
+  .productos h2 {
+    font-size: 3rem;
+  }
+  .productos .subtitle {
+    font-size: 1.3rem;
+  }
 }
 </style>
 </head>
@@ -176,6 +187,9 @@ body{
   <!-- PRODUCTOS que se cargan automáticamente -->
   <section class="productos">
     <h2>Productos destacados</h2>
+    <div class="subtitle">
+      Lo mejor en gadgets gamer y tech • Envío rápido a toda Colombia
+    </div>
     <div class="grid" id="productos-grid">
       <!-- Aquí se insertan las tarjetas con JavaScript -->
     </div>
